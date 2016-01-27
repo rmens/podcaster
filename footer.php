@@ -20,6 +20,7 @@ $pod_facebook = isset( $options['pod-facebook'] ) ? $options['pod-facebook'] : '
 $pod_twitter = isset( $options['pod-twitter'] ) ? $options['pod-twitter'] : '';
 $pod_google = isset( $options['pod-google'] ) ? $options['pod-google'] : '';
 $pod_instagram = isset( $options['pod-instagram'] ) ? $options['pod-instagram'] : '';
+$pod_soundcloud = isset( $options['pod-soundcloud'] ) ? $options['pod-soundcloud'] : '';
 $pod_tumblr = isset( $options['pod-tumblr'] ) ? $options['pod-tumblr'] : '';
 $pod_pinterest = isset( $options['pod-pinterest'] ) ? $options['pod-pinterest'] : '';
 $pod_flickr = isset( $options['pod-flickr'] ) ? $options['pod-flickr'] : '';
@@ -63,6 +64,9 @@ $pod_linkedin = isset( $options['pod-linkedin'] ) ? $options['pod-linkedin'] : '
 						<?php } ?>
 						<?php if( $pod_instagram !="" ) { ?>
 						<a class="instagram social_icon" href="<?php echo $pod_instagram ?>"></a>
+						<?php } ?>
+						<?php if( $pod_soundcloud !="" ) { ?>
+						<a class="soundcloud social_icon" href="<?php echo $pod_soundcloud ?>"></a>
 						<?php } ?>
 						<?php if( $pod_tumblr !="" ) { ?>
 						<a class="tumblr social_icon" href="<?php echo $pod_tumblr ?>"></a>

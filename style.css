@@ -1,6 +1,6 @@
 /*-----------------------------------------------------------
   Theme Name: Podcaster
-  Version: 1.5.4
+  Version: 1.5.5
   Description: Premium WordPress Theme By Theme Station
   Author: http://www.themestation.co
   Author URI: http://themeforest.net/user/themestation/
@@ -423,6 +423,11 @@ code {
   font-size: 16px;
   margin:auto;
 }
+.truncate {
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 
 /*
  * Header Styling
@@ -660,6 +665,7 @@ header #menu {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  opacity: 1;
 }
 #nav .thst-menu li:hover > .sub-menu li a:hover {
   color: #fff;
@@ -684,6 +690,69 @@ header #menu {
 }
 .small_nav .navigation .menu {
   padding:22px 0;
+}
+.nav-search-form {
+  float:right;
+  position: relative;
+}
+.nav-search-form .open-search-bar {
+  margin:38px 0 38px 10px;
+  display:inline-block;
+  padding:8px;
+  line-height: 1;
+}
+.small_nav .nav-search-form .open-search-bar {
+  margin: 21px 0 21px 10px;
+}
+.nav-search-form .search-form-drop {
+  position: absolute;
+  top:111px;
+  left:10px;
+  padding:10px;
+  width:225px;
+  display:none;
+  background:rgba(0,0,0,0.4);
+}
+.small_nav .nav-search-form .search-form-drop {
+  top:78px;
+}
+.nav-search-form .search-form-drop:after {
+  bottom: 100%;
+  left: 8%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(136, 183, 213, 0);
+  border-bottom-color: rgba(255,255,255,1);
+  border-width: 6px;
+  margin-left: -6px;
+}
+.nav-search-form .search-form-drop.open {
+  display:block;
+  z-index: 10;
+}
+.nav-search-form .search-container {
+  background: transparent;
+  border:none;
+}
+.nav-search-form .search-container #s {
+  padding:10px;
+  font-size: 14px;
+  line-height: 1.2;
+  border:0;
+  border-radius: 0;
+  width:100%;
+  color:#282d31;
+}
+
+.nav-search-form .search-container #searchsubmit {
+  padding:10px;
+  background:none;
+  border-radius: 0;
+  display:none;
 }
 
 /*
@@ -1257,6 +1326,12 @@ header #menu {
   padding-top:24px;
 }
 
+/* Parallax */
+.parallax-container {
+  min-height: 400px;
+  background: transparent;
+}
+
 /* Front Page List of Posts*/
 .list-of-episodes {
   padding:40px 0 80px 0;
@@ -1491,9 +1566,6 @@ header #menu {
   font-weight:600;
   margin:4px 0 0 0;
   line-height: 34px;
-  overflow:hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 .list-of-episodes article.list .post-header h2 a:link,
 .list-of-episodes article.list .post-header h2 a:visited {
@@ -1531,6 +1603,10 @@ header #menu {
   padding-top:80px;
   padding-bottom:80px;
   background-color:#fff;
+}
+.pod_vc_active.main-content.page {
+  padding-top:0;
+  padding-bottom:0;
 }
 .archive .main-content,
 .search .main-content,
@@ -2915,13 +2991,12 @@ header #menu {
   padding: 0;
   list-style: none;
   line-height: 20px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .single .entry-tags li {
   display: inline-block;
   padding: 5px 10px;
-  background: #ddd;
-  font-style: italic;
+  font-style: normal;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -o-border-radius: 3px;
@@ -3035,6 +3110,12 @@ header #menu {
   letter-spacing: 1px;
   position: relative;
   top:-2px;
+}
+.latest-episode .main-featured-post .mini-ex.small,
+.single .mini-ex.small,
+.post .mini-ex.small,
+.podcast .mini-ex.small {
+  display:none;
 }
 .single .post .entry-meta {
   padding:0;
@@ -3837,6 +3918,12 @@ header #menu {
 .archive .author_profile .social li .instagram:hover:before {
   color: #517fa4;
 }
+.archive .author_profile .social li .soundcloud:before {
+  content: "\f1be";
+}
+.archive .author_profile .social li .soundcloud:hover:before {
+  color: #ff8800;
+}
 .archive .author_profile .social li .tumblr:before {
   content: "\f173";
 }
@@ -3945,20 +4032,17 @@ header #menu {
   padding:0;
   list-style:none;
 }
-.page-template-pagepage-podcastarchive-php .entries.grid .podpost .entry-footer ul li,
-.post-type-archive-podcast .entries.grid .podpost .entry-footer ul li {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
 .page-template-pagepage-podcastarchive-php .entries.grid .podpost .entry-footer .podpost-meta,
 .post-type-archive-podcast .entries.grid .podpost .entry-footer .podpost-meta {
   margin-top:10px;
 }
+.page-template-pagepage-podcastarchive-php .entries.grid .podpost .entry-footer .podpost-meta .title,
+.post-type-archive-podcast .entries.grid .podpost .entry-footer .podpost-meta .title,
 .page-template-pagepage-podcastarchive-php .entries.grid .podpost .entry-footer .podpost-meta .title a,
 .post-type-archive-podcast .entries.grid .podpost .entry-footer .podpost-meta .title a {
   font-size: 14px;
   font-weight:bold;
+  line-height: 20px;
 }
 .page-template-pagepage-podcastarchive-php .entries.grid .podpost .entry-footer .podpost-meta .categories a,
 .post-type-archive-podcast .entries.grid .podpost .entry-footer .podpost-meta .categories a,
@@ -4148,7 +4232,11 @@ header #menu {
 .fromtheblog article .post-content {
   font-size: 16px;
   line-height:28px;
-} 
+}
+.fromtheblog article .post-content iframe {
+    max-width: 100%;
+    height:auto;
+  }
 .fromtheblog article .post-footer {
   background:transparent;
   padding:0;
@@ -4285,6 +4373,7 @@ header #menu {
 }
 .arch_searchform #ind_searchform div.second {
   width: 10%;
+  float:right;
 }
 .arch_searchform #ind_searchform div .screen-reader-text {
   display: none;
@@ -4356,6 +4445,13 @@ footer h3 {
 .sidebar .widget ul li > a {
   color:#555;
   padding:16px 0;
+}
+.single .sidebar .widget,
+.page .sidebar .widget,
+.single .widget.widget_text .textwidget,
+.page .widget.widget_text .textwidget {
+  padding-left:0;
+  padding-right:0;
 }
 
 
@@ -4542,6 +4638,7 @@ footer h3 {
   font-size: 14px;
   font-weight: 600;
   padding: 0;
+  margin:0;
   background-color: #f1f1f1;
   -webkit-transition-duration: 0.4s;
   -moz-transition-duration: 0.4s;
@@ -4557,6 +4654,7 @@ footer h3 {
   padding: 15px 0;
   display: block;
   text-align: center;
+  float:none;
 }
 .widget.thst_recent_blog_widget .ui-tabs-nav li a:link,
 .widget.thst_recent_blog_widget .ui-tabs-nav li a:visited {
@@ -5285,6 +5383,12 @@ footer nav .thst-menu li:hover > .sub-menu li {
 .instagram.social_icon:hover:before {
   background-color:#517fa4;
 }
+.soundcloud.social_icon:before {
+  content: "\f1be";
+}
+.soundcloud.social_icon:hover:before {
+  background-color:#ff8800;
+}
 .tumblr.social_icon:before {
   content: "\f174";
 }
@@ -5412,6 +5516,9 @@ footer nav .thst-menu li:hover > .sub-menu li {
 }
 .above .instagram.social_icon:hover:before {
   color:#517fa4;
+}
+.above .soundcloud.social_icon:hover:before {
+  color:#ff8800;
 }
 .above .tumblr.social_icon:hover:before {
   color:#32506d;
@@ -5671,6 +5778,18 @@ input[type="color"]:focus,
 }
 
 @media screen and (max-width: 1199px){
+  .latest-episode .main-featured-post .mini-ex,
+  .single .mini-ex,
+  .post .mini-ex,
+  .podcast .mini-ex {
+    display:none;
+  }
+  .latest-episode .main-featured-post .mini-ex.small,
+  .single .mini-ex.small,
+  .post .mini-ex.small,
+  .podcast .mini-ex.small {
+    display:inline;
+  }
   .front-page-header.text .content-text, 
   .front-page-header.text.nav-transparent .content-text {
     padding-bottom: 50px !important;
@@ -5733,16 +5852,6 @@ input[type="color"]:focus,
   body {
     font-size: 16px;
   }
-  /*.above .container,
-  .reg .container,
-  .latest-episode .container,
-  .list-of-episodes .container,
-  .fromtheblog .container,
-  .main-content .container,
-  .thst-main-posts .container,
-  .comment_container .container,
-  .footer-widgets .container,
-  .postfooter .container,*/
   .container {
     width: 97%;
   }
@@ -5781,6 +5890,9 @@ input[type="color"]:focus,
   }
   .above.small_nav header .main-title a {
     padding:24px 0;
+  }
+  .nav-search-form {
+    display:none;
   }
   header .main-title {
     margin:0;
@@ -6099,11 +6211,11 @@ input[type="color"]:focus,
   }
   .front-page-header .audio_player, 
   .front-page-header .powerpress_player {
-    padding:0 0 20px 0;
+    padding:0 0 10px 0;
   }
   .front-page-header.static.nav-transparent .text,
   .front-page-header.static .text {
-    margin-top: 50px;
+    margin-top: 20px;
   }
   .front-page-header .text h2,
   .front-page-header.text .content-text h2,
@@ -6115,6 +6227,11 @@ input[type="color"]:focus,
   .front-page-header p {
     font-size: 14px;
     line-height: 1.7;
+  }
+  .front-page-header .featured-excerpt {
+    padding:16px 24px;
+    font-size: 13px;
+    margin-top:12px;
   }
   .front-page-header .text .mini-title {
     font-size: 12px;
@@ -6154,6 +6271,10 @@ input[type="color"]:focus,
   .list-of-episodes article.list .featured-image img{
     width:100%;
     height:auto;
+  }
+
+  .latest-episode.nav-transparent .main-featured-post {
+    margin:60px 0 30px;
   }
 
   /* From the Blog*/
@@ -6616,7 +6737,8 @@ input[type="color"]:focus,
   }
   .list-of-episodes article.list .post-header h2 {
     font-size: 16px;
-    margin:0;
+    line-height: 24px;
+    margin:5px 0 10px 0;
   }
   .list-of-episodes article.list .post-content,
   .list-of-episodes article.list .post-content p {

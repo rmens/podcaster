@@ -5,7 +5,6 @@ jQuery(document).ready(function($) {
 		verticalOffset: 0,
 		horizontalScrolling: false,
 		responsive: true,
-		parallaxBackgrounds: true,
-
+		//parallaxBackgrounds: true,
 	});
 });

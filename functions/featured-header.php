@@ -1,6 +1,35 @@
 <?php 
 /* Functions for the improved featured header for the front page */
 
+if( ! function_exists( 'pod_themeoption_typekit' ) ) {
+	add_action('wp_head','pod_themeoption_typekit');
+	function pod_themeoption_typekit() {
+		$pod_typekit_code = pod_theme_option('pod-typekit-code');
+
+		if( $pod_typekit_code != '') {
+			$code = $pod_typekit_code;
+			echo $code;
+		}
+	}
+}
+
+if( ! function_exists( 'pod_themeoption_css' ) ) {
+	add_action('wp_head','pod_themeoption_css');
+	function pod_themeoption_css() {
+		$pod_custom_css = pod_theme_option('pod-typekit-css-code');
+
+		if( $pod_custom_css != '') {
+			$css = '';
+			$css .= '<style>';
+				$css .= $pod_custom_css;
+			$css .= '</style>';
+			$css = str_replace(PHP_EOL, '', $css);
+			$css = trim(preg_replace('!\s+!', ' ', $css));
+			echo $css;
+		}
+	}
+}
+
 /**
  * pod_flexible_excerpt()
  * Custom Excerpt Length for the featured header (set in post).
@@ -44,7 +73,7 @@ if( ! function_exists('pod_flexible_excerpt') ) {
 if( ! function_exists( 'pod_the_blog_content' ) ) {
 	function pod_the_blog_content() {
 		$pod_the_blog_content = pod_theme_option('pod-blog-excerpts');
-
+		$output = '';
 		if( $pod_the_blog_content == 'force' ) {
 			$output .= get_the_excerpt() . '<p><a class="more-link" href="'. get_the_permalink() .'">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'thstlang' ) . '</a></p>';
 		} elseif( $pod_the_blog_content == 'set_in_post' ) {
@@ -77,6 +106,7 @@ if( ! function_exists('pod_next_week')) {
 		$pod_preview_heading = isset( $options['pod-preview-heading'] ) ? $options['pod-preview-heading'] : '';
 		$pod_scheduled_posts = isset( $options['pod-scheduling'] ) ? $options['pod-scheduling'] :'';
 		$pod_next_week = isset( $options['pod-frontpage-nextweek'] ) ? $options['pod-frontpage-nextweek'] : '';
+		$pod_subscribe_buttons = pod_theme_option('pod-subscribe-buttons');
 		
 		/* Subscribe Buttons */
 		$pod_butn_one = isset( $options['pod-subscribe1'] ) ? $options['pod-subscribe1'] : '';
@@ -87,15 +117,18 @@ if( ! function_exists('pod_next_week')) {
 		$plugin_inuse = get_pod_plugin_active();
 		$output = '';
 		$output .= '<div class="next-week">
-							<div class="row">
-								<div class="col-lg-6 col-md-6">
-									<div class="content scheduled">
+							<div class="row">';
+							if( $pod_next_week == 'show' ) {
+								if ( $pod_subscribe_buttons == true ) {
+						   				$output .= '<div class="col-lg-6 col-md-6">';
+						   			} else {
+						   				$output .= '<div class="col-lg-12 col-md-12">';
+						   			}
+									$output .= '<div class="content scheduled">
 									<span class="mini-title">';
 										if( $pod_preview_title != '') { 
 						   					$output .= $pod_preview_title; 
-						   				} else { 
-						   					$output .= __('Next Time on Podcaster', 'thstlang'); 
-						   				}
+						   				} 
 						   			$output .= '</span>';
 
 				                    if( $pod_scheduled_posts  == true ) {
@@ -106,7 +139,7 @@ if( ! function_exists('pod_next_week')) {
 								   				'ignore_sticky_posts' => true,
 								   				'post_status' => 'future',
 								   				'order' => 'ASC',
-								   				);	
+								   			);	
 							   			} else {
 							   				$sched_args = array( 
 								   				'post_type' => 'post', 
@@ -115,8 +148,7 @@ if( ! function_exists('pod_next_week')) {
 								   				'ignore_sticky_posts' => true,
 								   				'post_status' => 'future',
 								   				'order' => 'ASC',
-								   				);	
-
+								   			);
 							   			} 							   			
 
 										$sched_q = new WP_Query($sched_args);
@@ -132,15 +164,20 @@ if( ! function_exists('pod_next_week')) {
 							   			$output .= '<h3>';
 							   			if( $pod_preview_heading != '') { 
 							   				$output .= $pod_preview_heading;
-							   			} else { 
-							   				$output .= __('Episode 12: A Long Walk in the Forest', 'thstlang'); 
 							   			} 
 							   			$output .= '</h3>';
 							   		}
 							   	$output .= '</div><!-- .content -->
-						   			</div><!-- .col -->
-						   		<div class="col-lg-6 col-md-6">
-						   			<div class="content buttons">';
+						   			</div><!-- .col -->';
+						   		}
+						   		if( $pod_subscribe_buttons == true ){
+						   			if ( $pod_next_week == 'show' ) {
+						   				$output .= '<div class="col-lg-6 col-md-6">';
+						   			} else {
+						   				$output .= '<div class="col-lg-12 col-md-12">';
+						   			}
+
+						   			$output .= '<div class="content buttons">';
 						   				if( isset( $options['pod-subscribe1'] ) ) {
 						   					$output .= '<a href="' . $pod_butn_one_url . '" class="butn small">' . $pod_butn_one . '</a>';
 						   				} else {
@@ -152,11 +189,11 @@ if( ! function_exists('pod_next_week')) {
 						   					$output .= '<a href="#" class="butn small">' . __('Subscribe with RSS', 'thstlang') . '</a>';
 						   				}
 						   			$output .= '</div><!-- .content -->
-						   		</div><!-- .col -->
-						   	</div><!-- .row -->
+						   		</div><!-- .col -->';
+						   		}
+						   	$output .='</div><!-- .row -->
 					</div><!-- .next-week -->';
 					return $output;
-		
 	}
 }
 
@@ -191,12 +228,14 @@ if( !function_exists('pod_explicit_post') ){
 			if( $post_format == 'audio' ) {
 				if( $ep_explicit_au != '' ){
 			    	$output .= '<span class="mini-ex">' . __('Explicit', 'thstlang') .'</span>';
+			    	$output .= '<span class="mini-ex small">' . __('E', 'thstlang') .'</span>';
 			    } else {
 			    	$output .= '';
 			    }
 			} elseif( $post_format == 'video' ) {
 				if( $ep_explicit_vi != '' ){
 			    	$output .= '<span class="mini-ex">' . __('Explicit', 'thstlang') .'</span>';
+			    	$output .= '<span class="mini-ex small">' . __('E', 'thstlang') .'</span>';
 			    } else {
 			    	$output .= '';
 			    }
@@ -292,7 +331,7 @@ if( ! function_exists('pod_featured_multimedia') ) {
 					$post_featured_media .= '';
 				}
 				if ( $pod_featured_excerpt == true ) { 
-							$post_featured_media .= '<div class="hey featured-excerpt ' . $post_format .'">';
+							$post_featured_media .= '<div class="featured-excerpt ' . $post_format .'">';
 								$post_featured_media .= get_the_excerpt();
 								$post_featured_media .= '<a href="' . get_permalink() . '" class="more-link">';
 									$post_featured_media .= __( ' Read More', 'thstlang');
@@ -313,7 +352,7 @@ if( ! function_exists('pod_featured_multimedia') ) {
 					$post_featured_media .= get_the_powerpress_content(); 
 				}
 				if ( $pod_featured_excerpt == true ) { 
-							$post_featured_media .= '<div class="hey featured-excerpt ' . $post_format .'">';
+							$post_featured_media .= '<div class="featured-excerpt ' . $post_format .'">';
 								$post_featured_media .= get_the_excerpt();
 								$post_featured_media .= '<a href="' . get_permalink() . '" class="more-link">';
 									$post_featured_media .= __( ' Read More', 'thstlang');
@@ -372,7 +411,7 @@ if( ! function_exists('pod_featured_multimedia') ) {
 											
 						$post_featured_media .= '<div class="audio_player">' . do_shortcode('[audio src="' .$audiourl. '"][/audio]') . '</div><!--audio_player-->';	
 						if ( $pod_featured_excerpt == true ) { 
-							$post_featured_media .= '<div class="hey featured-excerpt ' . $post_format .'">';
+							$post_featured_media .= '<div class="featured-excerpt ' . $post_format .'">';
 								$post_featured_media .= get_the_excerpt();
 								$post_featured_media .= '<a href="' . get_permalink() . '" class="more-link">';
 									$post_featured_media .= __( ' Read More', 'thstlang');
@@ -460,6 +499,7 @@ if( ! function_exists('pod_featured_header_text') ){
 		$pod_fh_text_url = pod_theme_option('pod-featured-header-text-url');
 		$pod_frontpage_bg_style = pod_theme_option('pod-frontpage-bg-style');
 		$pod_next_week = pod_theme_option('pod-frontpage-nextweek');
+		$pod_sub_buttons = pod_theme_option('pod-subscribe-buttons');
 	
 		$output = '';
 		$output .= '<div class="front-page-header text ' .$header_state. ' ' .pod_is_nav_sticky(). ' ' .pod_is_nav_transparent(). '" style="background-color:' .$pod_frontpage_bg_color.'; background-image:url(' .$pod_frontpage_header_url. '); ' .$pod_frontpage_bg_style. '"' .$parallax. '>
@@ -478,7 +518,7 @@ if( ! function_exists('pod_featured_header_text') ){
 												$output .= '</a>';
 											}
 										$output .='</div><!-- .content-text -->';
-										if( function_exists('pod_next_week') && $pod_next_week == 'show' ) { 
+										if( function_exists('pod_next_week') && ( $pod_next_week == 'show' || $pod_sub_buttons == true ) ) { 
 										  	$output .= pod_next_week(); 
 										}
 									$output .= '</div>
@@ -512,6 +552,7 @@ if( ! function_exists('pod_featured_header_static') ){
 		$pod_frontpage_header_par == true ? $parallax = 'data-stellar-background-ratio="0.5"' : $parallax = '';
 		$pod_fh_heading = pod_theme_option('pod-featured-heading');
 		$pod_next_week = isset( $options['pod-frontpage-nextweek'] ) ? $options['pod-frontpage-nextweek'] : '';
+		$pod_sub_buttons = pod_theme_option('pod-subscribe-buttons');
 
 		$plugin_inuse = get_pod_plugin_active();
 
@@ -544,7 +585,7 @@ if( ! function_exists('pod_featured_header_static') ){
 				$post_permalink = get_permalink($post->ID);
 
 				if ( $pod_frontpage_header_url != '' && $pod_page_image == false ) {
-					$output .= '<div ' .$parallax. ' class="latest-episode front-header ' .pod_is_nav_transparent(). ' ' .pod_is_nav_sticky(). '" style="background-color:' .$pod_frontpage_bg_color.'; background-position:center; background-image: url(' .$pod_frontpage_header_url.'); ' .$pod_frontpage_bg_style. '">';
+					$output .= '<div ' .$parallax. ' class="latest-episode front-header ' .pod_is_nav_transparent(). ' ' .pod_is_nav_sticky(). '" style="background-color:' .$pod_frontpage_bg_color.'; background-position:0 0; background-image: url(' .$pod_frontpage_header_url.'); ' .$pod_frontpage_bg_style. '">';
 				} elseif( $pod_page_image == true && $thumb_back != '' ) {
 					$output .= '<div ' .$parallax. ' class="latest-episode front-header ' .pod_is_nav_transparent(). ' ' .pod_is_nav_sticky(). '" style="background-color:' .$pod_frontpage_bg_color.'; background-position:center; background-image: url(' .$thumb_back. '); ' .$pod_frontpage_bg_style. '">';
 				} else {
@@ -563,13 +604,12 @@ if( ! function_exists('pod_featured_header_static') ){
 
 									  	$output .= '</div><!-- .main-featured-posts -->';
 									  	
-									  	if( function_exists('pod_next_week') && $pod_next_week == 'show' ) { 
+									  	if( function_exists('pod_next_week') && ( $pod_next_week == 'show' || $pod_sub_buttons == true ) ) { 
 									  		$output .= pod_next_week(); 
 									  	}
-									  	$output .='</div>';
-									$output .='</div>';
-								$output .='</div>';
-							$output .='</div>';
+									  	$output .='</div><!-- .col -->';
+									$output .='</div><!-- .row -->';
+								$output .='</div><!-- .container -->';
 					wp_reset_postdata();
 					if ( $pod_frontpage_header_url != '' || ( $pod_page_image == true && $thumb_back != '' )  ) {
 					$output .= '</div><!-- .translucent -->';
@@ -612,6 +652,7 @@ if( ! function_exists('pod_featured_header_static_posts') ){
 		}
 		$arch_category = isset( $options['pod-recordings-category'] ) ? $options['pod-recordings-category'] : '';
 		$pod_next_week = isset( $options['pod-frontpage-nextweek'] ) ? $options['pod-frontpage-nextweek'] : '';
+		$pod_sub_buttons = pod_theme_option('pod-subscribe-buttons');
 		$pod_excerpt_type = isset( $options['pod-excerpts-type'] ) ? $options['pod-excerpts-type'] : '';
 	
 		$pod_next_week == 'hide' ? $pod_nextweek_state = 'nw-hidden' : $pod_nextweek_state = '';
@@ -689,7 +730,7 @@ if( ! function_exists('pod_featured_header_static_posts') ){
 										$output .= pod_featured_multimedia($post->ID);
 
 									$output .= '</div><!-- .text -->';
-									if( function_exists('pod_next_week') && $pod_next_week == 'show' ) { $output .= pod_next_week(); }
+									if( function_exists('pod_next_week') && ( $pod_next_week == 'show' || $pod_sub_buttons == true ) ) { $output .= pod_next_week(); }
 								$output .= '</div>
 							</div>
 						</div>
@@ -736,6 +777,7 @@ if( ! function_exists('pod_featured_header_slideshow') ){
 		$pod_fh_slides_amount = isset( $options['pod-featured-header-slides-amount'] ) ? $options['pod-featured-header-slides-amount'] : '';
 		$arch_category = isset( $options['pod-recordings-category'] ) ? $options['pod-recordings-category'] : '';
 		$pod_next_week = isset( $options['pod-frontpage-nextweek'] ) ? $options['pod-frontpage-nextweek'] : '';
+		$pod_sub_buttons = pod_theme_option('pod-subscribe-buttons');
 		$pod_excerpt_type = isset( $options['pod-excerpts-type'] ) ? $options['pod-excerpts-type'] : '';
 	
 		if( $pod_next_week == 'hide' ){
@@ -838,7 +880,7 @@ if( ! function_exists('pod_featured_header_slideshow') ){
 			$output .= '</div><!-- .slides -->';
 			$output .= '</div>';
 
-			if( function_exists('pod_next_week') && $pod_next_week == 'show' ) { 
+			if( function_exists('pod_next_week') && ( $pod_next_week == 'show' || $pod_sub_buttons ) ) { 
 				$output .= pod_next_week(); 
 			}
 		$output .= '</div>';
@@ -849,7 +891,7 @@ if( ! function_exists('pod_featured_header_slideshow') ){
 			$output .= '<div class="placeholder inside">';
 			$output .= '<p>'. __('Please mark your post(s) as featured for them to appear here.', 'thstlang') .'</p>';
 			$output .= '</div>';
-			if( function_exists('pod_next_week') && $pod_next_week == 'show' ) { 
+			if( function_exists('pod_next_week') && ( $pod_next_week == 'show' || $pod_sub_buttons ) ) { 
 				$output .= pod_next_week(); 
 			}
 			$output .= '</div>';

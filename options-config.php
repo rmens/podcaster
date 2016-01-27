@@ -306,7 +306,7 @@
     Redux::setSection( $opt_name, array(
         'icon' => 'fa fa-cog',
         'title' => __('Presets', 'thstlang'),
-        'desc' => __('<p class="description">Use a preset to set your theme options with just one click.</p>', 'thstlang'),
+        'desc' => __('<p class="description">Use a preset to set up your theme options with just one click.</p>', 'thstlang'),
         'fields' => array(
         	array(
                 'id'         => 'pod-preset-templates',
@@ -314,9 +314,8 @@
                 'presets'    => true,
                 'full_width' => true,
                 'title'      => __( 'Templates Presets', 'thstlang' ),
-                'subtitle'   => __( 'Choose one of the templates below, to have your website set up within minutes.', 'thstlang' ),
+                'subtitle'   => __( 'Click one of the templates below, to have your website set up within minutes.', 'thstlang' ),
                 'default'    => 1,
-                'desc'       => __( 'Choose one of the templates below, to have your website set up within minutes.', 'thstlang' ),
                 'options'    => array(
                     '5' => array(
                         'alt'     => 'Preset Default',
@@ -332,9 +331,11 @@
                                 'color'     => '#000000',
                                 'alpha'     => 0.5
                                 ),
+                            'pod-colors-advanced'       => false,
 
                             /* Header Settings */
                             'pod-featured-header-type'  => 'static',
+                            'pod-featured-header-text'  => 'Welcome to Podcaster. Handcrafted WordPress themes for your podcasting project.', 
                             'pod-upload-frontpage-header' => array(
                                 'url'   => $theme_options_img. 'header.jpg'
                                 ),
@@ -408,6 +409,7 @@
                             'pod-color-buttons-link'      => '#ffffff',
                             'pod-page-header-bg'      => '#3cb3b2',
                             'pod-page-header-text'      => '#ffffff',
+                            'pod-colors-advanced'       => false,
 
                             /* Header Settings */
                             'pod-featured-header-type'  => 'text',
@@ -488,6 +490,7 @@
                             'pod-page-header-bg'        => '#161616',
                             'pod-color-buttons-bg'      => '#e04318',
                             'pod-color-buttons-link'      => '#ffffff',
+                            'pod-colors-advanced'       => false,
 
                             /* Header */
                             'pod-featured-header-type'  => 'static',
@@ -562,6 +565,7 @@
                             'pod-page-header-bg'        => '#ffb711',
                             'pod-color-buttons-bg'      => '#eab710',
                             'pod-color-buttons-link'      => '#222222',
+                            'pod-colors-advanced'       => false,
 
                             /* Header */
                             'pod-featured-header-type'  => 'static-posts',
@@ -636,6 +640,7 @@
                             'pod-color-buttons-link'      => '#3d3d3d',
                             'pod-page-header-bg'        => '#adadad',
                             'pod-page-header-text'      => '#ffffff',
+                            'pod-colors-advanced'       => false,
 
                             /* Header */
                             'pod-featured-header-type'  => 'slideshow',
@@ -702,13 +707,13 @@
 	Redux::setSection( $opt_name, array(
         'icon' => 'fa fa-eyedropper',
         'title' => __('Colors', 'thstlang'),
-        'desc' => __('<p class="description">Set up your website layout.</p>', 'thstlang'),
+        'desc' => __('<p class="description">Select your website template and colors.</p>', 'thstlang'),
         'fields' => array(
         	array(
 				'id'=>'pod-color-darklight',
 				'type' => 'image_select',
 				'title' => __('Light/Dark Template', 'thstlang'), 
-				'subtitle' => __('What template would you like to use?', 'thstlang'),
+				'subtitle' => __('Which template would you like to use?', 'thstlang'),
 				'desc' => __('Choose between classic and dark.', 'thstlang'),
 				'options' => array(
                     'classic' => array('title' => 'Classic', 'img' => $theme_options_img. 'color-options-classic.png'),
@@ -720,7 +725,7 @@
                 'id' => 'pod-color-primary',
                 'type' => 'color',
                 'title' => __('Accent Color', 'thstlang'),
-                'subtitle' => __('What highlight color would you like to use?', 'thstlang'),
+                'subtitle' => __('Which highlight color would you like to use?', 'thstlang'),
                 'desc' => __('Use the colorpicker to choose a highlight color.', 'thstlang'),
                 'default' => '#1ee8a3',
                 'validate' => 'color',
@@ -730,7 +735,7 @@
                 'id' => 'pod-color-buttons-bg',
                 'type' => 'color',
                 'title' => __('Button Background Color', 'thstlang'),
-                'subtitle' => __('What color would you like to use for the background color of your buttons?', 'thstlang'),
+                'subtitle' => __('Which color would you like to use for the background color of your buttons?', 'thstlang'),
                 'desc' => __('Use the colorpicker to choose a background color for your buttons.', 'thstlang'),
                 'default' => '#1ee8a3',
                 'validate' => 'color',
@@ -741,7 +746,7 @@
                 'id' => 'pod-color-buttons-link',
                 'type' => 'color',
                 'title' => __('Button Link Color', 'thstlang'),
-                'subtitle' => __('What color would you like to use for the text on your buttons?', 'thstlang'),
+                'subtitle' => __('Which color would you like to use for the text on your buttons?', 'thstlang'),
                 'desc' => __('Use the colorpicker to choose a color for the text on your buttons.', 'thstlang'),
                 'default' => '#fff',
                 'validate' => 'color',
@@ -767,19 +772,59 @@
                 'transparent' => false,
                 'output'    => array('color' => '.page .reg .heading h1, .podcast-archive .reg .heading h1, .search .reg .heading h1, .archive .reg .heading h1, .postfooter, .blog .static .title h1, .archive .reg .heading .title p, .page .reg .heading .title p')
             ),
-			array(
-			    'id'        => 'pod-transparent-screen',
-			    'type'      => 'color_rgba',
-			    'title'     => 'Transparent Screen',
-			    'subtitle'  => 'Set color and transparency of the screens used on headers across the website.',
-			    'desc'      => 'Use the color picker to select a color. Then use the slider to select the transparency.',
-			 	'transparent' => false,
-			    'output'    => array('background-color' => '.screen, .translucent, .single .single-featured.thumb_bg .background, .front-page-header.slideshow .has-header .inside'),
-			    'default'   => array(
-			        'color'     => '#000000',
-			        'alpha'     => 0.5
-			    ),                    
-			),          
+            array(
+                'id'        => 'pod-transparent-screen',
+                'type'      => 'color_rgba',
+                'title'     => 'Transparent Screen',
+                'subtitle'  => 'Set color and transparency of the screens used on headers across the website.',
+                'desc'      => 'Use the color picker to select a color. Then use the slider to select the transparency.',
+                'transparent' => false,
+                'output'    => array('background-color' => '.screen, .translucent, .single .single-featured.thumb_bg .background, .front-page-header.slideshow .has-header .inside, .front-page-header.static.has-header .inside, .single .single-featured .background'),
+                'default'   => array(
+                    'color'     => '#000000',
+                    'alpha'     => 0.5
+                ),                    
+            ),
+            array(
+                'id'       => 'pod-footer-navigation',
+                'type'     => 'color',
+                'title'    => __('Footer Navigation Background Color', 'thstlang'),
+                'subtitle' => __('Set the background color for your footer navigation.', 'thstlang'),
+                'desc'     => __('Use the color picker to select the background color of your footer navigation.', 'thstlang'),           
+                'default' => '#282d31',
+                'transparent' => false,
+                'output'    => array('background-color' => '.postfooter')
+            ),
+            array(
+                'id'       => 'pod-footer-navigation-text',
+                'type'     => 'color',
+                'title'    => __('Footer Navigation Text Color', 'thstlang'),
+                'subtitle' => __('Set the color for your footer navigation text.', 'thstlang'),
+                'desc'     => __('Use the color picker to select the color of your footer navigation text.', 'thstlang'),           
+                'default' => '#fff',
+                'transparent' => false,
+                'output'    => array('color' => '.postfooter')
+            ),
+            array(
+                'id'       => 'pod-footer-navigation-link',
+                'type'     => 'color',
+                'title'    => __('Footer Navigation Link Color', 'thstlang'),
+                'subtitle' => __('Set the color for your footer navigation links.', 'thstlang'),
+                'desc'     => __('Use the color picker to select the color of your footer navigation links.', 'thstlang'),           
+                'default' => '#fff',
+                'transparent' => false,
+                'output'    => array('color' => '.postfooter a:link, .postfooter a:visited')
+            ),
+            array(
+                'id'       => 'pod-footer-navigation-hover',
+                'type'     => 'color',
+                'title'    => __('Footer Navigation Hover Color', 'thstlang'),
+                'subtitle' => __('Set the hover color for your footer navigation links.', 'thstlang'),
+                'desc'     => __('Use the hover color picker to select the color of your footer navigation links.', 'thstlang'),           
+                'default' => '#fff',
+                'transparent' => false,
+                'output'    => array('color' => '.postfooter a:hover')
+            ),
         )
     ) );
 	Redux::setSection( $opt_name, array(
@@ -792,8 +837,8 @@
                 'id' => 'pod-featured-header-type',
                 'type' => 'button_set',
                 'title' => __('Header Type', 'thstlang'),
-                'subtitle' => __('Would you like to display a static header or a slideshow?', 'thstlang'),
-                'desc' => __('Choose between a static header or slideshow.', 'thstlang'),
+                'subtitle' => __('What type of header would you like to display?', 'thstlang'),
+                'desc' => __('Choose between a text, static header or slideshow.', 'thstlang'),
                 'options' => array(
                     'text' => 'Text',
                     'static' => 'Static',
@@ -864,7 +909,7 @@
                 'required' => array( 'pod-featured-header-type', '=', array( 'text', 'static' )),
                 'title' => __('Header Background', 'thstlang'),
                 'subtitle' => __('Would you like to upload a header for the font page?', 'thstlang'),
-                'desc' => __('Upload an image which will be displayed as your header.(Size: approxmately 500*1920px. Adjust height if you are using parallax.)', 'thstlang'),
+                'desc' => __('Upload an image which will be displayed as your header.(Size: approximately 500 x 1920px. Increase height if you are using parallax.)', 'thstlang'),
                 'default' => ''
             ),
             array(
@@ -872,7 +917,7 @@
                 'type' => 'checkbox',
                 'required' => array( 'pod-featured-header-type', '=', array( 'static' )),
                 'title' => __('Featured Image (from page)', 'thstlang'), 
-                'subtitle' => __('Do you want to use the featured image from your page instead?', 'thstlang'),
+                'subtitle' => __('Do you want to use the featured image from front page instead?', 'thstlang'),
                 'desc' => __('Check this box if you would like to use the featured image from your set front page instead of uploading it above.', 'thstlang'),
                 'switch' => true,
                 'std' => '0'
@@ -932,7 +977,7 @@
             array(
                 'id' => 'pod-frontpage-fetured-ex',
                 'type' => 'switch',
-                'required' => array( 'pod-featured-header-type', '=', array( 'static' )),
+                'required' => array( 'pod-featured-header-type', '!=', array( 'text' )),
                 'title' => __('Featured Excerpt', 'thstlang'),
                 'subtitle' => __('Would you like to display a featured excerpt?', 'thstlang'),
                 'desc' => __('Turn the switch to "On" to display a featured excerpt on the front page.', 'thstlang'),
@@ -980,7 +1025,7 @@
             array(
                 'id' => 'pod-frontpage-nextweek',
                 'type' => 'button_set',
-                'title' => __('Next Week', 'thstlang'),
+                'title' => __('Show Next Week', 'thstlang'),
                 'subtitle' => __('Would you like to show or hide the <em>Next Week</em> area?', 'thstlang'),
                 'desc' => __('Choose to hide or show the <em>Next Week</em> area.', 'thstlang'),
                 'options' => array(
@@ -1004,7 +1049,7 @@
                 'title' => __('Upcoming Post Title', 'thstlang'),
                 'subtitle' => __('What is the title of your next or upcoming episode?', 'thstlang'),
                 'desc' => __('Enter the title of your upcoming episode into the text field above.', 'thstlang'),
-                'default' => 'A Long Walk in the Forest',
+                'default' => 'Episode 12: Let\'s go hiking!',
             ),
             array(
                 'id' => 'pod-preview-title',
@@ -1021,6 +1066,14 @@
                 'type'     => 'raw',
                 'title'  => __( '<h3>Subscribe Buttons</h3>', 'thstlang' ),
                 'content'  => __( 'Use the settings below to customize the featured header section on your static front page.', 'thstlang' ),
+            ),
+            array(
+                'id' => 'pod-subscribe-buttons',
+                'type' => 'switch',
+                'title' => __('Show Subscribe Buttons', 'thstlang'), 
+                'subtitle' => __('Would you like to display your subscribe buttons?', 'thstlang'),
+                'desc' => __('Turn the switch to "On" to display your subscribe buttons.', 'thstlang'),
+                'default' => true
             ),
             array(
                 'id' => 'pod-subscribe1',
@@ -1093,6 +1146,14 @@
 				"step"		=> "1",
 				"max"		=> "36"
 			),
+            array(
+                'id' => 'pod-front-page-titles',
+                'type' => 'switch',
+                'title' => __('Truncate Titles', 'thstlang'), 
+                'subtitle' => __('Would you like to truncate the titles of the posts on the front page? This will add an ellipsis at the end of a title in mobile view.', 'thstlang'),
+                'desc' => __('Turn the switch to "on" to trnacate the titles or to "off" to display the entire title.', 'thstlang'),
+                'default' => false
+            ),
 			array(
                 'id' => 'pod-archive-link-txt',
                 'type' => 'text',
@@ -1127,24 +1188,51 @@
             array(
                 'id' => 'pod-excerpts-style',
                 'type' => 'button_set',
-                'title' => __('From Blog Section', 'thstlang'),
+                'title' => __('Blog Excerpts Section', 'thstlang'),
                 'subtitle' => __('How would you like to display the blog excerpts on the front page?', 'thstlang'),
-                'desc' => __('Choose between <strong>List</strong> and <strong>Columns</strong>.', 'thstlang'),
+                'desc' => __('Choose between <strong>List</strong>, <strong>Columns</strong> and <strong>Columns II</strong>. Or hide it entirely.', 'thstlang'),
                 'options' => array(
                     'list' => 'List',
-                    'columns' => 'Columns',
+                    'columns' => 'Columns I',
+                    'columns-2' => 'Columns II',
                     'hide' => 'Hide'
                 ),
                 'default' => 'list'
             ),
-
+            array(
+                'id' => 'pod-excerpts-section-title',
+                'type' => 'text',
+                'required' => array( 'pod-excerpts-style', '=', array('columns', 'columns-2') ),
+                'title' => __('Blog Excerpts Section Title', 'thstlang'),
+                'subtitle' => __('Would you like to display a title for your blog excerpt section?', 'thstlang'),
+                'desc' => __('Enter the title in the text field above.', 'thstlang'),
+                'default' => 'From the Blog',
+            ),
+            array(
+                'id' => 'pod-excerpts-section-desc',
+                'type' => 'text',
+                'required' => array( 'pod-excerpts-style', '=', array( 'columns-2') ),
+                'title' => __('Blog Excerpts Section Description', 'thstlang'),
+                'subtitle' => __('Would you like to display a description for your blog excerpt section?', 'thstlang'),
+                'desc' => __('Enter the description in the text field above.', 'thstlang'),
+                'default' => 'Your description here. Vivamus viverra sem nulla, ac sollicitudin ipsum lacinia et. Aliquam vitae neque nec sapien lobortis dapibus non vel augue.',
+            ),
+            array(
+                'id' => 'pod-excerpts-section-button',
+                'type' => 'text',
+                'required' => array( 'pod-excerpts-style', '=', array( 'columns-2') ),
+                'title' => __('Blog Excerpts Section Button', 'thstlang'),
+                'subtitle' => __('Would you like to display a button for your blog excerpt section?', 'thstlang'),
+                'desc' => __('Enter the text in the text field above.', 'thstlang'),
+                'default' => 'Go to Blog',
+            ),
         )
     ) );
 	
 	Redux::setSection( $opt_name, array(
         'icon' => 'fa fa-navicon',
         'title' => __('Navigation', 'thstlang'),
-        'desc' => __('<p class="description">Set up your website layout.</p>', 'thstlang'),
+        'desc' => __('<p class="description">Set up your navigation.</p>', 'thstlang'),
         'fields' => array(
         	array(
                 'id'=>'pod-nav-bg',
@@ -1172,8 +1260,31 @@
                 'desc'     => __('Use the color picker to select the link color.', 'thstlang'),         
                 'default' => '#ffffff',
                 'transparent' => false,
+                'output'    => array(
+                    'background-color' => '.nav-search-form .search-form-drop',
+                    'color' => '.nav-search-form .open-search-bar .batch'
+                    )
             ),
-            
+            array(
+                'id'       => 'pod-nav-dropdown',
+                'type'     => 'color',
+                'title'    => __('Navigation Dropdown Menu', 'thstlang'),
+                'subtitle' => __('Set the color for the drop down menu in the navigation.', 'thstlang'),
+                'desc'     => __('Use the color picker to select the drop down menu color.', 'thstlang'),         
+                'default' => '#333',
+                'output'   => array('background-color' => '#nav .thst-menu li > .sub-menu li a:link, #nav .thst-menu li > .sub-menu li a:visited'),
+                'transparent' => false,
+            ),
+            array(
+                'id'       => 'pod-nav-dropdown-hover',
+                'type'     => 'color',
+                'title'    => __('Navigation Dropdown Menu Hover', 'thstlang'),
+                'subtitle' => __('Set the hover color for the drop down menu in the navigation.', 'thstlang'),
+                'desc'     => __('Use the hover color picker to select the drop down menu color.', 'thstlang'),         
+                'default' => '#333',
+                'output'   => array('background-color' => '#nav .thst-menu li > .sub-menu li a:hover'),
+                'transparent' => false,
+            ),
             array(
 				'id'=>'pod-sticky-header',
 				'type' => 'switch', 
@@ -1191,6 +1302,9 @@
                 'desc'     => __('Use the color picker to select the background color.', 'thstlang'),         
                 'default' => '#81F9AC',
                 'transparent' => false,
+                'output' => array(
+                    'background-color' => '.small_nav .nav-search-form .open-search-bar .batch'
+                    )
             ),
             array(
                 'id'       => 'pod-nav-color-sticky',
@@ -1201,6 +1315,31 @@
                 'desc'     => __('Use the color picker to select the link color.', 'thstlang'),         
                 'default' => '#222',
                 'transparent' => false,
+                'output' => array(
+                    'color' => '.small_nav .nav-search-form .open-search-bar .batch',
+                    'background-color' => '.small_nav .nav-search-form .search-form-drop',
+                    )
+            ),
+            array(
+                'id'=>'pod-nav-search',
+                'type' => 'switch', 
+                'title' => __('Search Bar', 'thstlang'),
+                'subtitle' => __('Would you like to display a search bar in your navigation?', 'thstlang'),
+                'desc' => __('Turn the switch to "On" to enable the search feature.', 'thstlang'),
+                'default' => false,
+            ),
+            array(
+                'id'=>'pod-nav-search-color',
+                'type' => 'color', 
+                'required'  => array( 'pod-nav-search', '=', true ),
+                'title' => __('Search Bar Text', 'thstlang'),
+                'subtitle' => __('Would you like to set a text color for your navigation bar?', 'thstlang'),
+                'desc' => __('Use the color picker to select your color.', 'thstlang'),
+                'default' => '#282d31',
+                'transparent' => false,
+                'output' => array(
+                    'color' => '.nav-search-form .search-container #s'
+                    )
             ),
 			array(
 				'id'=>'pod-responsive-style',
@@ -1219,7 +1358,7 @@
     Redux::setSection( $opt_name, array(
         'icon' => 'fa fa-eyedropper',
         'title' => __('Logo', 'thstlang'),
-        'desc' => __('<p class="description">Set up your website layout.</p>', 'thstlang'),
+        'desc' => __('<p class="description">Set up your website logo.</p>', 'thstlang'),
         'fields' => array(
         	array(
                 'id' => 'pod-upload-logo',
@@ -1259,7 +1398,7 @@
 	Redux::setSection( $opt_name, array(
         'icon' => 'fa fa-font',
         'title' => __('Type &amp; Direction', 'thstlang'),
-        'desc' => __('<p class="description">Set up your website layout.</p>', 'thstlang'),
+        'desc' => __('<p class="description">Set up your website typography.</p>', 'thstlang'),
         'fields' => array(
         	array(
                 'id' => 'pod-typography',
@@ -1270,7 +1409,8 @@
                 'options' => array(
                 	'sans-serif' => 'Sans-serif', 
                 	'serif' => 'Serif',
-                    'custom' => 'Custom (Google Fonts)'
+                    'custom' => 'Google Fonts',
+                    'custom-typekit' => 'Typekit'
                 ),
                 'default' => 'sans-serif'
             ),
@@ -1332,11 +1472,31 @@
                 ),
             ),
             array(
+                'id'=>'pod-typekit-code',
+                'type' => 'textarea',
+                'required' => array('pod-typography', '=', 'custom-typekit'),
+                'title' => __('Typekit', 'thstlang'), 
+                'subtitle' => __('Would you like to use Typekit?', 'thstlang'),
+                'desc' => __('Paste the code you received from Typekit in the text box above.', 'thstlang'),
+                'default' => '',
+            ),
+            array(
+                'id'       => 'pod-typekit-css-code',
+                'type'     => 'ace_editor',
+                'required' => array('pod-typography', '=', 'custom-typekit'),
+                'title'    => __('Typekit CSS Code', 'thstlang'),
+                'subtitle' => __('Do you have CSS overrides you\'d like to use?', 'thstlang'),
+                'mode'     => 'css',
+                'theme'    => 'chrome',
+                'desc'     => 'Use the text box above to insert CSS overrides.', 'thstlang',
+                'default'  => "#header{\nmargin: 0 auto;\n}"
+            ),
+            array(
                 'id' => 'pod-reading-direction',
                 'type' => 'switch', 
                 'title' => __('RTL', 'thstlang'),
                 'subtitle' => __('Would you like to activate right to left reading?', 'thstlang'),
-                'desc' => __('Choose between ltr?', 'thstlang'),
+                'desc' => __('Switch to "On" to activate the rtl layout.', 'thstlang'),
                 'default' => false
                 
             ),         
@@ -1376,11 +1536,19 @@
                 'default' => 'audio_icons'
             ),
             array(
+                'id' => 'pod-archive-trunc',
+                'type' => 'switch',
+                'title' => __('Truncate Titles', 'thstlang'), 
+                'subtitle' => __('Would you like to truncate the titles of the posts on the archive page? This will add an ellipsis at the end of a title in mobile view.', 'thstlang'),
+                'desc' => __('Turn the switch to "on" to trnacate the titles or to "off" to display the entire title.', 'thstlang'),
+                'default' => false
+            ),
+            array(
                 'id' => 'pod-list-style',
                 'type' => 'radio',
                 'title' => __('Display Style', 'thstlang'),
-                'subtitle' => __('What icon did you want to display in your archive?', 'thstlang'),
-                'desc' => __('Set which icon you would like to display in the podcast archive. Audio or video icon.', 'thstlang'),
+                'subtitle' => __('How would you like to display the podcast archive?', 'thstlang'),
+                'desc' => __('Choose between grid or list.', 'thstlang'),
                 'options' => array(
                     'grid' => 'Grid', 
                     'list' => 'List'
@@ -1707,6 +1875,15 @@
                 'placeholder' => 'http://www.example.com/',
             ),
             array(
+                'id' => 'pod-soundcloud',
+                'type' => 'text',
+                'title' => __('Soundcloud', 'thstlang'),
+                'subtitle' => __('Would you like to display a social icon?', 'thstlang'),
+                'desc' => __('Paste the url of your profile here.', 'thstlang'),
+                'validate' => 'url',
+                'placeholder' => 'http://www.example.com/',
+            ),
+            array(
                 'id' => 'pod-tumblr',
                 'type' => 'text',
                 'title' => __('Tumblr Icon', 'thstlang'),
@@ -1820,7 +1997,7 @@
 	Redux::setSection( $opt_name, array(
         'icon' => 'fa fa-paperclip',
         'title' => __('Footer', 'thstlang'),
-        'desc' => __('<p class="description">Set up your website layout.</p>', 'thstlang'),
+        'desc' => __('<p class="description">Set up your website footer.</p>', 'thstlang'),
         'fields' => array(
         	array(
 				'id'=>'pod-footer-text',

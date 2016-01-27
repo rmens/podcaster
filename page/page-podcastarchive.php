@@ -24,6 +24,10 @@ $arch_list_style = isset( $options["pod-list-style"] ) ? $options["pod-list-styl
 $pod_sticky_header = isset( $options['pod-sticky-header'] ) ? $options['pod-sticky-header'] : '';
 $pl_active = get_pod_plugin_active();
 
+/* Titles */
+$pod_truncate_title = pod_theme_option('pod-archive-trunc');
+if( $pod_truncate_title == true ) { $is_truncate = " truncate"; } else { $is_truncate = " not-truncate"; }
+
 if( $pl_active == 'ssp' ) {
 	if ( $arch_num_posts >= 1 ) {
 		$args = array( 'post_type' => 'podcast', 'posts_per_page' => $arch_num_posts, 'paged' => get_query_var( 'paged' ), 'ignore_sticky_posts' => true );	
@@ -114,7 +118,7 @@ $heading_align = get_post_meta($post->ID, 'cmb_thst_page_header_align', true);
 										<?php the_excerpt(); ?>
 										<footer class="entry-footer">
 											<ul class="podpost-meta clearfix">
-												<li class="title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></li>
+												<li class="title<?php echo $is_truncate;?>"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></li>
 												<li class="categories"> <?php the_category(', '); ?></li>
 												<li class="listen"><a class="butn extrasmall" href="<?php the_permalink(); ?>"><?php echo __( 'Listen', 'thstlang' ); ?></a></li>
 											</ul>
@@ -158,7 +162,7 @@ $heading_align = get_post_meta($post->ID, 'cmb_thst_page_header_align', true);
 										<?php the_excerpt(); ?>
 										<footer class="entry-footer">
 											<ul class="podpost-meta">
-												<li class="title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></li>
+												<li class="title<?php echo $is_truncate;?>"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></li>
 												<li class="categories"> <?php the_category(', '); ?></li>
 											</ul>
 										

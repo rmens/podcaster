@@ -44,6 +44,7 @@ get_header(); ?>
 										$dribbble = get_the_author_meta( 'user_dribbble', $author_id );
 										$flickr = get_the_author_meta( 'user_flickr', $author_id );
 										$instagram = get_the_author_meta( 'user_instagram', $author_id );
+										$soundcloud = get_the_author_meta( 'user_soundcloud', $author_id );
 										$pinterest = get_the_author_meta( 'user_pinterest', $author_id );
 										$xing = get_the_author_meta( 'user_xing', $author_id );
 										$linkedin = get_the_author_meta( 'user_linkedin', $author_id );
@@ -75,6 +76,7 @@ get_header(); ?>
 										<?php if ( $dribbble != '' ) : ?><li><a class="sicon dribbble" href="<?php echo $dribbble; ?>"></a></li><?php endif; ?>
 										<?php if ( $flickr != '' ) : ?><li><a class="sicon flickr" href="<?php echo $flickr; ?>"></a></li><?php endif; ?>
 										<?php if ( $instagram != '' ) : ?><li><a class="sicon instagram" href="<?php echo $instagram; ?>"></a></li><?php endif; ?>
+										<?php if ( $soundcloud != '' ) : ?><li><a class="sicon soundcloud" href="<?php echo $soundcloud; ?>"></a></li><?php endif; ?>
 										<?php if ( $pinterest != '' ) : ?><li><a class="sicon pinterest" href="<?php echo $pinterest; ?>"></a></li><?php endif; ?>
 										<?php if ( $xing != '' ) : ?><li><a class="sicon xing" href="<?php echo $xing; ?>"></a></li><?php endif; ?>
 										<?php if ( $linkedin != '' ) : ?><li><a class="sicon linkedin" href="<?php echo $linkedin; ?>"></a></li><?php endif; ?>

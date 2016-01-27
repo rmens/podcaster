@@ -20,7 +20,6 @@ header .main-title a {
 }
 .above.transparent.large_nav,
 .above.large_nav {
-  float: right;
 }
 .above.transparent.small_nav,
 .above.small_nav {
@@ -55,16 +54,15 @@ header .main-title a {
 .navigation .menu {
   text-align:left;
 }
+.nav-search-form {
+  float:left;
+}
 .flex-direction-nav a {
 	text-indent: 9999px;
 }
 #loading_bg {
   left: auto;
   right:0;
-}
-.latest-episode .main-featured-post .mini-ex {
-  margin-right:10px;
-  margin-left:0;
 }
 .latest-episode .mejs-controls .mejs-time-rail .mejs-time-float {
   margin-right: -18px;
@@ -294,11 +292,6 @@ header .main-title a {
   text-align: left;
   right: -224px;
   left:auto;
-}
-.single .sbar-left .entry-meta .author-info {
-  text-align: right;
-  left: -224px;
-  right: auto;
 }
 .single .player_container.with_thumbnail {
   float:left;

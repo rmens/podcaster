@@ -168,7 +168,7 @@ function pod_info_settings_page() {
 									<div class="feature-section one-col no-top-margin">
 										<div class="col">
 											<h3>Maintenance Update</h3>
-											<p>Version 1.5.4 addressed three bugs. Please <a href="?page=theme-information&tab=changelog">click here</a> to see the changelog.</p>
+											<p>Version 1.5.5 inculdes a number of updates. Please <a href="?page=theme-information&tab=changelog">click here</a> to see the changelog.</p>
 										</div>
 									</div>
 									<div class="feature-section two-col">
@@ -214,16 +214,6 @@ function pod_info_settings_page() {
 										</div>
 									</div><!-- .feature-section -->
 
-									<div class="feature-section one-col">
-										<div class="col">
-											<div class="media-container">
-												<img src="<?php echo $custom_page_dir;?>/support-banner.jpg" />
-											</div>
-											<h3>New Support System</h3>
-											<p>Sign-up for the new ticket stytem and get tailor-made support. We have also adjusted our support terms to fit the new terms by Envato. <a href="http://themestation.co/support">Click here</a> to find out more.  </p>
-										</div>
-									</div>
-
 									<div class="feature-section three-col">
 										<div class="col">
 											<div class="media-container">
@@ -253,7 +243,69 @@ function pod_info_settings_page() {
 									?>
 									<div class="feature-section">
 										<ul id="changelog">
-											<li class="first"><h2>1.5.5</h2><span class="date">(16th November 2015)</span>
+											<li class="first"><h2>1.5.5</h2> <span class="date">(25th January 2016)</span>
+												<ul>
+													<li>
+														<span class="label new">New</span>Typekit Support added
+														<div class="file"><ul>
+															<li><span class="root">functions/</span>featured-header.php</li>
+														</ul></div>
+													</li>
+													<li>
+														<span class="label new">New</span>Soundcloud icon added
+														<div class="file"><ul>
+															<li>navigation.php</li>
+															<li>author.php</li>
+															<li>footer.php</li>
+															<li>functions.php</li>
+														</ul></div>
+													</li>
+													<li>
+														<span class="label new">New</span>Search feature in navigation bar
+														<div class="file"><ul>
+															<li>navigation.php</li>
+														</ul></div>
+													</li>
+													<li>
+														<span class="label improved">Improved</span> Footer color settings added
+														<div class="file"><ul>
+															<li>options-config.php</li>
+														</ul></div>
+													</li>
+													<li>
+														<span class="label improved">Improved</span> "Next week" and subscribe buttons can be activated and deactivated seperately
+														<div class="file"><ul>
+															<li>options-config.php</li>
+														</ul></div>
+													</li>
+													<li>
+														<span class="label improved">Improved</span> Tags on single post pages
+														<div class="file"><ul>
+															<li><span class="root">post/</span>postfooter.php</li>
+														</ul></div>
+													</li>
+													<li>
+														<span class="label improved">Improved</span> Truncate titles on main page and podcast archive
+														<div class="file"><ul>
+															<li><span class="root">page/</span>page-frontpage.php</li>
+															<li><span class="root">page/</span>page-podcastarchive.php</li>
+														</ul></div>
+													</li>
+													<li>
+														<span class="label improved">Improved</span> New "From Blog" layout added
+														<div class="file"><ul><li><span class="root">page/</span>page-frontpage.php</li></ul></div>
+													</li>
+													<li>
+														<span class="label minor fix">Minor Fix</span>Responsive video in "From blog section"
+														<div class="file"><ul><li><span class="root">js/</span>call_fitvid.js</li></ul></div>
+													</li>
+													<li>
+														<span class="label minor fix">Minor Fix</span>Undefined variable error
+														<div class="file"><ul><li>featured-header.php</li></ul></div>
+													</li>
+												</ul>
+											</li>
+											<li class="first"><h2>1.5.4</h2> <span class="date">(16th November 2015)</span>
 												<ul>
 													<li>
 														<span class="label fix">Fix</span> Excerpt output
@@ -274,7 +326,7 @@ function pod_info_settings_page() {
 													</li>
 												</ul>
 											</li>
-											<li class="first"><h2>1.5.3</h2><span class="date">(27th Octorber 2015)</span>
+											<li class="first"><h2>1.5.3</h2> <span class="date">(27th Octorber 2015)</span>
 												<ul>
 													<li>
 														<span class="label minor fix">Minor Fix</span> Force Excerpts in blog displaying in single view
@@ -292,7 +344,7 @@ function pod_info_settings_page() {
 													</li>
 												</ul>
 											</li>
-											<li class="first"><h2>1.5.2</h2><span class="date">(25th Octorber 2015)</span>
+											<li class="first"><h2>1.5.2</h2> <span class="date">(25th Octorber 2015)</span>
 												<ul>
 													<li>
 														<span class="label new">New</span> Force Excerpts in blog
@@ -324,7 +376,7 @@ function pod_info_settings_page() {
 													</li>
 												</ul>
 											</li>
-											<li class="first"><h2>1.5.1</h2><span class="date">(23rd September 2015)</span>
+											<li class="first"><h2>1.5.1</h2> <span class="date">(23rd September 2015)</span>
 												<ul>
 													<li>
 														<span class="label minor fix">Minor Fix</span> Background for audio players on single post pages fixed
@@ -336,7 +388,7 @@ function pod_info_settings_page() {
 													</li>
 												</ul>
 											</li>
-											<li class="first"><h2>1.5</h2><span class="date">(22nd September 2015)</span>
+											<li class="first"><h2>1.5</h2> <span class="date">(22nd September 2015)</span>
 												<ul>
 													<li>
 														<span class="label new">New</span> Four presets added to the theme options for faster and easier setup.

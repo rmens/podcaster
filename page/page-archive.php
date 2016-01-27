@@ -74,7 +74,7 @@ $options = get_option('podcaster-theme');
 							<?php the_content(); ?>
 	
 							<div class="arch_searchform">
-								<form class="clearfix" action="<?php bloginfo('siteurl'); ?>" id="ind_searchform" method="get">
+								<form class="clearfix" action="<?php echo home_url( '/' ); ?>" id="ind_searchform" method="get">
 								    <div class="first">
 								        <label for="s" class="screen-reader-text">Search for:</label>
 								        <input type="search" id="ind_s" name="s" value="" placeholder="<?php echo __( 'Search Archives', 'thstlang' ); ?>" />

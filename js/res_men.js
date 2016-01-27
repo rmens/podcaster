@@ -35,6 +35,17 @@ jQuery(document).ready(function($) {
 	}
 });
 
+jQuery(document).ready(function($) {
+	$('.above .nav-search-form').on('click','.open-search-bar', function(event) {
+		event.preventDefault();
+		if ( $('.search-form-drop').hasClass('open') ) {
+			$('.search-form-drop').removeClass('open');
+		} else {
+			$('.search-form-drop').addClass('open');
+		}
+	});
+});
+
 /* Loading */
 jQuery(document).ready(function($) {
     jQuery('#loading_bg').addClass("hide_bg");

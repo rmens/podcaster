@@ -13,6 +13,7 @@
 $options = get_option('podcaster-theme');  
 $pod_upload_logo_url = isset( $options['pod-upload-logo'] ) ? $options['pod-upload-logo'] : '';
 $pod_responsive_style = isset( $options['pod-responsive-style'] ) ? $options['pod-responsive-style'] : '';
+$pod_nav_search = pod_theme_option('pod-nav-search');
 
 /* Social Media*/
 $pod_display_icons = isset( $options['pod-social-nav'] ) ? $options['pod-social-nav'] : '';
@@ -21,6 +22,7 @@ $pod_facebook = isset( $options['pod-facebook'] ) ? $options['pod-facebook'] : '
 $pod_twitter = isset( $options['pod-twitter'] ) ? $options['pod-twitter'] : '';
 $pod_google = isset( $options['pod-google'] ) ? $options['pod-google'] : '';
 $pod_instagram = isset( $options['pod-instagram'] ) ? $options['pod-instagram'] : '';
+$pod_soundcloud = isset( $options['pod-soundcloud'] ) ? $options['pod-soundcloud'] : '';
 $pod_tumblr = isset( $options['pod-tumblr'] ) ? $options['pod-tumblr'] : '';
 $pod_pinterest = isset( $options['pod-pinterest'] ) ? $options['pod-pinterest'] : '';
 $pod_flickr = isset( $options['pod-flickr'] ) ? $options['pod-flickr'] : '';
@@ -53,8 +55,23 @@ $pod_linkedin = isset( $options['pod-linkedin'] ) ? $options['pod-linkedin'] : '
 			</div><!--col-lg-3-->
 
 			<div class="col-lg-9 col-md-9">
+				<?php if ( $pod_nav_search == true ) : ?>
+				<div class="nav-search-form">
+					<a class="open-search-bar" href="#"><span data-icon="&#xF097;" class="batch"></span></a></span>
+					<div class="search-form-drop">
+						<form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
+						    <div class="search-container">
+						        <input type="text" value="" placeholder="Type and press enter..." name="s" id="s" />
+						        <input type="submit" id="searchsubmit" value="&#xF097;" class="batch" />
+						    </div>
+						</form>
+					</div>
+				</div>
+				<?php endif; ?>
 				<?php if( $pod_display_icons == true ){ ?>
-				<div class="header-inner social_container"><?php if( $pod_email !="" ) { ?><a class="email social_icon" href="mailto:<?php echo $pod_email; ?>"></a><?php } ?><?php if( isset( $pod_facebook ) && $pod_facebook !="" ) { ?><a class="facebook social_icon" href="<?php echo $pod_facebook ?>"></a><?php } ?><?php if( isset( $pod_twitter ) && $pod_twitter !="" ) { ?><a class="twitter social_icon" href="<?php echo $pod_twitter ?>"></a><?php } ?><?php if( isset( $pod_google ) && $pod_google !="" ) { ?><a class="google social_icon" href="<?php echo $pod_google ?>"></a><?php } ?><?php if( isset( $pod_instagram ) && $pod_instagram !="" ) { ?><a class="instagram social_icon" href="<?php echo $pod_instagram ?>"></a><?php } ?><?php if( isset( $pod_tumblr ) && $pod_tumblr !="" ) { ?><a class="tumblr social_icon" href="<?php echo $pod_tumblr ?>"></a><?php } ?><?php if( isset( $pod_pinterest ) && $pod_pinterest !="" ) { ?><a class="pinterest social_icon" href="<?php echo $pod_pinterest ?>"></a><?php } ?><?php if( isset( $pod_flickr ) && $pod_flickr !="" ) { ?><a class="flickr social_icon" href="<?php echo $pod_flickr ?>"></a><?php } ?><?php if( isset( $pod_youtube ) && $pod_youtube !="" ) { ?><a class="youtube social_icon" href="<?php echo $pod_youtube ?>"></a><?php } ?><?php if( isset( $pod_vimeo ) && $pod_vimeo !="" ) { ?><a class="vimeo social_icon" href="<?php echo $pod_vimeo ?>"></a><?php } ?><?php if( isset( $pod_skype ) && $pod_skype !="" ) { ?><a class="skype social_icon" href="<?php echo $pod_skype ?>"></a><?php } ?><?php if( isset( $pod_dribbble ) && $pod_dribbble !="" ) { ?><a class="dribbble social_icon" href="<?php echo $pod_dribbble ?>"></a><?php } ?><?php if( isset( $pod_weibo ) && $pod_weibo !="" ) { ?><a class="weibo social_icon" href="<?php echo $pod_weibo ?>"></a><?php } ?><?php if( isset( $pod_foursquare ) && $pod_foursquare !="" ) { ?><a class="foursquare social_icon" href="<?php echo $pod_foursquare ?>"></a><?php } ?><?php if( isset( $pod_github ) && $pod_github !="" ) { ?><a class="github social_icon" href="<?php echo $pod_github ?>"></a><?php } ?><?php if( isset( $pod_xing ) && $pod_xing !="" ) { ?><a class="xing social_icon" href="<?php echo $pod_xing ?>"></a><?php } ?><?php if( $pod_linkedin !="" ) { ?><a class="linkedin social_icon" href="<?php echo $pod_linkedin; ?>"></a><?php } ?></div><?php } ?>
+				<div class="header-inner social_container"><?php if( $pod_email !="" ) { ?><a class="email social_icon" href="mailto:<?php echo $pod_email; ?>"></a><?php } ?><?php if( isset( $pod_facebook ) && $pod_facebook !="" ) { ?><a class="facebook social_icon" href="<?php echo $pod_facebook ?>"></a><?php } ?><?php if( isset( $pod_twitter ) && $pod_twitter !="" ) { ?><a class="twitter social_icon" href="<?php echo $pod_twitter ?>"></a><?php } ?><?php if( isset( $pod_google ) && $pod_google !="" ) { ?><a class="google social_icon" href="<?php echo $pod_google ?>"></a><?php } ?><?php if( isset( $pod_instagram ) && $pod_instagram !="" ) { ?><a class="instagram social_icon" href="<?php echo $pod_instagram ?>"></a><?php } ?><?php if( isset( $pod_soundcloud ) && $pod_soundcloud !="" ) { ?><a class="soundcloud social_icon" href="<?php echo $pod_soundcloud ?>"></a><?php } ?><?php if( isset( $pod_tumblr ) && $pod_tumblr !="" ) { ?><a class="tumblr social_icon" href="<?php echo $pod_tumblr ?>"></a><?php } ?><?php if( isset( $pod_pinterest ) && $pod_pinterest !="" ) { ?><a class="pinterest social_icon" href="<?php echo $pod_pinterest ?>"></a><?php } ?><?php if( isset( $pod_flickr ) && $pod_flickr !="" ) { ?><a class="flickr social_icon" href="<?php echo $pod_flickr ?>"></a><?php } ?><?php if( isset( $pod_youtube ) && $pod_youtube !="" ) { ?><a class="youtube social_icon" href="<?php echo $pod_youtube ?>"></a><?php } ?><?php if( isset( $pod_vimeo ) && $pod_vimeo !="" ) { ?><a class="vimeo social_icon" href="<?php echo $pod_vimeo ?>"></a><?php } ?><?php if( isset( $pod_skype ) && $pod_skype !="" ) { ?><a class="skype social_icon" href="<?php echo $pod_skype ?>"></a><?php } ?><?php if( isset( $pod_dribbble ) && $pod_dribbble !="" ) { ?><a class="dribbble social_icon" href="<?php echo $pod_dribbble ?>"></a><?php } ?><?php if( isset( $pod_weibo ) && $pod_weibo !="" ) { ?><a class="weibo social_icon" href="<?php echo $pod_weibo ?>"></a><?php } ?><?php if( isset( $pod_foursquare ) && $pod_foursquare !="" ) { ?><a class="foursquare social_icon" href="<?php echo $pod_foursquare ?>"></a><?php } ?><?php if( isset( $pod_github ) && $pod_github !="" ) { ?><a class="github social_icon" href="<?php echo $pod_github ?>"></a><?php } ?><?php if( isset( $pod_xing ) && $pod_xing !="" ) { ?><a class="xing social_icon" href="<?php echo $pod_xing ?>"></a><?php } ?><?php if( $pod_linkedin !="" ) { ?><a class="linkedin social_icon" href="<?php echo $pod_linkedin; ?>"></a><?php } ?></div>
+				<?php } ?>
+				
 				<?php if ( $pod_responsive_style == 'toggle') { ?>
 				<nav id="nav" class="navigation toggle" role="navigation">
 				<?php } else { ?>

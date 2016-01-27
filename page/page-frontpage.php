@@ -43,6 +43,14 @@ get_header(); ?>
 	$pod_archive_link = pod_theme_option('pod-archive-link');
 	$pod_archive_link_txt = pod_theme_option('pod-archive-link-txt');
 	$pod_slide_amount = pod_theme_option('pod-featured-header-slides-amount');
+
+	/* Blog Excerpts */
+	$pod_exceprts_title = pod_theme_option('pod-excerpts-section-title');
+	$pod_excerpts_desc = pod_theme_option('pod-excerpts-section-desc');
+	$pod_excerpts_button = pod_theme_option('pod-excerpts-section-button');
+
+	$pod_truncate_title = pod_theme_option('pod-front-page-titles');
+	if( $pod_truncate_title == true ) { $is_truncate = " truncate"; } else { $is_truncate = " not-truncate"; }
 	?>
 
 
@@ -107,7 +115,7 @@ get_header(); ?>
 
 								   	$get_classes = get_post_class();
 									$classes = implode(' ', $get_classes); ?>
-									<div class="inside-container col-xxs-12">
+									<div class="inside-container col-lg-12 col-md-3 col-sm-4 col-xs-6 col-xxs-12">
 								   	<article class="<?php echo $classes; ?> list">
 								   		<div class="featured-image">
 								   			<a href="<?php echo get_permalink(); ?>"><?php echo get_the_post_thumbnail($id, 'square'); ?></a>
@@ -123,7 +131,7 @@ get_header(); ?>
 									   					<li><?php echo pod_explicit_post($post->ID); ?></li>
 									   				</ul>
 									   			<?php } ?>
-									   			<h2><a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
+									   			<h2 class="<?php echo $is_truncate; ?>"><a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
 									   		</div><!-- .post-header -->
 											<div class="post-content">
 												<?php if ( $pod_excerpt_type == 'force_excerpt' ) { ?>
@@ -161,7 +169,7 @@ get_header(); ?>
 						            $get_classes = get_post_class();
 									$classes = implode(' ', $get_classes);
 									$categories = get_the_category(); ?>			
-									<div class="inside-container col-xxs-12">	
+									<div class="inside-container col-lg-12 col-md-3 col-sm-4 col-xs-6 col-xxs-12">	
 									<article class="<?php echo $classes; ?> list">
 										<div class="featured-image">
 											<a href="<?php echo get_permalink(); ?>"><?php echo get_the_post_thumbnail( $post->ID, "square"); ?></a>
@@ -181,7 +189,7 @@ get_header(); ?>
 												</ul>
 											<?php } ?>
 
-										   	<h2><a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
+										   	<h2 class="<?php echo $is_truncate; ?>"><a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
 										   	</div><!-- .post-header -->
 											<div class="post-content">
 											<?php if ( $pod_excerpt_type == 'force_excerpt' ) { ?>
@@ -224,7 +232,7 @@ get_header(); ?>
 									$categories = get_the_category();
 
 				            		?>
-				            		<div class="inside-container col-xxs-12">
+				            		<div class="inside-container col-lg-12 col-md-3 col-sm-4 col-xs-6 col-xxs-12">
 						   			<article class="<?php echo $classes; ?> list">
 						   				<div class="featured-image">
 						   				<a href="<?php echo get_permalink(); ?>"><?php echo get_the_post_thumbnail( $post->ID, 'square' ); ?></a>
@@ -242,7 +250,7 @@ get_header(); ?>
 												<?php } ?>
 								   				<li><?php echo pod_explicit_post($post->ID); ?></li>
 						                     	</ul>
-								   				<h2><a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
+								   				<h2 class="<?php echo $is_truncate; ?>"><a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
 											</div><!-- .post-header -->
 											<div class="post-content">
 											<?php if ( $pod_excerpt_type == 'force_excerpt' || $pod_excerpt_type == '' ) { ?>
@@ -279,7 +287,10 @@ get_header(); ?>
 			 	<div class="container">
 			 		<div class="row">
 			 			<div class="col-lg-12">
-			 				<h2 class="title"><?php echo __('From the Blog', 'thstlang') ?></h2>
+			 				<?php
+						 		if( ( $pod_exceprts_title != '' ) ) {
+						 		echo '<h2 class="title">' . $pod_exceprts_title . '</h2>'; 
+						 	} ?>
 			 				<div class="row">
 
 				 				<?php 
@@ -287,6 +298,69 @@ get_header(); ?>
 				 					$args = array( 'cat' => -$arch_category, 'posts_per_page' => 4, 'paged' => get_query_var( 'paged' ), 'ignore_sticky_posts' => true);
 				 				} else {
 				 					$args = array( 'posts_per_page' => 4, 'paged' => get_query_var( 'paged' ), 'ignore_sticky_posts' => true );
+				 				}
+				 				//echo $arch_category;
+					  			$fromblog_posts = new WP_Query($args);
+
+					   			if( $fromblog_posts->have_posts() ) : while( $fromblog_posts->have_posts() ) : $fromblog_posts->the_post(); ?>
+					   			<article <?php post_class('col-lg-3 col-md-3 col-sm-3 col-xs-4 col-xxs-6'); ?>>
+					   				<div class="featured-image">
+					   					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('square'); ?></a>
+					   				</div><!-- .featured-image -->
+									<div class="inside">		   					
+						   				<div class="post-header">
+						   					<?php if( has_category() ) : ?>
+						   					<ul>
+						   						<li><?php the_category(', </li> <li> '); ?></li>
+						   					</ul>
+						   					<?php endif ; ?>
+						   					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+
+						   				</div><!-- .post-header -->
+										<div class="post-content">
+											<?php if ( $pod_excerpt_type == 'force_excerpt' ) : ?>
+												<?php the_excerpt(); ?>
+											<?php else : ?>
+												<?php global $more;	$more = 0; the_content(''); ?>
+											<?php endif; ?>
+										</div>
+										<div class="post-footer clearfix">
+											<a href="<?php the_permalink(); ?>"><?php echo __('Read More', 'thstlang') ?></a>
+										</div><!-- .post-footer -->
+									</div><!-- .inside -->
+								</article>
+					   			<?php endwhile; ?>
+				   			<?php endif; wp_reset_query(); ?>
+			   			</div><!-- .col-->
+			 			</div><!-- .col -->
+			 		</div><!-- .row -->
+			 	</div><!-- .container -->
+			 </div><!-- .fromtheblog -->
+		<?php elseif( $pod_excerpts_style == 'columns-2' || $pod_excerpts_style == ''  ) : ?>
+			<div class="fromtheblog">
+			 	<div class="container">
+			 		<div class="row">
+			 			<div class="col-lg-12">
+			 				<div class="row">
+			 					<div class="post description col-lg-3 col-md-3 col-sm-3 col-xs-4 col-xxs-6">
+									<?php
+								 		if( ( $pod_exceprts_title != '' ) ) {
+								 		echo '<h2 class="title">' . $pod_exceprts_title . '</h2>'; 
+								 	} ?>
+								 	<?php if( $pod_excerpts_desc != '' ) { ?>
+									<p><?php echo $pod_excerpts_desc; ?></p>
+			 						<?php } ?>
+			 						<?php if( get_option( 'show_on_front' ) == 'page' && $pod_excerpts_button != '' ) { ?>
+						   				<div class="button-container">
+							   				<a class="butn small" href="<?php echo get_permalink( get_option('page_for_posts' ) ); ?>"><?php echo $pod_excerpts_button; ?></a>
+							   			</div>
+						   			<?php } ?>
+			 					</div><!--description-->
+				 				<?php 
+				 				if( isset( $arch_category ) ) {
+				 					$args = array( 'cat' => -$arch_category, 'posts_per_page' => 3, 'paged' => get_query_var( 'paged' ), 'ignore_sticky_posts' => true);
+				 				} else {
+				 					$args = array( 'posts_per_page' => 3, 'paged' => get_query_var( 'paged' ), 'ignore_sticky_posts' => true );
 				 				}
 				 				//echo $arch_category;
 					  			$fromblog_posts = new WP_Query($args);

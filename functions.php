@@ -59,10 +59,18 @@ if( ! function_exists('themestation_setup') ) {
 			include_once( get_template_directory() . '/includes/info-page/podcaster-info.php' );
 		}
 		// This theme uses Redux Theme Options to manage theme settings. We'll include it here.
-		if ( class_exists('ReduxFramework') ) {
-			include_once( get_template_directory() . '/options-config.php' );
-		}
+		/**
+		 * Detect plugin. For use on Front End only.
+		 */
+		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
+		// check for plugin using plugin name
+		if ( is_plugin_active( 'redux-framework/redux-framework.php' ) ) {
+			//plugin is activated
+			if ( class_exists('ReduxFramework') ) {
+				include_once( get_template_directory() . '/options-config.php' );
+			}
+		} 
 		// This theme uses a custom image size for featured images, displayed on "standard" posts.
 		add_theme_support( 'post-thumbnails' );
 
@@ -446,10 +454,22 @@ if( ! function_exists('pod_load_javascript_files') ) {
 		/* Handles widgets */
 		wp_register_script(	'thst-recentp-tabs', $widgetsrc . 'js/thst-recent-posts.js', array('jquery', 'jquery-ui-accordion'), '1.0', true );
 
-		/* Handles parallax */
-		wp_register_script( 'thst-stellar', $scriptsrc . 'jquery.stellar.min.js', array(), '0.6.1', true );
+		/* Handles Stellar.js */
+		wp_register_script( 'thst-stellar', $scriptsrc . 'jquery.stellar.js', array(), '0.6.1', true );
 		wp_register_script( 'thst-call-stellar', $scriptsrc . 'call-stellar.js', array(), '1.0', true );
-			
+		
+		/* Handles Parallax.js 
+		wp_register_script( 'thst-scrollmagic', $scriptsrc . 'scrollmagic/ScrollMagic.js', array(), '2.0.5', true );
+		wp_register_script( 'thst-scrollmagic-timelinemax', $scriptsrc . 'scrollmagic/plugins/TimelineMax.min.js', array(), '', true );
+		wp_register_script( 'thst-scrollmagic-gsap', $scriptsrc . 'scrollmagic/plugins/animation.gsap.js', array(), '', true );
+		wp_register_script( 'thst-scrollmagic-tween', $scriptsrc . 'scrollmagic/plugins/TweenMax.min.js', array(), '', true );
+		wp_register_script( 'thst-scrollmagic-velocity', $scriptsrc . 'scrollmagic/plugins/velocity.min.js', array(), '', true );
+		wp_register_script( 'thst-scrollmagic-ani-velocity', $scriptsrc . 'scrollmagic/plugins/animation.velocity.js', array(), '', true );
+		wp_register_script( 'thst-scrollmagic-indicators', $scriptsrc . 'scrollmagic/plugins/debug.addIndicators.js', array(), '', true );
+		wp_register_script( 'thst-scrollmagic-jquery', $scriptsrc . 'scrollmagic/plugins/jquery.ScrollMagic.js', array(), '', true );
+		wp_register_script( 'thst-call-scrollmagic', $scriptsrc . 'call-scrollmagic.js', array(), '1.0', true );
+		*/
+
 		/* Handles Lightbox */
 		wp_register_script( 'thst-lightjs', $scriptsrc . 'lightbox-2.6.min.js', array('jquery'), '2.6', true );	
 
@@ -483,6 +503,19 @@ if( ! function_exists('pod_load_javascript_files') ) {
 		wp_enqueue_script( 'thst-recentp-tabs' );
 		wp_enqueue_script( 'thst-stellar' );
 		wp_enqueue_script( 'thst-call-stellar' );
+
+
+		/*wp_enqueue_script( 'thst-scrollmagic-tween' );
+		wp_enqueue_script( 'thst-scrollmagic-velocity' );
+		wp_enqueue_script( 'thst-scrollmagic' );
+		wp_enqueue_script( 'thst-scrollmagic-timelinemax' );
+		wp_enqueue_script( 'thst-scrollmagic-gsap' );
+		wp_enqueue_script( 'thst-scrollmagic-ani-velocity' );
+		wp_enqueue_script( 'thst-scrollmagic-indicators' );
+		wp_enqueue_script( 'thst-scrollmagic-jquery' );
+		wp_enqueue_script( 'thst-call-scrollmagic' );*/
+		
+
 		wp_enqueue_script( 'thst-contscr' );
 		wp_enqueue_script( 'call-thst-contscr' );
 
@@ -916,6 +949,7 @@ if( ! function_exists('thst_user_contactmethods') ) {
 	$user_contactmethods['user_dribbble'] = 'Dribbble';
 	$user_contactmethods['user_flickr'] = 'Flickr';
 	$user_contactmethods['user_instagram'] = 'Instagram';
+	$user_contactmethods['user_soundcloud'] = 'Soundcloud';
 	$user_contactmethods['user_tumblr'] = 'Tumblr';
 	$user_contactmethods['user_pinterest'] = 'Pinterest';
 	$user_contactmethods['user_xing'] = 'Xing';

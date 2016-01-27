@@ -10,7 +10,7 @@
  * */
  
 $options = get_option('podcaster-theme'); 
-$audiourl = get_post_meta( $post->ID, 'cmb_thst_audio_url', true );
+
 $pod_comm_display = isset( $options['pod-comments-display'] ) ? $options['pod-comments-display'] : '';
 $podhide_posts = isset( $options['pod-archive-hide-in-blog'] ) ? $options['pod-archive-hide-in-blog'] : '';
 $arch_category = isset( $options['pod-recordings-category'] ) ? $options['pod-recordings-category'] : '';
@@ -71,8 +71,12 @@ $position = get_the_author_meta( 'user_position' );
 	<?php if ( is_single() ) { ?>	
 		<?php if( has_category() ) : ?>
 			<ul class="entry-categories">
-				<li><strong><?php echo __('Categories: ', 'thstlang'); ?></strong><?php the_category(', </li> <li> '); ?></li><br>
-				<li><strong><?php echo __('Directe download: ', 'thstlang'); ?></strong><a href="<?php echo $audiourl ?>">128kbit mp3</a></li>
+				<li><strong><?php echo __('Categories: ', 'thstlang'); ?></strong><?php the_category(', </li> <li> '); ?></li>
+			</ul><!--tags-->
+		<?php endif; ?>
+		<?php if( has_tag() ) : ?>
+			<ul class="entry-tags">
+				<li><?php the_tags('# ','</li><li>#' , ''); ?></li>
 			</ul><!--tags-->
 		<?php endif; ?>
 		<footer class="entry-meta clearfix">

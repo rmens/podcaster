@@ -122,7 +122,7 @@ class thst_recent_blog_widget extends WP_Widget {
 							} 
 						?>
 						<div class="text">
-							<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+							<h4><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 							<p class="date"><?php the_time( get_option( 'date_format' ) ) ?></p>
 						</div><!--text-->
 						<div class="clear"></div>
@@ -141,7 +141,7 @@ class thst_recent_blog_widget extends WP_Widget {
 							} 
 						?>
 						<div class="text">
-							<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+							<h4><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 							<p class="date"><?php the_time( get_option( 'date_format' ) ) ?></p>
 						</div><!--text-->
 						<div class="clear"></div>
@@ -160,7 +160,7 @@ class thst_recent_blog_widget extends WP_Widget {
 							} 
 						?>
 						<div class="text">
-							<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+							<h4><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 							<p class="date"><?php the_time( get_option( 'date_format' ) ) ?></p>
 						</div><!--text-->
 						<div class="clear"></div>
