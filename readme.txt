@@ -1,0 +1,1 @@
+This is the readme.txt file for Podcaster. The documentation can be found in the "documentation" folder included with the theme files.

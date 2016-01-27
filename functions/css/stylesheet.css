@@ -1,0 +1,52 @@
+div#setting-error-tgmpa.updated {
+	background-color:#619c9b;
+	border:1px solid #497473;
+	color:#fff;
+	font-size:18px;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.updated.thst_plugins,
+.error.thst_plugins {
+	background-color:#619c9b;
+	border:1px solid #497473;
+	color:#fff;
+	font-size:14px;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+
+div#setting-error-tgmpa.updated p {
+	line-height:21px;
+}
+
+div#setting-error-tgmpa.updated strong {
+	font-weight:400;
+}
+
+div#setting-error-tgmpa.updated strong strong {
+	font-weight:bold;
+}
+
+div#setting-error-tgmpa.updated .btn_install {
+	color:#fff;
+	background-color:#4F7E7D;
+	font-size:14px;
+	padding:5px 12px;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+	//background-image: linear-gradient(to bottom, #4f7e7d, #385857);
+    border: 1px solid #304b4b;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+    border-radius:3px;
+    font-weight:400;
+}
+
+div#setting-error-tgmpa.updated .btn_install:hover {
+	background-color:#487372;
+}
+
+div#setting-error-tgmpa.updated .btn_install.dismiss-notice {
+	opacity:0.5;
+}

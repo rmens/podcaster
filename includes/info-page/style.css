@@ -1,0 +1,124 @@
+/**
+ * Theme Name: Tabbed
+ * Theme URI: http://www.ilovecolors.com.ar/
+ * Description: Test theme to display a tabbed settings page.
+ * Version: 1.0
+ * Author: Elio Rivero
+ * Author URI: http://www.ilovecolors.com.ar/
+ */
+
+
+.wp-badge {
+    background: transparent url("img/icon.png") no-repeat scroll center 24px / 85px 85px !important;
+    color: #777;
+    box-shadow: none;
+    font-weight: 400;
+}
+.grid{
+	width: 960px;
+	display: block;
+	margin: 0 auto;
+}
+.sub-tabs {
+	margin-top:42px;
+}
+.about-wrap .one-col .col {
+    margin-right: 0;
+    width: 99.6%;
+}
+.about-wrap .feature-section.no-top-margin {
+	padding-bottom:12px;
+}
+.about-wrap .feature-section.no-top-margin .col {
+	margin-top:0;
+}
+#header-container{
+	margin-bottom: 30px;
+	overflow: hidden
+}
+#body-container{
+	clear:both;
+	overflow: hidden
+}
+#navigation ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#navigation li{
+	float: left;
+	list-style: none;
+	margin-right: 10px;
+}
+
+/* Changelog*/
+
+#changelog h2 {
+	display: inline-block;
+}
+#changelog h2:before {
+	content: '\F475';
+	display: inline-block;
+    font-family: dashicons;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    height: 20px;
+    line-height: 1;
+    text-align: center;
+    text-decoration: inherit;
+    vertical-align: top;
+    width: 20px;
+    margin-right:16px;
+    position: relative;
+    top:5px;
+    color:#888;
+}
+#changelog span.date {
+	
+}
+#changelog li.first {
+	margin-bottom:32px;
+}
+
+#changelog li .label {
+	background:#ccc;
+	color:#444;
+	color:rgba(0,0,0,0.6);
+	color:#fff;
+	padding:3px 6px;
+	border-radius: 3px;
+	font-size: 10px;
+	margin-right:5px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+#changelog li .label.update {
+	background:#3a96d0;
+}
+#changelog li .label.new {
+	background:#45bf84;
+}
+#changelog li .label.improved {
+	background:#45bfbe;
+}
+#changelog li .label.fix {
+	background:#70b81b;
+}
+#changelog li .label.fix.minor {
+	background:#8bdd2b;
+}
+#changelog li .label.release {
+	background:#8631d5;
+}
+#changelog li .file {
+	margin:12px 0 12px 24px;
+}
+#changelog li .file li {
+	font-size: 12px;
+	/*font-weight: bold;*/
+	font-family: Consolas,Monaco,monospace;
+}
+#changelog li .file li .root {
+	color:#777;
+}
