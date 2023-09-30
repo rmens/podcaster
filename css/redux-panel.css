@@ -1,0 +1,4 @@
+/* Corrections for 5.6 */
+.buttonset.ui-buttonset .ui-checkboxradio-icon {
+	display: none;
+}

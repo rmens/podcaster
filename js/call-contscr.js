@@ -1,6 +1,8 @@
+"use strict";
+
 (function($){
-    $(window).load(function(){
-        $(".wp-playlist .wp-playlist-tracks").mCustomScrollbar({
+    $( window ).on( 'load', function(){
+        $( '.wp-playlist .wp-playlist-tracks' ).mCustomScrollbar({
             mouseWheel: true,
             autoDraggerLength: true,
         });

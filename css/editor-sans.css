@@ -1,0 +1,26 @@
+/* Custom Editor Styles */
+
+/* 
+ * With some edits, this can be used as a base for your Custom Editor Styles.
+ * Note that this is for demonstration purposes only, and some elements may not 
+ * be covered here.
+ */
+
+/* Approximate the theme width, except for full-width images. */
+
+body {
+	font-family: 'Raleway', 'Arial', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Raleway', 'Arial', sans-serif;
+	font-weight: 700;
+}
+.editor-post-title__block .editor-post-title__input {
+	font-family: 'Raleway', 'Arial', sans-serif;
+}
+
+
+/** === Default Block (on new post) === */
+.block-editor-default-block-appender textarea.block-editor-default-block-appender__content {
+	font-family: 'Raleway', 'Arial', sans-serif;
+}

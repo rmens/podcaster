@@ -1,0 +1,5322 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Podcaster\n"
+"POT-Creation-Date: 2021-04-30 10:05+0200\n"
+"PO-Revision-Date: 2021-04-30 10:05+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: 404.php:19
+msgid "404 Error"
+msgstr ""
+
+#: 404.php:20
+msgid "Sorry, the page you requested cannot be found."
+msgstr ""
+
+#: archive.php:58
+msgid "Post Archive of"
+msgstr ""
+
+#: archive.php:76
+#, php-format
+msgid ""
+"You are viewing all posts published for the month of %s If you still can't "
+"find what you are looking for, try searching using the form at the right "
+"upper corner of the page."
+msgstr ""
+
+#: archive.php:106 page.php:109 page/page-archive.php:122
+#: page/page-blank-navigation-footer.php:82 page/page-blank.php:83
+#: page/page-fullwidth.php:99 page/page-gutenberg.php:192
+#: page/page-podcastarchive-grid-classic.php:212
+#: page/page-podcastarchive-grid.php:218
+#: page/page-podcastarchive-list-classic.php:194
+#: page/page-podcastarchive-list.php:219 page/page-podcastarchive.php:254
+#: page/page-sidebarleft.php:105 search.php:58
+msgid "Sorry, no posts matched your criteria."
+msgstr ""
+
+#: archive.php:124 author.php:137 page/page-podcastarchive-grid-classic.php:227
+#: page/page-podcastarchive-grid.php:233
+#: page/page-podcastarchive-list-classic.php:210
+#: page/page-podcastarchive-list.php:236 page/page-podcastarchive.php:244
+#: search.php:76
+msgid "&laquo;"
+msgstr ""
+
+#: archive.php:125 author.php:138 page/page-podcastarchive-grid-classic.php:228
+#: page/page-podcastarchive-grid.php:234
+#: page/page-podcastarchive-list-classic.php:211
+#: page/page-podcastarchive-list.php:237 page/page-podcastarchive.php:245
+#: search.php:77
+msgid "&raquo;"
+msgstr ""
+
+#: comments.php:14
+#, php-format
+msgid "Required fields are marked %s"
+msgstr ""
+
+#: comments.php:24
+msgid "Leave a Reply"
+msgstr ""
+
+#: comments.php:25
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: comments.php:26
+msgid "Cancel Reply"
+msgstr ""
+
+#: comments.php:27
+msgid "Post Comment"
+msgstr ""
+
+#: comments.php:28
+msgctxt "noun"
+msgid "Comment"
+msgstr ""
+
+#: comments.php:29
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr ""
+
+#: comments.php:30
+#, php-format
+msgid ""
+"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
+"this account\">Log out?</a>"
+msgstr ""
+
+#: comments.php:31
+msgid "Your email address will not be published. "
+msgstr ""
+
+#: comments.php:35
+msgid "Name *"
+msgstr ""
+
+#: comments.php:36
+msgid "Email *"
+msgstr ""
+
+#: comments.php:37
+msgid "URL"
+msgstr ""
+
+#: comments.php:46
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+
+#: comments.php:59
+#, php-format
+msgid "One comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:67 comments.php:93
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:68 comments.php:94
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:69 comments.php:95
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: comments.php:79
+msgid "Trackbacks & Pingbacks"
+msgstr ""
+
+#: comments.php:84 options-config.php:6730
+msgid "Comments"
+msgstr ""
+
+#: functions.php:53
+msgid "Header Menu"
+msgstr ""
+
+#: functions.php:54
+msgid "Footer Menu"
+msgstr ""
+
+#: functions.php:574
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: functions.php:592
+msgid "Sidebar Blog"
+msgstr ""
+
+#: functions.php:593
+msgid "This sidebar will appear on your blog."
+msgstr ""
+
+#: functions.php:603
+msgid "Sidebar Single View"
+msgstr ""
+
+#: functions.php:604
+msgid "This sidebar will appear on the single view of your blog."
+msgstr ""
+
+#: functions.php:614
+msgid "Sidebar Page"
+msgstr ""
+
+#: functions.php:615
+msgid "This sidebar will appear on your pages."
+msgstr ""
+
+#: functions.php:625
+msgid "Sidebar Front Page"
+msgstr ""
+
+#: functions.php:626
+msgid "This sidebar will appear on your front page."
+msgstr ""
+
+#: functions.php:663
+msgid "0 View"
+msgstr ""
+
+#: functions.php:665
+msgid " Views"
+msgstr ""
+
+#: functions.php:676
+msgid "Views"
+msgstr ""
+
+#: functions/pod-admin-notices.php:25
+msgid ""
+"Multiple podcasting plugins seems to be active at the same time. Please keep "
+"one podcasting plugin active at a time to avoid conflicts."
+msgstr ""
+
+#: functions/pod-admin-notices.php:27 functions/pod-admin-notices.php:37
+#: functions/pod-admin-notices.php:47
+msgid "Begin deactivating plugins"
+msgstr ""
+
+#: functions/pod-admin-notices.php:28 functions/pod-admin-notices.php:38
+#: functions/pod-admin-notices.php:48
+msgid "Find out more"
+msgstr ""
+
+#: functions/pod-admin-notices.php:35
+#, php-format
+msgid ""
+"If you are using %1$s Seriously Simple Podcasing %2$s to manage your "
+"podcast, please deactivate %1$s Podcaster Media %2$s to avoid conflicts."
+msgstr ""
+
+#: functions/pod-admin-notices.php:45
+#, php-format
+msgid ""
+"If you are using %1$s Blubrry PowerPress %2$s to manage your podcast, please "
+"deactivate %1$s Podcaster Media %2$s to avoid conflicts."
+msgstr ""
+
+#: functions/pod-post-editor-functions.php:15
+msgctxt "Raleway font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions/pod-post-editor-functions.php:21
+msgctxt "Lora font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions/pod-post-editor-functions.php:470
+msgid "Azure Blue"
+msgstr ""
+
+#: functions/pod-post-editor-functions.php:475
+msgid "Slate Grey"
+msgstr ""
+
+#: functions/pod-post-editor-functions.php:480
+msgid "Dolphin Grey"
+msgstr ""
+
+#: functions/pod-post-editor-functions.php:485
+msgid "Silver Grey"
+msgstr ""
+
+#: functions/pod-post-editor-functions.php:490
+msgid "White"
+msgstr ""
+
+#: functions/pod-theme-functions.php:125
+#: includes/info-page/podcaster-info.php:361
+#: includes/info-page/podcaster-info.php:692
+msgid "Documentation"
+msgstr ""
+
+#: functions/pod-theme-functions.php:151
+msgid "Theme Support"
+msgstr ""
+
+#: functions/pod-theme-functions.php:425 functions/pod-theme-functions.php:437
+#: functions/pod-theme-functions.php:444 functions/pod-theme-functions.php:4910
+#: functions/pod-theme-functions.php:5097 includes/pod-metaboxes-media.php:244
+#: includes/pod-metaboxes-media.php:315 post/postheader.php:50
+#: postfp/postheader.php:53 single.php:187 single.php:278
+msgid "Explicit"
+msgstr ""
+
+#: functions/pod-theme-functions.php:438 functions/pod-theme-functions.php:445
+msgid "E"
+msgstr ""
+
+#: functions/pod-theme-functions.php:865
+msgid "Type and press enter..."
+msgstr ""
+
+#: functions/pod-theme-functions.php:945
+msgid "Please schedule a podcast post, to make it visible here."
+msgstr ""
+
+#: functions/pod-theme-functions.php:1418
+#: functions/pod-theme-functions.php:4272
+#: functions/pod-theme-functions.php:4353
+#: functions/pod-theme-functions.php:4502
+msgid "Read More"
+msgstr ""
+
+#: functions/pod-theme-functions.php:3420
+msgid "Please mark your post(s) as featured for them to appear here."
+msgstr ""
+
+#: functions/pod-theme-functions.php:4598
+msgid "Read Our Story"
+msgstr ""
+
+#: functions/pod-theme-functions.php:5210
+#: functions/pod-theme-functions.php:5270 single.php:414 single.php:474
+msgid "Podcast"
+msgstr ""
+
+#: functions/pod-theme-functions.php:5234 single.php:438
+msgid "Subscribe"
+msgstr ""
+
+#: functions/pod-theme-functions.php:5773
+msgid "minute"
+msgstr ""
+
+#: functions/pod-theme-functions.php:5775
+#: functions/pod-theme-functions.php:5777
+msgid "minutes"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:334
+msgid "Install Required Plugins"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:335
+msgid "Install Plugins"
+msgstr ""
+
+#. translators: %s: plugin name.
+#: functions/tgmpa/class-tgm-plugin-activation.php:337
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#. translators: %s: plugin name.
+#: functions/tgmpa/class-tgm-plugin-activation.php:339
+#, php-format
+msgid "Updating Plugin: %s"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:340
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#. translators: 1: plugin name(s).
+#: functions/tgmpa/class-tgm-plugin-activation.php:343
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: functions/tgmpa/class-tgm-plugin-activation.php:349
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: functions/tgmpa/class-tgm-plugin-activation.php:355
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: functions/tgmpa/class-tgm-plugin-activation.php:361
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: functions/tgmpa/class-tgm-plugin-activation.php:367
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: functions/tgmpa/class-tgm-plugin-activation.php:373
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:378
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:383
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:388
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:392
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:393
+#: functions/tgmpa/class-tgm-plugin-activation.php:912
+#: functions/tgmpa/class-tgm-plugin-activation.php:2618
+#: functions/tgmpa/class-tgm-plugin-activation.php:3665
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:394
+#: functions/tgmpa/class-tgm-plugin-activation.php:3244
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:395
+#: functions/tgmpa/class-tgm-plugin-activation.php:3037
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name.
+#: functions/tgmpa/class-tgm-plugin-activation.php:397
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: functions/tgmpa/class-tgm-plugin-activation.php:399
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+
+#. translators: 1: dashboard link.
+#: functions/tgmpa/class-tgm-plugin-activation.php:401
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:402
+msgid "Dismiss this notice"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:403
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:404
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:607
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:608
+msgid "Update Required"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:1019
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:1019
+#: functions/tgmpa/class-tgm-plugin-activation.php:1022
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:1022
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:1206
+#: functions/tgmpa/class-tgm-plugin-activation.php:3033
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr ""
+
+#. translators: %s: version number
+#: functions/tgmpa/class-tgm-plugin-activation.php:2067
+#, php-format
+msgid "TGMPA v%s"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2358
+msgid "Required"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2361
+msgid "Recommended"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2377
+msgid "WordPress Repository"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2380
+msgid "External Source"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2383
+msgid "Pre-Packaged"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2400
+msgid "Not Installed"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2404
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2406
+msgid "Active"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2412
+msgid "Required Update not Available"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2415
+msgid "Requires Update"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2418
+msgid "Update recommended"
+msgstr ""
+
+#. translators: 1: install status, 2: update status
+#: functions/tgmpa/class-tgm-plugin-activation.php:2427
+#, php-format
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr ""
+
+#. translators: 1: number of plugins.
+#: functions/tgmpa/class-tgm-plugin-activation.php:2473
+#, php-format
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: functions/tgmpa/class-tgm-plugin-activation.php:2477
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: functions/tgmpa/class-tgm-plugin-activation.php:2481
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: functions/tgmpa/class-tgm-plugin-activation.php:2485
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2567
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2575
+msgid "Installed version:"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2583
+msgid "Minimum required version:"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2595
+msgid "Available version:"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2618
+msgid "No plugins to install, update or activate."
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2632
+msgid "Plugin"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2633
+msgid "Source"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2634
+msgid "Type"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2638
+msgid "Version"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2639
+msgid "Status"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: functions/tgmpa/class-tgm-plugin-activation.php:2688
+#, php-format
+msgid "Install %2$s"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: functions/tgmpa/class-tgm-plugin-activation.php:2693
+#, php-format
+msgid "Update %2$s"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: functions/tgmpa/class-tgm-plugin-activation.php:2699
+#, php-format
+msgid "Activate %2$s"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2769
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2802
+msgid "Install"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2808
+msgid "Update"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2811 options-config.php:1170
+#: options-config.php:1609
+msgid "Activate"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2842
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2844
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2885
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2887
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:2993
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:3019
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:3243
+msgid "Plugin activation failed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: functions/tgmpa/class-tgm-plugin-activation.php:3583
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#. translators: 1: plugin name, 2: error message.
+#: functions/tgmpa/class-tgm-plugin-activation.php:3586
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: functions/tgmpa/class-tgm-plugin-activation.php:3588
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:3592
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: functions/tgmpa/class-tgm-plugin-activation.php:3594
+#: functions/tgmpa/class-tgm-plugin-activation.php:3602
+#, php-format
+msgid "%1$s done."
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:3595
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: functions/tgmpa/class-tgm-plugin-activation.php:3597
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:3600
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#: functions/tgmpa/class-tgm-plugin-activation.php:3603
+msgid "All installations have been completed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: functions/tgmpa/class-tgm-plugin-activation.php:3605
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: includes/custom-fields/typography-input/field_typography_input.php:144
+msgid "Font Family"
+msgstr ""
+
+#: includes/custom-fields/typography-input/field_typography_input.php:161
+#: includes/custom-fields/typography-input/field_typography_input.php:174
+msgid "Font style"
+msgstr ""
+
+#: includes/custom-fields/typography-input/field_typography_input.php:163
+msgid "Font Style"
+msgstr ""
+
+#: includes/custom-fields/typography-input/field_typography_input.php:174
+#: includes/pod-metaboxes-media.php:344 includes/pod-metaboxes.php:201
+#: options-config.php:1178 options-config.php:1218 options-config.php:1926
+#: options-config.php:2014 options-config.php:2269 options-config.php:4132
+#: options-config.php:5509
+msgid "Style"
+msgstr ""
+
+#: includes/custom-fields/typography-input/field_typography_input.php:212
+#: includes/custom-fields/typography-input/field_typography_input.php:213
+#: includes/custom-fields/typography-input/field_typography_input.php:214
+msgid "Text Align"
+msgstr ""
+
+#: includes/custom-fields/typography-input/field_typography_input.php:236
+#: includes/custom-fields/typography-input/field_typography_input.php:237
+#: includes/custom-fields/typography-input/field_typography_input.php:238
+msgid "Text Transform"
+msgstr ""
+
+#: includes/custom-fields/typography-input/field_typography_input.php:260
+#: includes/custom-fields/typography-input/field_typography_input.php:261
+#: includes/custom-fields/typography-input/field_typography_input.php:262
+msgid "Font Variant"
+msgstr ""
+
+#: includes/custom-fields/typography-input/field_typography_input.php:281
+#: includes/custom-fields/typography-input/field_typography_input.php:282
+#: includes/custom-fields/typography-input/field_typography_input.php:283
+msgid "Text Decoration"
+msgstr ""
+
+#: includes/custom-fields/typography-input/field_typography_input.php:304
+msgid "Text Weight"
+msgstr ""
+
+#: includes/custom-fields/typography-input/field_typography_input.php:305
+#: includes/custom-fields/typography-input/field_typography_input.php:306
+msgid "Font Weight"
+msgstr ""
+
+#: includes/custom-fields/typography-input/field_typography_input.php:331
+#: includes/custom-fields/typography-input/field_typography_input.php:332
+msgid "Font Size"
+msgstr ""
+
+#: includes/custom-fields/typography-input/field_typography_input.php:332
+msgid "Size"
+msgstr ""
+
+#: includes/custom-fields/typography-input/field_typography_input.php:340
+#: includes/custom-fields/typography-input/field_typography_input.php:341
+msgid "Line Height"
+msgstr ""
+
+#: includes/custom-fields/typography-input/field_typography_input.php:341
+msgid "Height"
+msgstr ""
+
+#: includes/custom-fields/typography-input/field_typography_input.php:349
+#: includes/custom-fields/typography-input/field_typography_input.php:350
+msgid "Word Spacing"
+msgstr ""
+
+#: includes/custom-fields/typography-input/field_typography_input.php:358
+#: includes/custom-fields/typography-input/field_typography_input.php:359
+msgid "Letter Spacing"
+msgstr ""
+
+#: includes/custom-fields/typography-input/field_typography_input.php:377
+msgid "Font Color"
+msgstr ""
+
+#: includes/custom-fields/typography-input/field_typography_input.php:379
+msgid "Font color"
+msgstr ""
+
+#: includes/demo-data-old/pod-one-click-import.php:17
+#: includes/demo-data-old/pod-one-click-import.php:31
+#: includes/demo-data-old/pod-one-click-import.php:45
+#: includes/demo-data-old/pod-one-click-import.php:59
+#: includes/demo-data-old/pod-one-click-import.php:73
+#: includes/demo-data-old/pod-one-click-import.php:87
+#: includes/demo-data-old/pod-one-click-import.php:104
+#: includes/demo-data-old/pod-one-click-import.php:121
+#: includes/demo-data-old/pod-one-click-import.php:135
+#: includes/demo-data-old/pod-one-click-import.php:149
+#: includes/demo-data-old/pod-one-click-import.php:163
+#: includes/demo-data-old/pod-one-click-import.php:177
+#: includes/demo-data-old/pod-one-click-import.php:191
+#: includes/demo-data-old/pod-one-click-import.php:205
+#: includes/demo-data-old/pod-one-click-import.php:219
+#: includes/demo-data-old/pod-one-click-import.php:233
+#: includes/demo-data-old/pod-one-click-import.php:247
+#: includes/demo-data-old/pod-one-click-import.php:261
+#: includes/demo-data-old/pod-one-click-import.php:275
+#: includes/demo-data-old/pod-one-click-import.php:289
+#: includes/demo-data-old/pod-one-click-import.php:303
+#: includes/demo-data-old/pod-one-click-import.php:317
+#: includes/demo-data-old/pod-one-click-import.php:331
+#: includes/demo-data-old/pod-one-click-import.php:345
+#: includes/demo-data-old/pod-one-click-import.php:359
+#: includes/demo-data-old/pod-one-click-import.php:373
+#: includes/demo-data-old/pod-one-click-import.php:387
+#: includes/demo-data-old/pod-one-click-import.php:401
+#: includes/demo-data-old/pod-one-click-import.php:415
+#: includes/demo-data/pod-one-click-import.php:12
+#: includes/demo-data/pod-one-click-import.php:21
+#: includes/demo-data/pod-one-click-import.php:30
+#: includes/demo-data/pod-one-click-import.php:39
+#: includes/demo-data/pod-one-click-import.php:48
+#: includes/demo-data/pod-one-click-import.php:57
+#: includes/demo-data/pod-one-click-import.php:69
+#: includes/demo-data/pod-one-click-import.php:81
+#: includes/demo-data/pod-one-click-import.php:90
+#: includes/demo-data/pod-one-click-import.php:99
+#: includes/demo-data/pod-one-click-import.php:108
+#: includes/demo-data/pod-one-click-import.php:117
+#: includes/demo-data/pod-one-click-import.php:126
+#: includes/demo-data/pod-one-click-import.php:135
+#: includes/demo-data/pod-one-click-import.php:144
+#: includes/demo-data/pod-one-click-import.php:153
+#: includes/demo-data/pod-one-click-import.php:162
+#: includes/demo-data/pod-one-click-import.php:171
+#: includes/demo-data/pod-one-click-import.php:180
+#: includes/demo-data/pod-one-click-import.php:189
+#: includes/demo-data/pod-one-click-import.php:198
+#: includes/demo-data/pod-one-click-import.php:207
+#: includes/demo-data/pod-one-click-import.php:216
+#: includes/demo-data/pod-one-click-import.php:225
+#: includes/demo-data/pod-one-click-import.php:234
+#: includes/demo-data/pod-one-click-import.php:243
+#: includes/demo-data/pod-one-click-import.php:252
+#: includes/demo-data/pod-one-click-import.php:261
+#: includes/demo-data/pod-one-click-import.php:270
+msgid ""
+"The import process might take a few minutes, please do not close the window."
+msgstr ""
+
+#: includes/demo-data-old/pod-one-click-import.php:427
+#: includes/demo-data/pod-one-click-import.php:282
+msgid "One Click Demo Import"
+msgstr ""
+
+#: includes/demo-data-old/pod-one-click-import.php:428
+#: includes/demo-data/pod-one-click-import.php:283
+msgid "Import Demo Data"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:62
+#: includes/info-page/podcaster-info.php:84
+msgid "What's New"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:82
+msgid "About"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:83
+#: includes/info-page/podcaster-info.php:326
+msgid "Getting Started"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:85
+msgid "Help"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:140
+msgid ""
+"Thank you for installing <strong>Podcaster</strong>! Take a look at the "
+"newest features and updates."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:146
+msgid "Theme Settings updated."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:176
+#: includes/info-page/podcaster-info.php:412
+msgid "Complete Your Theme Setup"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:183
+#: includes/info-page/podcaster-info.php:419
+#, php-format
+msgid ""
+"Congratulations, you have successfully installed %s version %s Make sure to "
+"complete setting up the theme by following the steps below."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:194
+#: includes/info-page/podcaster-info.php:430
+msgid "Required plugins"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:198
+#: includes/info-page/podcaster-info.php:434
+#, php-format
+msgid ""
+"<a href=\"%1$s\" target=\"_blank\">Install</a> and activate all required "
+"plugins."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:209
+#: includes/info-page/podcaster-info.php:445
+msgid "Import demo data"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:211
+#: includes/info-page/podcaster-info.php:249
+#: includes/info-page/podcaster-info.php:447
+#: includes/info-page/podcaster-info.php:485
+msgid "Plugin not active"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:222
+#: includes/info-page/podcaster-info.php:458
+#, php-format
+msgid ""
+"Import demo content via the <a href=\"%1$s\" target=\"_blank\">One-Click "
+"Demo</a> installer."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:225
+#: includes/info-page/podcaster-info.php:259
+#: includes/info-page/podcaster-info.php:461
+#: includes/info-page/podcaster-info.php:495
+#, php-format
+msgid ""
+"Please <a href=\"%1$s\" target=\"_blank\">install</a> and activate the Redux "
+"Framework plugin to complete this step."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:228
+#: includes/info-page/podcaster-info.php:464
+#, php-format
+msgid ""
+"Please <a href=\"%1$s\" target=\"_blank\">install</a> and activate the One "
+"Click Demo Import plugin to complete this step."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:232
+#: includes/info-page/podcaster-info.php:468
+#, php-format
+msgid ""
+"Please <a href=\"%1$s\" target=\"_blank\">install</a> and activate the One "
+"Click Demo Import and the Redux Framework plugin to complete this step."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:257
+#: includes/info-page/podcaster-info.php:493
+#, php-format
+msgid ""
+"Customize your website by using the <a href=\"%1$s\" target=\"_blank\">theme "
+"options</a>."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:275
+#: includes/info-page/podcaster-info.php:511
+#, php-format
+msgid ""
+"Take a look at the <a href=\"%1$s\" target=\"_blank\">documentation</a> for "
+"Podcaster, if questions arise."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:309
+msgid "Welcome"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:310
+msgid ""
+"Thank you for installing Podcaster. This theme comes ready to be used for "
+"your podcasting project, ready with demos and many theme options."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:327
+msgid ""
+"If this is your first time using Podcaster, it's recommended you follow the "
+"steps mentioned above or check the documentation for more information."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:328
+msgid "View checklist"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:344
+msgid "What's new"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:345
+msgid ""
+"New features and adjustments are constantly being added to Podcaster. Check "
+"out the changelog for more information."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:346
+msgid "View changelog"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:362
+#: includes/info-page/podcaster-info.php:693
+msgid ""
+"Need more information on how to use Podcaster? Take a look at the "
+"documentation, which offers a more in depth look at the themes features."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:363
+msgid "See documentation"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:379
+#: includes/info-page/podcaster-info.php:708
+msgid "Support"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:380
+#: includes/info-page/podcaster-info.php:709
+msgid ""
+"You can always get in touch, if you need more help with setting up the "
+"theme. Simply send in a request via the Podcaster support page."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:381
+msgid "Go to support"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:393
+#: includes/info-page/podcaster-info.php:532
+#: includes/info-page/podcaster-info.php:668
+#: includes/info-page/podcaster-info.php:719
+msgid " by"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:550
+msgid "Changelog"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:555
+#, php-format
+msgid "Version %s inculdes a number of updates."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:556
+#, php-format
+msgid ""
+"Please <a href=\"%1$s\" target=\"_blank\">click here</a> to see the "
+"changelog."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:576
+msgid "Additional search menu style"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:577
+msgid ""
+"A new style for the navigation menu, select the horizontal style to activate "
+"it."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:591
+msgid "Additional play icon"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:592
+msgid ""
+"A new style for the play icon for the front page episodes has been added in "
+"this version."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:608
+msgid "Custom excerpt length"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:609
+msgid ""
+"Excerpt lengths for the front page header and episodes can now be set within "
+"the theme options."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:625
+msgid "WordPress 5.7 ready"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:626
+msgid "Podcaster has been tested and is ready to be used with WordPress 5.7."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:642
+msgid "PHP 7.1 - PHP 7.3"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:643
+msgid ""
+"Podcaster is fully compatible and has been tested for use with PHP 7.0 - 7.3."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:658
+msgid "Bugfixes & Improvements"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:659
+msgid ""
+"Several bugs and improvements have been added to this version of Podcaster. "
+"You can check the documentation for the complete changelog."
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:694
+msgid "See Documentation"
+msgstr ""
+
+#: includes/info-page/podcaster-info.php:710
+msgid "Go to Support"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:120 includes/pod-metaboxes.php:115
+msgid "Featured Post"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:128 includes/pod-metaboxes.php:123
+msgid "Feature Post"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:129 includes/pod-metaboxes.php:124
+msgid "Tick the box to feature this post on the front page."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:134 includes/pod-metaboxes.php:129
+msgid "Featured Post Header"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:135 includes/pod-metaboxes.php:130
+msgid "Upload an image or enter an URL."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:141 includes/pod-metaboxes.php:136
+#: options-config.php:1726 options-config.php:1783 options-config.php:2894
+msgid "Alignment"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:142 includes/pod-metaboxes.php:137
+msgid "Select the alignment of your header."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:147 includes/pod-metaboxes-media.php:383
+#: includes/pod-metaboxes.php:142 includes/pod-metaboxes.php:240
+msgid "Left"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:148 includes/pod-metaboxes-media.php:384
+#: includes/pod-metaboxes.php:143 includes/pod-metaboxes.php:241
+msgid "Center"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:149 includes/pod-metaboxes-media.php:385
+#: includes/pod-metaboxes.php:144 includes/pod-metaboxes.php:242
+msgid "Right"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:153 includes/pod-metaboxes-media.php:395
+#: includes/pod-metaboxes.php:148 includes/pod-metaboxes.php:252
+#: options-config.php:1293
+msgid "Background Style"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:154 includes/pod-metaboxes.php:149
+msgid "Choose how you would like to display the background image."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:158 includes/pod-metaboxes-media.php:400
+#: includes/pod-metaboxes.php:153 includes/pod-metaboxes.php:257
+msgid "Tiled"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:159 includes/pod-metaboxes.php:154
+msgid "Contain"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:160 includes/pod-metaboxes-media.php:401
+#: includes/pod-metaboxes.php:155 includes/pod-metaboxes.php:258
+msgid "Stretched"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:165 includes/pod-metaboxes.php:160
+msgid "Display Excerpt"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:166 includes/pod-metaboxes.php:161
+msgid "Tick the box to display an excerpt."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:171 includes/pod-metaboxes.php:166
+msgid "Excerpt Word Count"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:172 includes/pod-metaboxes.php:167
+msgid ""
+"Enter the amount of words you want to display in your excerpt. Leaving it "
+"blank with default to 55 words."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:177 includes/pod-metaboxes-media.php:405
+#: includes/pod-metaboxes.php:172 includes/pod-metaboxes.php:262
+#: options-config.php:900 options-config.php:995 options-config.php:1334
+#: options-config.php:6368
+msgid "Parallax"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:178 includes/pod-metaboxes.php:173
+msgid "Tick the box to activate parallax background scrolling."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:188
+msgid "Featured Audio"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:195
+msgid "Audio Type"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:199
+msgid "Audio File (URL)"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:200
+msgid "Audio Embed (URL)"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:201
+msgid "Audio Embed (Code)"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:202 includes/pod-metaboxes-media.php:226
+msgid "Audio Playlist"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:207
+msgid "Audio URL"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:208
+msgid ""
+"Upload an audio file or enter a URL that ends with a file extension, such as "
+"<strong>*.mp3</strong>."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:213
+msgid "Audio Embed URL"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:214
+msgid ""
+"Enter your embed URL here. URL's posted here should  not end on <strong>*."
+"mp3</strong> or other file extensions. Supported websites are: YouTube, "
+"Vimeo, Hulu, DailyMotion, Flickr Video and Qik."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:219
+msgid "Audio Embed Code"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:220 includes/pod-metaboxes-media.php:279
+msgid "Paste your embed code here."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:227
+msgid "Upload audio to be displayed in a playlist. (Only works with uploads.)"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:232
+msgid "Audio Caption"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:233
+msgid "Enter a short audio caption.(optional)"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:238 includes/pod-metaboxes-media.php:309
+msgid "Allow Download"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:239
+msgid ""
+"Check this box if you would like your users to be able to download your "
+"audio file. (Might not work with files hosted on Soundcloud.)"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:245 includes/pod-metaboxes-media.php:316
+msgid ""
+"Please check this box if you would like your post to be marked as explicit."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:253
+msgid "Featured Video"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:264 includes/pod-metaboxes-media.php:272
+msgid "Video oEmbed Code"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:265 includes/pod-metaboxes-media.php:278
+msgid "Video Embed Code"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:266
+msgid "Video URL (Upload/Self-Hosted)"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:267 includes/pod-metaboxes-media.php:291
+msgid "Video Playlist"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:273
+msgid ""
+"Enter your oembed code here. Supported websites are: YouTube, Vimeo, Hulu, "
+"DailyMotion, Flickr Video and Qik."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:285
+msgid "Video URL"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:286
+msgid "Upload a video file or enter an URL."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:292
+msgid "Upload videos to be displayed in a playlist.(Only works with uploads.)"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:297 includes/pod-metaboxes-media.php:479
+#: includes/pod-metaboxes.php:336 options-config.php:1775
+msgid "Thumbnail"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:298
+msgid ""
+"Upload a thumbnail for your video. You only need to do this if you are "
+"hosting it yourself."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:303 includes/pod-metaboxes-media.php:338
+#: includes/pod-metaboxes.php:195 options-config.php:6244
+msgid "Caption"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:304
+msgid "Enter a short video caption.(optional)"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:310
+msgid ""
+"Check this box if you would like your users to be able to download your "
+"video file. (Only works with self-hosted files.)"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:325 includes/pod-metaboxes.php:182
+msgid "Featured Gallery"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:332 includes/pod-metaboxes.php:189
+msgid "Images"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:333 includes/pod-metaboxes.php:190
+msgid "Upload images that will be displayed in your gallery."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:339 includes/pod-metaboxes.php:196
+msgid "Enter a short gallery caption.(optional)"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:345 includes/pod-metaboxes.php:202
+msgid "Choose how you would like to display your gallery."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:349 includes/pod-metaboxes.php:206
+#: options-config.php:1194
+msgid "Slideshow"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:350 includes/pod-metaboxes.php:207
+msgid "Grid"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:354 includes/pod-metaboxes.php:211
+#: options-config.php:2300 options-config.php:2908 options-config.php:3660
+msgid "Columns"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:355 includes/pod-metaboxes.php:212
+msgid "Choose the amount of columns (only when set to grid)"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:359 includes/pod-metaboxes.php:216
+msgid "3 Columns"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:360 includes/pod-metaboxes.php:217
+msgid "4 Columns"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:361 includes/pod-metaboxes.php:218
+msgid "5 Columns"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:362 includes/pod-metaboxes.php:219
+msgid "6 Columns"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:363 includes/pod-metaboxes.php:220
+msgid "7 Columns"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:364 includes/pod-metaboxes.php:221
+msgid "8 Columns"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:371 includes/pod-metaboxes.php:228
+msgid "Page Header Subtitle"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:378 includes/pod-metaboxes.php:235
+msgid "Text Alignment"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:379 includes/pod-metaboxes.php:236
+msgid "Align the heading text to the left (default), center or right."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:389 includes/pod-metaboxes.php:246
+msgid "Short Blurb"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:390 includes/pod-metaboxes.php:247
+msgid ""
+"Submit a short blurb or summary of your page that will appear below the "
+"title."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:396 includes/pod-metaboxes-media.php:474
+#: includes/pod-metaboxes.php:253 includes/pod-metaboxes.php:331
+msgid ""
+"Select whether you would like to display your background stretched or tiled."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:406 includes/pod-metaboxes.php:263
+msgid "Select if you would like to activate parallax."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:412 includes/pod-metaboxes.php:269
+msgid "Page Padding Top Off"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:413 includes/pod-metaboxes.php:270
+msgid "Select if you would like to deactivate padding on the top of the page."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:419 includes/pod-metaboxes.php:276
+msgid "Page Padding Bottom Off"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:420 includes/pod-metaboxes.php:277
+msgid ""
+"Select if you would like to deactivate padding on the bottom of the page."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:430 includes/pod-metaboxes.php:287
+msgid "Podcast Archive"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:438 includes/pod-metaboxes-media.php:447
+#: includes/pod-metaboxes.php:295 includes/pod-metaboxes.php:304
+msgid "Podcast Category"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:439 includes/pod-metaboxes-media.php:448
+#: includes/pod-metaboxes.php:296 includes/pod-metaboxes.php:305
+msgid "Select the category to be displayed on this podcast archive page."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:456 includes/pod-metaboxes.php:313
+msgid "Posts per page"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:457 includes/pod-metaboxes.php:314
+msgid "Enter the amount of posts you would like to display per page."
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:463 includes/pod-metaboxes.php:320
+msgid "Post Order"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:467 includes/pod-metaboxes.php:324
+msgid "Newest to Oldest"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:468 includes/pod-metaboxes.php:325
+msgid "Oldest to Newest"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:473 includes/pod-metaboxes.php:330
+msgid "Use featured image as"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:478 includes/pod-metaboxes.php:335
+#: options-config.php:463 options-config.php:517 options-config.php:796
+#: options-config.php:1418 options-config.php:1860 options-config.php:2038
+#: options-config.php:2167 options-config.php:2554 options-config.php:2604
+#: options-config.php:3335 options-config.php:3525 options-config.php:3708
+#: options-config.php:3882 options-config.php:4089 options-config.php:4156
+#: options-config.php:5587 options-config.php:5728 options-config.php:5963
+#: options-config.php:6026 options-config.php:6120 options-config.php:6262
+#: options-config.php:6488 options-config.php:7124 options-config.php:7154
+msgid "Background"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:484 includes/pod-metaboxes.php:341
+msgid "Subscribe Button Text 1"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:485 includes/pod-metaboxes.php:342
+msgid "(Example: Subscribe with RSS)"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:490 includes/pod-metaboxes.php:347
+msgid "Subscribe Button URL 1"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:495 includes/pod-metaboxes.php:352
+msgid "Subscribe Button Text 2"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:496 includes/pod-metaboxes.php:353
+msgid "(Example: Subscribe with Apple Podcast)"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:501 includes/pod-metaboxes.php:358
+msgid "Subscribe Button URL 2"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:506 includes/pod-metaboxes.php:363
+msgid "Subscribe Button Text 3"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:507 includes/pod-metaboxes.php:364
+msgid "(Example: Subscribe with Stitcher)"
+msgstr ""
+
+#: includes/pod-metaboxes-media.php:512 includes/pod-metaboxes.php:369
+msgid "Subscribe Button URL 3"
+msgstr ""
+
+#: navigation.php:56
+msgid ""
+"This is a placeholder for your sticky navigation bar. It should not be "
+"visible."
+msgstr ""
+
+#: options-config.php:121
+msgid "Theme Options"
+msgstr ""
+
+#: options-config.php:122
+msgid "Podcaster Theme Options"
+msgstr ""
+
+#: options-config.php:246
+msgid "Theme Information 1"
+msgstr ""
+
+#: options-config.php:247 options-config.php:252
+msgid "<p>This is the tab content, HTML is allowed.</p>"
+msgstr ""
+
+#: options-config.php:251
+msgid "Theme Information 2"
+msgstr ""
+
+#: options-config.php:258
+msgid "<p>This is the sidebar content, HTML is allowed.</p>"
+msgstr ""
+
+#: options-config.php:288 options-config.php:334 options-config.php:600
+#: options-config.php:2217 options-config.php:4380 options-config.php:5331
+#: options-config.php:6300
+msgid "General"
+msgstr ""
+
+#: options-config.php:289
+msgid "<p class=\"description\">Select general for the website.</p>"
+msgstr ""
+
+#: options-config.php:295
+msgid "Template Width"
+msgstr ""
+
+#: options-config.php:296
+msgid "Select between fixed and full."
+msgstr ""
+
+#: options-config.php:329 options-config.php:713 options-config.php:2538
+#: options-config.php:3875 options-config.php:6472
+msgid "Colors"
+msgstr ""
+
+#: options-config.php:330
+msgid "<p class=\"description\">Select colors for your website.</p>"
+msgstr ""
+
+#: options-config.php:335
+msgid ""
+"<p class=\"description\">Use the settings below to customize website "
+"template colors. <a target=\"_blank\" rel=\"noopener noreferrer\" href="
+"\"http://themestation.co/documentation/podcaster/#to-colors\"><span class="
+"\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:341
+msgid "Template Color"
+msgstr ""
+
+#: options-config.php:342
+msgid "Choose between classic and dark."
+msgstr ""
+
+#: options-config.php:352
+msgid "Accent"
+msgstr ""
+
+#: options-config.php:353
+msgid "Select a highlight color."
+msgstr ""
+
+#: options-config.php:369
+msgid "Advanced colors"
+msgstr ""
+
+#: options-config.php:370
+msgid "Activate advanced color settings."
+msgstr ""
+
+#: options-config.php:377
+msgid "Titles"
+msgstr ""
+
+#: options-config.php:378 options-config.php:5986
+msgid "Select a color for titles."
+msgstr ""
+
+#: options-config.php:390 options-config.php:473 options-config.php:537
+#: options-config.php:584 options-config.php:633 options-config.php:832
+#: options-config.php:2178 options-config.php:2641 options-config.php:3537
+#: options-config.php:3734 options-config.php:3894 options-config.php:4144
+#: options-config.php:4882 options-config.php:4954 options-config.php:5041
+#: options-config.php:5077 options-config.php:5129 options-config.php:5167
+#: options-config.php:6161 options-config.php:6566 options-config.php:7136
+#: options-config.php:7163
+msgid "Text"
+msgstr ""
+
+#: options-config.php:391
+msgid "Select a title for text."
+msgstr ""
+
+#: options-config.php:403 options-config.php:2656 options-config.php:3950
+#: options-config.php:4053 options-config.php:4102 options-config.php:6173
+#: options-config.php:6578 options-config.php:7172
+msgid "Links"
+msgstr ""
+
+#: options-config.php:404
+msgid "Select a color for links."
+msgstr ""
+
+#: options-config.php:416
+msgid "Links (Hover)"
+msgstr ""
+
+#: options-config.php:417
+msgid "Select a color (hover) for links."
+msgstr ""
+
+#: options-config.php:429 options-config.php:2567 options-config.php:5973
+#: options-config.php:6036 options-config.php:6132 options-config.php:6272
+#: options-config.php:6512
+msgid "Borders"
+msgstr ""
+
+#: options-config.php:430 options-config.php:5974 options-config.php:6037
+#: options-config.php:6133 options-config.php:6148 options-config.php:6273
+msgid "Select a color for borders."
+msgstr ""
+
+#: options-config.php:443
+msgid "Icons & Lables"
+msgstr ""
+
+#: options-config.php:444 options-config.php:6200
+msgid "Select a color for icons and labels."
+msgstr ""
+
+#: options-config.php:455 options-config.php:5273 options-config.php:5287
+#: options-config.php:5307
+msgid "Buttons"
+msgstr ""
+
+#: options-config.php:456
+msgid ""
+"<p class=\"description\">Use the settings below to customize the colors of "
+"the buttons. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://"
+"themestation.co/documentation/podcaster/#to-colors-buttons\"><span class="
+"\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:464 options-config.php:484 options-config.php:1419
+#: options-config.php:1453 options-config.php:1480 options-config.php:1822
+#: options-config.php:1838 options-config.php:1861 options-config.php:1874
+#: options-config.php:1887 options-config.php:1900 options-config.php:2043
+#: options-config.php:2168 options-config.php:2190 options-config.php:2695
+#: options-config.php:3526 options-config.php:3709 options-config.php:5588
+#: options-config.php:5729 options-config.php:5756 options-config.php:5789
+#: options-config.php:5964 options-config.php:6263
+msgid "Select a background color."
+msgstr ""
+
+#: options-config.php:474 options-config.php:494 options-config.php:538
+#: options-config.php:585 options-config.php:833 options-config.php:2179
+#: options-config.php:2201 options-config.php:2642 options-config.php:3538
+#: options-config.php:3735 options-config.php:3895 options-config.php:6162
+#: options-config.php:6567 options-config.php:6615 options-config.php:6663
+#: options-config.php:7138
+msgid "Select a color for the text."
+msgstr ""
+
+#: options-config.php:483 options-config.php:1886 options-config.php:2189
+#: options-config.php:3721
+msgid "Background (hover)"
+msgstr ""
+
+#: options-config.php:493 options-config.php:2200
+msgid "Text (hover)"
+msgstr ""
+
+#: options-config.php:503
+msgid "Headers"
+msgstr ""
+
+#: options-config.php:504
+msgid ""
+"<p class=\"description\">Use the settings below to customize the colors for "
+"the headers. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://"
+"themestation.co/documentation/podcaster/#to-colors-headers\"><span class="
+"\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:511
+msgid "<h3>Page Headers</h3>"
+msgstr ""
+
+#: options-config.php:512
+msgid "The settings below are for page headers."
+msgstr ""
+
+#: options-config.php:518
+msgid "Select a background color for the headers."
+msgstr ""
+
+#: options-config.php:528 options-config.php:573 options-config.php:808
+#: options-config.php:1342 options-config.php:2616 options-config.php:2876
+#: options-config.php:3347 options-config.php:3404 options-config.php:3802
+#: options-config.php:5985 options-config.php:6335
+msgid "Title"
+msgstr ""
+
+#: options-config.php:529 options-config.php:574 options-config.php:3348
+msgid "Select a color for the titles."
+msgstr ""
+
+#: options-config.php:548
+msgid "<h3>Header Filters</h3>"
+msgstr ""
+
+#: options-config.php:549
+msgid "The settings below are for header filters."
+msgstr ""
+
+#: options-config.php:554
+msgid "Activate Filter"
+msgstr ""
+
+#: options-config.php:555
+msgid "Activate the transparent filter."
+msgstr ""
+
+#: options-config.php:595
+msgid "Front Page Header"
+msgstr ""
+
+#: options-config.php:596
+msgid ""
+"<p class=\"description\">Use the settings below to customize your front page "
+"header. </p>"
+msgstr ""
+
+#: options-config.php:601
+msgid ""
+"<p class=\"description\">Use the settings below to customize your front page "
+"header. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://"
+"themestation.co/documentation/podcaster/#to-front-page-header\"><span class="
+"\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:608
+msgid "Header Type"
+msgstr ""
+
+#: options-config.php:609
+msgid "Choose between a text, static header or slideshow."
+msgstr ""
+
+#: options-config.php:624
+msgid "Header Title"
+msgstr ""
+
+#: options-config.php:625
+msgid "Enter the title of the featured post section."
+msgstr ""
+
+#: options-config.php:634
+msgid "Enter the text for the header."
+msgstr ""
+
+#: options-config.php:642 options-config.php:2885 options-config.php:3413
+#: options-config.php:3811 options-config.php:5219 options-config.php:5256
+#: options-config.php:6342
+msgid "Blurb"
+msgstr ""
+
+#: options-config.php:643
+msgid "Enter a blurb for the header."
+msgstr ""
+
+#: options-config.php:650 options-config.php:2975 options-config.php:3037
+#: options-config.php:3099 options-config.php:3161 options-config.php:3223
+#: options-config.php:3285 options-config.php:3747
+msgid "Link"
+msgstr ""
+
+#: options-config.php:651
+msgid "Enter a valid URL for the header."
+msgstr ""
+
+#: options-config.php:660
+msgid "Header Content"
+msgstr ""
+
+#: options-config.php:661
+msgid "Choose between a featured posts or newest posts."
+msgstr ""
+
+#: options-config.php:672
+msgid "<h3>Alignment & Padding</h3>"
+msgstr ""
+
+#: options-config.php:673
+msgid "The settings below are for the alignment and padding of the header."
+msgstr ""
+
+#: options-config.php:681 options-config.php:1277
+msgid "Aligment"
+msgstr ""
+
+#: options-config.php:682 options-config.php:1278
+msgid "Set the alignment, choose between left (default), center and right."
+msgstr ""
+
+#: options-config.php:701
+msgid "Header Padding"
+msgstr ""
+
+#: options-config.php:702
+msgid "Do you want to set your padding?"
+msgstr ""
+
+#: options-config.php:703
+msgid "Add padding to the top or bottom of your header."
+msgstr ""
+
+#: options-config.php:714
+msgid ""
+"<p class=\"description\">Use the settings below to customize colors for the "
+"front page header. <a target=\"_blank\" rel=\"noopener noreferrer\" href="
+"\"http://themestation.co/documentation/podcaster/#to-front-page-header-colors"
+"\"><span class=\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:722 options-config.php:6357
+msgid "Background style"
+msgstr ""
+
+#: options-config.php:723
+msgid "Select a background style."
+msgstr ""
+
+#: options-config.php:733
+msgid "Gradient style"
+msgstr ""
+
+#: options-config.php:735
+msgid "Select a gradient style."
+msgstr ""
+
+#: options-config.php:745
+msgid "Gradient angle"
+msgstr ""
+
+#: options-config.php:750
+msgid "Select an angle for the gradient."
+msgstr ""
+
+#: options-config.php:759
+msgid "Gradient color 1"
+msgstr ""
+
+#: options-config.php:761
+msgid "Select a the first gradient color."
+msgstr ""
+
+#: options-config.php:771
+msgid "Gradient color 2"
+msgstr ""
+
+#: options-config.php:773
+msgid "Select a the secondary gradient color."
+msgstr ""
+
+#: options-config.php:783
+msgid "Gradient color 3"
+msgstr ""
+
+#: options-config.php:785
+msgid "Select a the third gradient color."
+msgstr ""
+
+#: options-config.php:798
+msgid "Select a background color for the front page header."
+msgstr ""
+
+#: options-config.php:809
+msgid "Select a color for the title."
+msgstr ""
+
+#: options-config.php:822 options-config.php:2628
+msgid "Title (hover)"
+msgstr ""
+
+#: options-config.php:823
+msgid "Select a color (hover) for the title."
+msgstr ""
+
+#: options-config.php:842
+msgid "Background image"
+msgstr ""
+
+#: options-config.php:843
+msgid ""
+"<p class=\"description\">Use the settings below to customize the front page "
+"header background. <a target=\"_blank\" rel=\"noopener noreferrer\" href="
+"\"http://themestation.co/documentation/podcaster/#to-front-page-header-"
+"background\"><span class=\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:850
+msgid "Background images"
+msgstr ""
+
+#: options-config.php:851
+msgid "Activate background images for your front page header."
+msgstr ""
+
+#: options-config.php:861
+msgid "Header background"
+msgstr ""
+
+#: options-config.php:862
+msgid ""
+"Upload an image which will be displayed as your header. (At least 600 x "
+"1920px.)"
+msgstr ""
+
+#: options-config.php:873
+msgid "Featured image (from page)"
+msgstr ""
+
+#: options-config.php:874
+msgid ""
+"Use the featured image from your set front page instead of uploading it "
+"above."
+msgstr ""
+
+#: options-config.php:885
+msgid "Header background style"
+msgstr ""
+
+#: options-config.php:886 options-config.php:5468 options-config.php:6358
+msgid "Choose between stretched and tiled."
+msgstr ""
+
+#: options-config.php:901 options-config.php:996
+msgid "Activate parallax scrolling."
+msgstr ""
+
+#: options-config.php:907
+msgid "Video background"
+msgstr ""
+
+#: options-config.php:908
+msgid ""
+"<p class=\"description\">Use the settings below to customize the front page "
+"header background video. <a target=\"_blank\" rel=\"noopener noreferrer\" "
+"href=\"http://themestation.co/documentation/podcaster/#to-front-page-header-"
+"background\"><span class=\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:917
+msgid ""
+"Please select go to <strong>Front Page Header</strong> > <strong>General</"
+"strong> > <strong>Header Type</strong> and select <strong>Video background</"
+"strong> to use these settings."
+msgstr ""
+
+#: options-config.php:923
+msgid "Background video"
+msgstr ""
+
+#: options-config.php:924
+msgid "Activate the background video for your front page header."
+msgstr ""
+
+#: options-config.php:934
+msgid "Header video"
+msgstr ""
+
+#: options-config.php:935
+msgid ""
+"Upload a video which will be displayed in the header. (Supported formats: *."
+"mp4)"
+msgstr ""
+
+#: options-config.php:951
+msgid "Play/pause button"
+msgstr ""
+
+#: options-config.php:952
+msgid "Display a play/pause button."
+msgstr ""
+
+#: options-config.php:962
+msgid "Autoplay video"
+msgstr ""
+
+#: options-config.php:963
+msgid "Activate autoplay."
+msgstr ""
+
+#: options-config.php:973
+msgid "Loop video"
+msgstr ""
+
+#: options-config.php:974
+msgid "Activate loop."
+msgstr ""
+
+#: options-config.php:984
+msgid "Mute video"
+msgstr ""
+
+#: options-config.php:985
+msgid "Mute sound for the video."
+msgstr ""
+
+#: options-config.php:1006
+msgid "Play button background"
+msgstr ""
+
+#: options-config.php:1007 options-config.php:1023 options-config.php:1041
+#: options-config.php:1057
+msgid "Select a color background color for the button."
+msgstr ""
+
+#: options-config.php:1022
+msgid "Play button icon"
+msgstr ""
+
+#: options-config.php:1040
+msgid "Play button background (hover)"
+msgstr ""
+
+#: options-config.php:1056
+msgid "Play button icon (hover"
+msgstr ""
+
+#: options-config.php:1068
+msgid "Custom buttons"
+msgstr ""
+
+#: options-config.php:1069
+msgid ""
+"<p class=\"description\">Use the settings below to customize custom buttons. "
+"<a target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://themestation."
+"co/documentation/podcaster/#to-front-page-header\"><span class=\"fas fa-"
+"question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:1076
+msgid "Show buttons"
+msgstr ""
+
+#: options-config.php:1077
+msgid "Activate the custom buttons for the header."
+msgstr ""
+
+#: options-config.php:1084
+msgid "<h3>Button 1</h3>"
+msgstr ""
+
+#: options-config.php:1085
+msgid "The settings below are to for the first button."
+msgstr ""
+
+#: options-config.php:1091 options-config.php:1130 options-config.php:2474
+#: options-config.php:2500 options-config.php:2825 options-config.php:3470
+#: options-config.php:3563 options-config.php:5411
+msgid "Button text"
+msgstr ""
+
+#: options-config.php:1092 options-config.php:1131 options-config.php:3653
+msgid "Enter the text for the button."
+msgstr ""
+
+#: options-config.php:1098 options-config.php:1137
+msgid "URL type"
+msgstr ""
+
+#: options-config.php:1100 options-config.php:1139
+msgid "Select the type of URL."
+msgstr ""
+
+#: options-config.php:1114 options-config.php:1153 options-config.php:2510
+#: options-config.php:3481
+msgid "Button URL"
+msgstr ""
+
+#: options-config.php:1115 options-config.php:1154
+msgid "Enter the URL for the button."
+msgstr ""
+
+#: options-config.php:1123
+msgid "<h3>Button 2</h3>"
+msgstr ""
+
+#: options-config.php:1124
+msgid "The settings below are to for the second button."
+msgstr ""
+
+#: options-config.php:1162
+msgid "Divider"
+msgstr ""
+
+#: options-config.php:1163
+msgid ""
+"<p class=\"description\">Use the settings below to customize the divider. <a "
+"target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://themestation.co/"
+"documentation/podcaster/#to-front-page-header-slideshow\"><span class=\"fas "
+"fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:1171
+msgid "Display a seperator for your header."
+msgstr ""
+
+#: options-config.php:1179
+msgid "Choose a style for the seperator."
+msgstr ""
+
+#: options-config.php:1195
+msgid ""
+"<p class=\"description\">Use the settings below to customize the slideshow. "
+"<a target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://themestation."
+"co/documentation/podcaster/#to-front-page-header-slideshow\"><span class="
+"\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:1204
+msgid ""
+"Please select go to <strong>Front Page Header</strong> > <strong>General</"
+"strong> > <strong>Header Type</strong> and select <strong>Slideshow</strong> "
+"to use these settings."
+msgstr ""
+
+#: options-config.php:1210
+msgid "Auto Slide"
+msgstr ""
+
+#: options-config.php:1211
+msgid "Activate automatic sliding."
+msgstr ""
+
+#: options-config.php:1219
+msgid "Choose between slide and fade."
+msgstr ""
+
+#: options-config.php:1230
+msgid "Arrow color"
+msgstr ""
+
+#: options-config.php:1231
+msgid "Choose between light and dark."
+msgstr ""
+
+#: options-config.php:1242
+msgid "Amount of slides"
+msgstr ""
+
+#: options-config.php:1243
+msgid "Enter the amount of slides (posts) to be displayed."
+msgstr ""
+
+#: options-config.php:1256
+msgid "<h3>Global slide settings</h3>"
+msgstr ""
+
+#: options-config.php:1257
+msgid "The settings below are for the slideshow."
+msgstr ""
+
+#: options-config.php:1266
+msgid "Global slide settings"
+msgstr ""
+
+#: options-config.php:1267
+msgid ""
+"Set options (excerpt length, alignment, background style and parallax "
+"settings ) in theme options instead of individual posts."
+msgstr ""
+
+#: options-config.php:1294
+msgid ""
+"Set the background style, choose between tiled (default), contain and "
+"streched."
+msgstr ""
+
+#: options-config.php:1309
+msgid "Display excerpt"
+msgstr ""
+
+#: options-config.php:1310
+msgid "Display or hide the excerpt."
+msgstr ""
+
+#: options-config.php:1321 options-config.php:1952 options-config.php:2259
+msgid "Excerpt length"
+msgstr ""
+
+#: options-config.php:1322
+msgid "Enter Enter the amount of words you want to display in your excerpt."
+msgstr ""
+
+#: options-config.php:1335
+msgid "Turn parallax scrolling on or off."
+msgstr ""
+
+#: options-config.php:1343
+msgid ""
+"<p class=\"description\">Use the settings below to customize the title for "
+"the front page header. <a target=\"_blank\" rel=\"noopener noreferrer\" href="
+"\"http://themestation.co/documentation/podcaster/#to-front-page-header-title"
+"\"><span class=\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:1350 options-config.php:1378 options-config.php:1738
+#: options-config.php:1938
+msgid "Width"
+msgstr ""
+
+#: options-config.php:1351 options-config.php:1380 options-config.php:1739
+#: options-config.php:1940
+msgid "Choose between narrow, medium, wide and full."
+msgstr ""
+
+#: options-config.php:1363
+msgid "Media player"
+msgstr ""
+
+#: options-config.php:1364
+msgid ""
+"<p class=\"description\">Use the settings below to customize the media "
+"player on the front page header. <a target=\"_blank\" rel=\"noopener "
+"noreferrer\" href=\"http://themestation.co/documentation/podcaster/#to-front-"
+"page-header-media-player\"><span class=\"fas fa-question-circle\"></span></"
+"a></p>"
+msgstr ""
+
+#: options-config.php:1371
+msgid "Show players"
+msgstr ""
+
+#: options-config.php:1372
+msgid "Display players on the front page header."
+msgstr ""
+
+#: options-config.php:1392
+msgid "<br /><h3>Media player colors</h3>"
+msgstr ""
+
+#: options-config.php:1393
+msgid "The settings below are for customizing the media player."
+msgstr ""
+
+#: options-config.php:1398 options-config.php:2546 options-config.php:3700
+#: options-config.php:4208 options-config.php:5579 options-config.php:5709
+#: options-config.php:5955 options-config.php:6018 options-config.php:6112
+#: options-config.php:6254 options-config.php:6480 options-config.php:7117
+msgid "Custom colors"
+msgstr ""
+
+#: options-config.php:1399
+msgid "Activate custom colors for your front page media players."
+msgstr ""
+
+#: options-config.php:1406
+msgid "Transparent player"
+msgstr ""
+
+#: options-config.php:1407
+msgid "Activate transparency for your front page audio players."
+msgstr ""
+
+#: options-config.php:1437 options-config.php:5600 options-config.php:5740
+msgid "Duration text"
+msgstr ""
+
+#: options-config.php:1438 options-config.php:5601 options-config.php:5741
+msgid "Select a color for the duration text."
+msgstr ""
+
+#: options-config.php:1452 options-config.php:2694 options-config.php:5755
+msgid "Play icon background"
+msgstr ""
+
+#: options-config.php:1464 options-config.php:2708 options-config.php:5613
+#: options-config.php:5767
+msgid "Icons"
+msgstr ""
+
+#: options-config.php:1465 options-config.php:1507 options-config.php:5614
+#: options-config.php:5768
+msgid "Select a color for the icons."
+msgstr ""
+
+#: options-config.php:1479 options-config.php:2723 options-config.php:5788
+msgid "Play icon background (hover)"
+msgstr ""
+
+#: options-config.php:1491 options-config.php:2737 options-config.php:5626
+#: options-config.php:5800
+msgid "Icons (hover)"
+msgstr ""
+
+#: options-config.php:1492 options-config.php:1522 options-config.php:5801
+msgid "Select a color (hover) for the icons."
+msgstr ""
+
+#: options-config.php:1506 options-config.php:2752
+msgid "Volume icon"
+msgstr ""
+
+#: options-config.php:1521 options-config.php:2767
+msgid "Volume icon (hover)"
+msgstr ""
+
+#: options-config.php:1533 options-config.php:5639 options-config.php:5812
+msgid "Rail"
+msgstr ""
+
+#: options-config.php:1534 options-config.php:5640 options-config.php:5813
+msgid "Select a color for the rail."
+msgstr ""
+
+#: options-config.php:1545 options-config.php:5652 options-config.php:5825
+msgid "Rail (played)"
+msgstr ""
+
+#: options-config.php:1546 options-config.php:5653
+msgid "Select a color for the rail (played)."
+msgstr ""
+
+#: options-config.php:1557
+msgid "Time Handle (ball)"
+msgstr ""
+
+#: options-config.php:1558
+msgid "Select a color for the time handle."
+msgstr ""
+
+#: options-config.php:1569
+msgid "Time Display (background)"
+msgstr ""
+
+#: options-config.php:1570
+msgid "Select a background color for the duration display."
+msgstr ""
+
+#: options-config.php:1582
+msgid "Time Display (text)"
+msgstr ""
+
+#: options-config.php:1583
+msgid "Select a color for the time display."
+msgstr ""
+
+#: options-config.php:1593
+msgid "Media player with Text"
+msgstr ""
+
+#: options-config.php:1594
+msgid ""
+"<p class=\"description\">Use the settings below to add media players for the "
+"text front page header. <a target=\"_blank\" rel=\"noopener noreferrer\" "
+"href=\"http://themestation.co/documentation/podcaster/#to-front-page-header-"
+"media-player\"><span class=\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:1603
+msgid ""
+"Please select go to <strong>Front Page Header</strong> > <strong>General</"
+"strong> > <strong>Header Type</strong> and select <strong>Text</strong> to "
+"use these settings."
+msgstr ""
+
+#: options-config.php:1610
+msgid ""
+"Activate the media player for your the \"Text\" style front page header."
+msgstr ""
+
+#: options-config.php:1616
+msgid "Media type"
+msgstr ""
+
+#: options-config.php:1618
+msgid "Select a media type to display."
+msgstr ""
+
+#: options-config.php:1633
+msgid "Audio file"
+msgstr ""
+
+#: options-config.php:1634
+msgid "Upload an audio file. (Currently supports *.mp3 and *.wav)"
+msgstr ""
+
+#: options-config.php:1649
+msgid "Video file"
+msgstr ""
+
+#: options-config.php:1650
+msgid "Upload a video file. (Currently supports *.mp4)"
+msgstr ""
+
+#: options-config.php:1663
+msgid "Video poster"
+msgstr ""
+
+#: options-config.php:1664
+msgid "Upload a video poster."
+msgstr ""
+
+#: options-config.php:1675
+msgid "Format"
+msgstr ""
+
+#: options-config.php:1676
+msgid "Choose between audio for video."
+msgstr ""
+
+#: options-config.php:1689
+msgid "Embed URL"
+msgstr ""
+
+#: options-config.php:1690 options-config.php:1702
+msgid "Paste the code to the player."
+msgstr ""
+
+#: options-config.php:1701
+msgid "Embed code"
+msgstr ""
+
+#: options-config.php:1710
+msgid "Audio art"
+msgstr ""
+
+#: options-config.php:1711
+msgid "Upload audio art."
+msgstr ""
+
+#: options-config.php:1718
+msgid "Embedded player"
+msgstr ""
+
+#: options-config.php:1719
+msgid ""
+"<p class=\"description\">Use the settings below to customize embedded "
+"players on the front page header. This includes videos, embedded videos as "
+"well as embedded audio players. <a target=\"_blank\" rel=\"noopener "
+"noreferrer\" href=\"http://themestation.co/documentation/podcaster/#to-front-"
+"page-header-embedded-player\"><span class=\"fas fa-question-circle\"></"
+"span></a></p>"
+msgstr ""
+
+#: options-config.php:1727
+msgid "Choose between left, right and centered."
+msgstr ""
+
+#: options-config.php:1752 options-config.php:5561
+msgid "Soundcloud player style"
+msgstr ""
+
+#: options-config.php:1753 options-config.php:5562
+msgid "If Soundcloud players are active, select the type of player being used."
+msgstr ""
+
+#: options-config.php:1767
+msgid "Audio thumbnail"
+msgstr ""
+
+#: options-config.php:1768
+msgid ""
+"<p class=\"description\">Use the settings below to customize the audio "
+"thumbnail. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://"
+"themestation.co/documentation/podcaster/#to-front-page-header-audio-thumbnail"
+"\"><span class=\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:1776
+msgid "Activate the audio thumbnail."
+msgstr ""
+
+#: options-config.php:1784
+msgid ""
+"Set the alignment using the buttons, choose between left (default) and right."
+msgstr ""
+
+#: options-config.php:1795 options-config.php:3673 options-config.php:5400
+#: options-config.php:5922
+msgid "Rounded corners"
+msgstr ""
+
+#: options-config.php:1796
+msgid "Set the corners for the thumbnail."
+msgstr ""
+
+#: options-config.php:1798
+msgid "No Radius"
+msgstr ""
+
+#: options-config.php:1799
+msgid "Rounded"
+msgstr ""
+
+#: options-config.php:1800 options-config.php:5404
+msgid "Round"
+msgstr ""
+
+#: options-config.php:1801
+msgid "Circle"
+msgstr ""
+
+#: options-config.php:1810
+msgid "Display background shapes"
+msgstr ""
+
+#: options-config.php:1811
+msgid "Activate the circle background."
+msgstr ""
+
+#: options-config.php:1821
+msgid "Background 1"
+msgstr ""
+
+#: options-config.php:1837
+msgid "Background 2"
+msgstr ""
+
+#: options-config.php:1852
+msgid "Display play button"
+msgstr ""
+
+#: options-config.php:1853
+msgid "Activate the play button."
+msgstr ""
+
+#: options-config.php:1873
+msgid "Icon"
+msgstr ""
+
+#: options-config.php:1899
+msgid "Icon (hover)"
+msgstr ""
+
+#: options-config.php:1911
+msgid "Excerpt"
+msgstr ""
+
+#: options-config.php:1912
+msgid ""
+"<p class=\"description\">Use the settings below to customize the excerpt. <a "
+"target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://themestation.co/"
+"documentation/podcaster/#to-front-page-header-excerpt\"><span class=\"fas fa-"
+"question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:1919
+msgid "Featured excerpt"
+msgstr ""
+
+#: options-config.php:1920
+msgid "Use the switch to display a featured excerpt on the front page."
+msgstr ""
+
+#: options-config.php:1928
+msgid "Select an excerpt style."
+msgstr ""
+
+#: options-config.php:1954
+msgid "Set a length for the excerpt."
+msgstr ""
+
+#: options-config.php:1964
+msgid "Position"
+msgstr ""
+
+#: options-config.php:1965
+msgid "Set the position, choose between above and below (default) your media."
+msgstr ""
+
+#: options-config.php:1975
+msgid "Read More Link"
+msgstr ""
+
+#: options-config.php:1977
+msgid "Show or hide the Read More link."
+msgstr ""
+
+#: options-config.php:1987
+msgid "Schedule & subscribe"
+msgstr ""
+
+#: options-config.php:1988
+msgid ""
+"<p class=\"description\">Use the settings below to customize the schedule "
+"and subscribe section.<a target=\"_blank\" rel=\"noopener noreferrer\" href="
+"\"http://themestation.co/documentation/podcaster/#to-front-page-header-"
+"schedule-subscribe\"><span class=\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:1995
+msgid "Show Preview Section"
+msgstr ""
+
+#: options-config.php:1996
+msgid "Choose to hide or show the preview section."
+msgstr ""
+
+#: options-config.php:2007
+msgid "Podcast Scheduling"
+msgstr ""
+
+#: options-config.php:2008
+msgid ""
+"Display your scheduled posts on the front page. This will deactivate the "
+"<em>Upcoming Post Title</em> below."
+msgstr ""
+
+#: options-config.php:2016
+msgid "Choose between \"Background\" and \"Line\"."
+msgstr ""
+
+#: options-config.php:2027 options-config.php:4174
+msgid "Border"
+msgstr ""
+
+#: options-config.php:2028 options-config.php:2568
+msgid "Select a border color."
+msgstr ""
+
+#: options-config.php:2054 options-config.php:5520
+msgid "Corners"
+msgstr ""
+
+#: options-config.php:2056
+msgid "Select a corner style for this section."
+msgstr ""
+
+#: options-config.php:2066
+msgid "Preview Title"
+msgstr ""
+
+#: options-config.php:2068
+msgid "Enter the title for your preview section into the text field above."
+msgstr ""
+
+#: options-config.php:2076
+msgid "Preview title color"
+msgstr ""
+
+#: options-config.php:2077 options-config.php:2099
+msgid "Select a color for the preview title."
+msgstr ""
+
+#: options-config.php:2090
+msgid "Upcoming Post Title"
+msgstr ""
+
+#: options-config.php:2091
+msgid "Enter the title of your upcoming episode."
+msgstr ""
+
+#: options-config.php:2097
+msgid "Post title color"
+msgstr ""
+
+#: options-config.php:2108
+msgid "<h3>Subscribe Buttons</h3>"
+msgstr ""
+
+#: options-config.php:2109
+msgid ""
+"The settings below are to customize the subscribe buttons on your front page."
+msgstr ""
+
+#: options-config.php:2114
+msgid "Show Subscribe Buttons"
+msgstr ""
+
+#: options-config.php:2115
+msgid "Display your subscribe buttons."
+msgstr ""
+
+#: options-config.php:2122
+msgid "Subscribe Button 1"
+msgstr ""
+
+#: options-config.php:2123 options-config.php:2141 options-config.php:3471
+#: options-config.php:5412
+msgid "Enter the text for your button."
+msgstr ""
+
+#: options-config.php:2132
+msgid "Subscribe Button 1 URL"
+msgstr ""
+
+#: options-config.php:2133 options-config.php:2151 options-config.php:3482
+msgid "Enter the URL for your button."
+msgstr ""
+
+#: options-config.php:2140
+msgid "Subscribe Button 2"
+msgstr ""
+
+#: options-config.php:2150
+msgid "Subscribe Button 2 URL"
+msgstr ""
+
+#: options-config.php:2158
+msgid "Buttons on Single Page"
+msgstr ""
+
+#: options-config.php:2159
+msgid "Check this box to display the buttons on single pages."
+msgstr ""
+
+#: options-config.php:2213
+msgid "Front Page"
+msgstr ""
+
+#: options-config.php:2214 options-config.php:2218
+msgid ""
+"<p class=\"description\">Use the settings below to customize the front page. "
+"<a target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://themestation."
+"co/documentation/podcaster/#to-front-page\"><span class=\"fas fa-question-"
+"circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:2224
+msgid "<br /><h3>Episodes</h3>"
+msgstr ""
+
+#: options-config.php:2225
+msgid "The settings below are for the episodes on the static front page."
+msgstr ""
+
+#: options-config.php:2230
+msgid "Display audio players"
+msgstr ""
+
+#: options-config.php:2231
+msgid "Show audio players on the front page episodes."
+msgstr ""
+
+#: options-config.php:2237
+msgid "Display categories"
+msgstr ""
+
+#: options-config.php:2238
+msgid "Show categories on the front page episodes."
+msgstr ""
+
+#: options-config.php:2244
+msgid "Display featured image"
+msgstr ""
+
+#: options-config.php:2245
+msgid "Featured images on the front page episodes."
+msgstr ""
+
+#: options-config.php:2251
+msgid "Display excerpts"
+msgstr ""
+
+#: options-config.php:2252
+msgid "Show excerpts on the front page episodes."
+msgstr ""
+
+#: options-config.php:2282
+msgid "Amount of episodes"
+msgstr ""
+
+#: options-config.php:2293
+msgid "<h3>Grid</h3>"
+msgstr ""
+
+#: options-config.php:2294
+msgid "The settings below are for the front page post button."
+msgstr ""
+
+#: options-config.php:2314
+msgid "Gutter"
+msgstr ""
+
+#: options-config.php:2325
+msgid "Thumbnail orientation"
+msgstr ""
+
+#: options-config.php:2346
+msgid "Post padding"
+msgstr ""
+
+#: options-config.php:2347
+msgid "Customize the padding for your front page episodes."
+msgstr ""
+
+#: options-config.php:2358
+msgid "<h3>Titles & excerpts</h3>"
+msgstr ""
+
+#: options-config.php:2359
+msgid "The settings below are for the titles and excerpts of the episodes."
+msgstr ""
+
+#: options-config.php:2364 options-config.php:5419
+msgid "Truncate titles"
+msgstr ""
+
+#: options-config.php:2365
+msgid "Truncate the titles of the posts on the front page."
+msgstr ""
+
+#: options-config.php:2371
+msgid "Type of excerpts"
+msgstr ""
+
+#: options-config.php:2372
+msgid ""
+"Choose between <strong>Force Excerpt</strong> and <strong>Set in Post</"
+"strong>."
+msgstr ""
+
+#: options-config.php:2383 options-config.php:6444
+msgid "Read more"
+msgstr ""
+
+#: options-config.php:2384 options-config.php:6445
+msgid "Enter the text for your read more link."
+msgstr ""
+
+#: options-config.php:2391
+msgid "<h3>Styling</h3>"
+msgstr ""
+
+#: options-config.php:2392
+msgid "The settings below are styling the episodes."
+msgstr ""
+
+#: options-config.php:2396
+msgid "Play button"
+msgstr ""
+
+#: options-config.php:2398
+msgid "Select a style for the play button."
+msgstr ""
+
+#: options-config.php:2407
+msgid "Episodes corners"
+msgstr ""
+
+#: options-config.php:2409 options-config.php:2432
+msgid "Choose between <strong>Round</strong> and <strong>Straight</strong>."
+msgstr ""
+
+#: options-config.php:2420
+msgid "Corner Options"
+msgstr ""
+
+#: options-config.php:2421
+msgid "Select an option for the corners."
+msgstr ""
+
+#: options-config.php:2430
+msgid "Sidebar corners"
+msgstr ""
+
+#: options-config.php:2441
+msgid "Content position"
+msgstr ""
+
+#: options-config.php:2443
+msgid ""
+"Select whete to display your content. This is includes Gutenberg blocks or "
+"other content you enter into the page editor."
+msgstr ""
+
+#: options-config.php:2454
+msgid "<h3>Pagination</h3>"
+msgstr ""
+
+#: options-config.php:2455
+msgid "The settings below are for the front page pagination button."
+msgstr ""
+
+#: options-config.php:2460 options-config.php:3443
+msgid "Button type"
+msgstr ""
+
+#: options-config.php:2461
+msgid ""
+"Choose between adding a load more button, pagination or a custom button."
+msgstr ""
+
+#: options-config.php:2475
+msgid "Enter text for the button in the field."
+msgstr ""
+
+#: options-config.php:2483
+msgid "Loading text"
+msgstr ""
+
+#: options-config.php:2484
+msgid "Enter the loading more text in the field."
+msgstr ""
+
+#: options-config.php:2492
+msgid "Loaded text"
+msgstr ""
+
+#: options-config.php:2493
+msgid "Enter the text to be displayed when all posts are loaded."
+msgstr ""
+
+#: options-config.php:2502
+msgid "Enter the text for the button in the field."
+msgstr ""
+
+#: options-config.php:2512
+msgid "Enter the URL into the field."
+msgstr ""
+
+#: options-config.php:2520
+msgid "<h3>Responsive Layout</h3>"
+msgstr ""
+
+#: options-config.php:2521
+msgid "The settings below are for the responsive layout settings."
+msgstr ""
+
+#: options-config.php:2527
+msgid "Layout"
+msgstr ""
+
+#: options-config.php:2528
+msgid "Choose between <strong>Grid</strong> and <strong>List</strong>."
+msgstr ""
+
+#: options-config.php:2539
+msgid ""
+"<p class=\"description\">Use the settings below to customize the colors for "
+"the front page. <a target=\"_blank\" rel=\"noopener noreferrer\" href="
+"\"http://themestation.co/documentation/podcaster/#to-front-page-colors"
+"\"><span class=\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:2547 options-config.php:3701 options-config.php:4209
+#: options-config.php:5580 options-config.php:6113 options-config.php:6481
+#: options-config.php:7118
+msgid "Activate custom color settings."
+msgstr ""
+
+#: options-config.php:2555 options-config.php:3336 options-config.php:3883
+#: options-config.php:4090 options-config.php:6027 options-config.php:6121
+#: options-config.php:6489 options-config.php:6501 options-config.php:6603
+#: options-config.php:7126
+msgid "Select a color for the background."
+msgstr ""
+
+#: options-config.php:2581
+msgid "Sidebar inputs & fields."
+msgstr ""
+
+#: options-config.php:2582
+msgid "Select a color for sidebar fields and inputs."
+msgstr ""
+
+#: options-config.php:2597
+msgid "<h3>Episodes</h3>"
+msgstr ""
+
+#: options-config.php:2598
+msgid "The settings below are for the episodes."
+msgstr ""
+
+#: options-config.php:2605
+msgid "Select a background color for the episodes."
+msgstr ""
+
+#: options-config.php:2617
+msgid "Select a color for the episode titles."
+msgstr ""
+
+#: options-config.php:2629
+msgid "Select a color (hover) for the titles."
+msgstr ""
+
+#: options-config.php:2657 options-config.php:3748 options-config.php:3951
+#: options-config.php:4103 options-config.php:6174 options-config.php:6579
+msgid "Select a color for the links."
+msgstr ""
+
+#: options-config.php:2669 options-config.php:3964 options-config.php:6186
+#: options-config.php:7181
+msgid "Links (hover)"
+msgstr ""
+
+#: options-config.php:2670 options-config.php:3762 options-config.php:6187
+#: options-config.php:6591
+msgid "Select a color (hover) for the links."
+msgstr ""
+
+#: options-config.php:2683
+msgid "<h3>Audio players</h3>"
+msgstr ""
+
+#: options-config.php:2684
+msgid "The settings below are for the audio players."
+msgstr ""
+
+#: options-config.php:2709 options-config.php:2753
+msgid "Select an icon color."
+msgstr ""
+
+#: options-config.php:2724 options-config.php:3722
+msgid "Select a background color (hover)."
+msgstr ""
+
+#: options-config.php:2738 options-config.php:2768
+msgid "Select an icon color (hover)."
+msgstr ""
+
+#: options-config.php:2778
+msgid "Audio player rail"
+msgstr ""
+
+#: options-config.php:2779 options-config.php:2792
+msgid "Select a background color for the rail of audio players."
+msgstr ""
+
+#: options-config.php:2791
+msgid "Audio player rail (played)"
+msgstr ""
+
+#: options-config.php:2806
+msgid "<h3>Load More Button</h3>"
+msgstr ""
+
+#: options-config.php:2807
+msgid "The settings below are for the load more button."
+msgstr ""
+
+#: options-config.php:2813 options-config.php:3550
+msgid "Button background"
+msgstr ""
+
+#: options-config.php:2814 options-config.php:2838 options-config.php:3551
+msgid "Select a background color for the button."
+msgstr ""
+
+#: options-config.php:2826 options-config.php:2850 options-config.php:3564
+msgid "Select a text color for the button."
+msgstr ""
+
+#: options-config.php:2837 options-config.php:3576
+msgid "Button background (hover)"
+msgstr ""
+
+#: options-config.php:2849 options-config.php:3589
+msgid "Button text (hover)"
+msgstr ""
+
+#: options-config.php:2860 options-config.php:2868
+msgid "Hosts"
+msgstr ""
+
+#: options-config.php:2861
+msgid ""
+"<p class=\"description\">Use the settings below to customize the hosts "
+"section on the front page. <a target=\"_blank\" rel=\"noopener noreferrer\" "
+"href=\"http://themestation.co/documentation/podcaster/#to-front-page-hosts"
+"\"><span class=\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:2869
+msgid "Activate the hosts section."
+msgstr ""
+
+#: options-config.php:2877
+msgid "Enter a title for the hosts section."
+msgstr ""
+
+#: options-config.php:2886
+msgid "Enter a blurb for the hosts section."
+msgstr ""
+
+#: options-config.php:2930 options-config.php:3430 options-config.php:3828
+msgid "Padding"
+msgstr ""
+
+#: options-config.php:2931
+msgid "Enter the padding for an individual host box."
+msgstr ""
+
+#: options-config.php:2944
+msgid "<h3>Host 1</h3>"
+msgstr ""
+
+#: options-config.php:2945 options-config.php:3007 options-config.php:3069
+#: options-config.php:3131 options-config.php:3193 options-config.php:3255
+msgid "Use the settings below to display your host."
+msgstr ""
+
+#: options-config.php:2951
+msgid "Activate Host 1"
+msgstr ""
+
+#: options-config.php:2952
+msgid "Activate Host 1."
+msgstr ""
+
+#: options-config.php:2960
+msgid "Host 1"
+msgstr ""
+
+#: options-config.php:2961 options-config.php:3023 options-config.php:3085
+#: options-config.php:3147 options-config.php:3209 options-config.php:3271
+msgid "Select the user from the drop down menu."
+msgstr ""
+
+#: options-config.php:2967
+msgid "Host 1 - Image"
+msgstr ""
+
+#: options-config.php:2968 options-config.php:3030 options-config.php:3092
+#: options-config.php:3154 options-config.php:3216 options-config.php:3278
+msgid "Upload a user image for your host."
+msgstr ""
+
+#: options-config.php:2989 options-config.php:3051 options-config.php:3113
+#: options-config.php:3175 options-config.php:3237 options-config.php:3299
+msgid "Custom URL"
+msgstr ""
+
+#: options-config.php:2990 options-config.php:3052 options-config.php:3114
+#: options-config.php:3176 options-config.php:3238 options-config.php:3300
+msgid "Enter a valid URL for this host."
+msgstr ""
+
+#: options-config.php:2999
+msgid "Host 1 - Description"
+msgstr ""
+
+#: options-config.php:3000 options-config.php:3062 options-config.php:3124
+#: options-config.php:3186 options-config.php:3248 options-config.php:3310
+msgid "Enter a short description for your host."
+msgstr ""
+
+#: options-config.php:3006
+msgid "<h3>Host 2</h3>"
+msgstr ""
+
+#: options-config.php:3013 options-config.php:3022
+msgid "Host 2"
+msgstr ""
+
+#: options-config.php:3014
+msgid "Activate Host 2"
+msgstr ""
+
+#: options-config.php:3029
+msgid "Host 2 - Image"
+msgstr ""
+
+#: options-config.php:3061
+msgid "Host 2 - Description"
+msgstr ""
+
+#: options-config.php:3068
+msgid "<h3>Host 3</h3>"
+msgstr ""
+
+#: options-config.php:3075 options-config.php:3084
+msgid "Host 3"
+msgstr ""
+
+#: options-config.php:3076
+msgid "Activate Host 3"
+msgstr ""
+
+#: options-config.php:3091
+msgid "Host 3 - Image"
+msgstr ""
+
+#: options-config.php:3123
+msgid "Host 3 - Description"
+msgstr ""
+
+#: options-config.php:3130
+msgid "<h3>Host 4</h3>"
+msgstr ""
+
+#: options-config.php:3137 options-config.php:3146
+msgid "Host 4"
+msgstr ""
+
+#: options-config.php:3138
+msgid "Activate Host 4"
+msgstr ""
+
+#: options-config.php:3153
+msgid "Host 4 - Image"
+msgstr ""
+
+#: options-config.php:3185
+msgid "Host 4 - Description"
+msgstr ""
+
+#: options-config.php:3192
+msgid "<h3>Host 5</h3>"
+msgstr ""
+
+#: options-config.php:3199 options-config.php:3208
+msgid "Host 5"
+msgstr ""
+
+#: options-config.php:3200
+msgid "Activate Host 5"
+msgstr ""
+
+#: options-config.php:3215
+msgid "Host 5 - Image"
+msgstr ""
+
+#: options-config.php:3247
+msgid "Host 5 - Description"
+msgstr ""
+
+#: options-config.php:3254
+msgid "<h3>Host 6</h3>"
+msgstr ""
+
+#: options-config.php:3261 options-config.php:3270
+msgid "Host 6"
+msgstr ""
+
+#: options-config.php:3262
+msgid "Activate Host 6"
+msgstr ""
+
+#: options-config.php:3277
+msgid "Host 6 - Image"
+msgstr ""
+
+#: options-config.php:3309
+msgid "Host 6 - Description"
+msgstr ""
+
+#: options-config.php:3316 options-config.php:3518 options-config.php:3693
+#: options-config.php:6106 options-config.php:7111
+msgid "<h3>Colors</h3>"
+msgstr ""
+
+#: options-config.php:3317
+msgid "The settings below are for the colors of the host section."
+msgstr ""
+
+#: options-config.php:3323
+msgid "Heading & text"
+msgstr ""
+
+#: options-config.php:3324 options-config.php:6543
+msgid "Select a color for the headings."
+msgstr ""
+
+#: options-config.php:3360
+msgid "Description"
+msgstr ""
+
+#: options-config.php:3361
+msgid "Select a color for the description."
+msgstr ""
+
+#: options-config.php:3375
+msgid "User image (hover)"
+msgstr ""
+
+#: options-config.php:3376
+msgid "Select a color (hover) for the user image."
+msgstr ""
+
+#: options-config.php:3388
+msgid "Donate button"
+msgstr ""
+
+#: options-config.php:3389
+msgid ""
+"<p class=\"description\">Use the settings below to customize the donate "
+"button on the front page. <a target=\"_blank\" rel=\"noopener noreferrer\" "
+"href=\"http://themestation.co/documentation/podcaster/#to-front-page-donate-"
+"button\"><span class=\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:3396
+msgid "Donate Button"
+msgstr ""
+
+#: options-config.php:3397
+msgid "Activate the donate button section."
+msgstr ""
+
+#: options-config.php:3405 options-config.php:3803
+msgid "Enter a title for your section."
+msgstr ""
+
+#: options-config.php:3414 options-config.php:3812
+msgid "Enter a blurb for your section."
+msgstr ""
+
+#: options-config.php:3431
+msgid "Enter the padding for your donate section."
+msgstr ""
+
+#: options-config.php:3444
+msgid "Enter your own custom code or using the theme default button."
+msgstr ""
+
+#: options-config.php:3458
+msgid "Donate button (custom code)"
+msgstr ""
+
+#: options-config.php:3459
+msgid "Enter the custom code for your button."
+msgstr ""
+
+#: options-config.php:3492
+msgid "Button icon"
+msgstr ""
+
+#: options-config.php:3493
+msgid "Select an icon for your donate button."
+msgstr ""
+
+#: options-config.php:3519
+msgid "The settings below are for the colors of the donate button section."
+msgstr ""
+
+#: options-config.php:3577
+msgid "Select a background color (hover) for the button."
+msgstr ""
+
+#: options-config.php:3590
+msgid "Select a text color (hover) for the button."
+msgstr ""
+
+#: options-config.php:3601 options-config.php:3609
+msgid "Blog excerpts"
+msgstr ""
+
+#: options-config.php:3602
+msgid ""
+"<p class=\"description\">Use the settings below to customize the blog posts "
+"on the front page. <a target=\"_blank\" rel=\"noopener noreferrer\" href="
+"\"http://themestation.co/documentation/podcaster/#to-front-page-blog-excerpts"
+"\"><span class=\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:3610
+msgid ""
+"Choose between <strong>List</strong>, <strong>Columns</strong> and "
+"<strong>Columns II</strong>."
+msgstr ""
+
+#: options-config.php:3625
+msgid "Blog excerpts title"
+msgstr ""
+
+#: options-config.php:3626
+msgid "Enter the title in the text field."
+msgstr ""
+
+#: options-config.php:3633
+msgid "Blog excerpts description"
+msgstr ""
+
+#: options-config.php:3634
+msgid "Enter the description in the text field."
+msgstr ""
+
+#: options-config.php:3641 options-config.php:5443
+msgid "Amount of posts"
+msgstr ""
+
+#: options-config.php:3642
+msgid "Enter the amount of (posts) to display."
+msgstr ""
+
+#: options-config.php:3652
+msgid "Blog excerpts button"
+msgstr ""
+
+#: options-config.php:3661
+msgid "Select the amount of columns for this section."
+msgstr ""
+
+#: options-config.php:3674 options-config.php:5923
+msgid "Choose between <strong>straight</strong> and <strong>rounded</strong>."
+msgstr ""
+
+#: options-config.php:3694
+msgid "The settings below are for the colors of the blog excerpts section."
+msgstr ""
+
+#: options-config.php:3761 options-config.php:4065
+msgid "Link (hover)"
+msgstr ""
+
+#: options-config.php:3775
+msgid "Borders & icons"
+msgstr ""
+
+#: options-config.php:3776
+msgid "Select a color for borders and icons."
+msgstr ""
+
+#: options-config.php:3786
+msgid "Newsletter"
+msgstr ""
+
+#: options-config.php:3787
+msgid ""
+"<p class=\"description\">Use the settings below to customize the newsletter "
+"form on the front page. <a target=\"_blank\" rel=\"noopener noreferrer\" "
+"href=\"http://themestation.co/documentation/podcaster/#to-front-page-"
+"newsletter\"><span class=\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:3794
+msgid "Newsletter section"
+msgstr ""
+
+#: options-config.php:3795
+msgid "Activate the newsletter section."
+msgstr ""
+
+#: options-config.php:3829
+msgid "Enter the padding for your newsletter section."
+msgstr ""
+
+#: options-config.php:3841
+msgid "Newsletter form type"
+msgstr ""
+
+#: options-config.php:3842
+msgid "Choose between entering a shortcode or custom code."
+msgstr ""
+
+#: options-config.php:3856
+msgid "Shortcode"
+msgstr ""
+
+#: options-config.php:3857
+msgid "Enter the shortcode for the newsletter form."
+msgstr ""
+
+#: options-config.php:3866
+msgid "Newsletter form (custom code)"
+msgstr ""
+
+#: options-config.php:3867
+msgid "Enter the custom code for the newsletter form."
+msgstr ""
+
+#: options-config.php:3876
+msgid "The settings below are for the colors of the newsletter section."
+msgstr ""
+
+#: options-config.php:3910
+msgid "Navigation"
+msgstr ""
+
+#: options-config.php:3911
+msgid ""
+"<p class=\"description\">Use the settings below to customize the navigation "
+"menu. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://"
+"themestation.co/documentation/podcaster/#to-navigation\"><span class=\"fas "
+"fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:3916
+msgid "<h3>Background</h3>"
+msgstr ""
+
+#: options-config.php:3917
+msgid "The settings below are for the background of the navigation."
+msgstr ""
+
+#: options-config.php:3922
+msgid "Navigation background"
+msgstr ""
+
+#: options-config.php:3923
+msgid "Select a color for the background of the navigation menu."
+msgstr ""
+
+#: options-config.php:3933
+msgid "Navigation background (no header image) "
+msgstr ""
+
+#: options-config.php:3934
+msgid "Select an alternative color for the background of the navigation."
+msgstr ""
+
+#: options-config.php:3944
+msgid "<h3>Menu & links</h3>"
+msgstr ""
+
+#: options-config.php:3945
+msgid "The settings below are for links links."
+msgstr ""
+
+#: options-config.php:3965 options-config.php:3976
+msgid "Select a color for the links (hover)."
+msgstr ""
+
+#: options-config.php:3975
+msgid "Link background (hover)"
+msgstr ""
+
+#: options-config.php:3987
+msgid "<h3>Drop-down menu</h3>"
+msgstr ""
+
+#: options-config.php:3988
+msgid "The settings below are for the drop down menu."
+msgstr ""
+
+#: options-config.php:3993
+msgid "Drop-down link (text)"
+msgstr ""
+
+#: options-config.php:3994
+msgid "Select a color for the links in the drop down menu."
+msgstr ""
+
+#: options-config.php:4004
+msgid "Drop-down menu (background)"
+msgstr ""
+
+#: options-config.php:4005
+msgid "Select a color for the background in the drop down menu."
+msgstr ""
+
+#: options-config.php:4013
+msgid "Drop-down link hover (text)"
+msgstr ""
+
+#: options-config.php:4014
+msgid "Select a color (hover) for the links in the drop down menu."
+msgstr ""
+
+#: options-config.php:4025
+msgid "Drop-down menu hover (background)"
+msgstr ""
+
+#: options-config.php:4026
+msgid "Select a background color (hover) for the drop down menu."
+msgstr ""
+
+#: options-config.php:4035
+msgid "<h3>Transparent menu</h3>"
+msgstr ""
+
+#: options-config.php:4036
+msgid "The settings below are for the transparent menu."
+msgstr ""
+
+#: options-config.php:4054
+msgid "Select a color for the links in the transparent navigation menu."
+msgstr ""
+
+#: options-config.php:4066
+msgid ""
+"Select a color (hover) for the links in the transparent navigation menu."
+msgstr ""
+
+#: options-config.php:4075
+msgid "<h3>Sticky menu</h3>"
+msgstr ""
+
+#: options-config.php:4076
+msgid "The settings below are for the sticky menu."
+msgstr ""
+
+#: options-config.php:4081
+msgid "Sticky navigation"
+msgstr ""
+
+#: options-config.php:4082
+msgid "Activate sticky navigation."
+msgstr ""
+
+#: options-config.php:4118
+msgid "<h3>Search</h3>"
+msgstr ""
+
+#: options-config.php:4119
+msgid "The settings below are for the search bar."
+msgstr ""
+
+#: options-config.php:4124
+msgid "Search bar"
+msgstr ""
+
+#: options-config.php:4125
+msgid "Would you like to display a search bar in your navigation?"
+msgstr ""
+
+#: options-config.php:4133
+msgid "Select a style of search bar to use."
+msgstr ""
+
+#: options-config.php:4136
+msgid "Mini"
+msgstr ""
+
+#: options-config.php:4137
+msgid "Horizontal"
+msgstr ""
+
+#: options-config.php:4145 options-config.php:4157 options-config.php:4175
+msgid "Select a color for the text"
+msgstr ""
+
+#: options-config.php:4185
+msgid "<h3>Responsive</h3>"
+msgstr ""
+
+#: options-config.php:4186
+msgid "The settings below are for the responsive menu."
+msgstr ""
+
+#: options-config.php:4191
+msgid "Responsive menu style"
+msgstr ""
+
+#: options-config.php:4192
+msgid ""
+"Choose between drop-down (recommended for few menu elements) and toggle "
+"(recommended for many menu elements and multi-level navigation)."
+msgstr ""
+
+#: options-config.php:4202
+msgid "<h3>Responsive Colors</h3>"
+msgstr ""
+
+#: options-config.php:4203
+msgid "The settings below are for colors of the responsive menu."
+msgstr ""
+
+#: options-config.php:4216
+msgid "Hamburger & search background"
+msgstr ""
+
+#: options-config.php:4217
+msgid "Select a background color for the hamburger search buttons."
+msgstr ""
+
+#: options-config.php:4225
+msgid "Hamburger & search icon"
+msgstr ""
+
+#: options-config.php:4226
+msgid "Select a color for the hamburger search buttons."
+msgstr ""
+
+#: options-config.php:4235
+msgid "Hamburger & search icon (hover)"
+msgstr ""
+
+#: options-config.php:4236
+msgid "Select a color (hover) for the hamburger search buttons."
+msgstr ""
+
+#: options-config.php:4245
+msgid "Social media menu background"
+msgstr ""
+
+#: options-config.php:4246
+msgid "Select a background for the responsive social media menu."
+msgstr ""
+
+#: options-config.php:4254
+msgid "Social media icons"
+msgstr ""
+
+#: options-config.php:4255
+msgid "Select a color for the social media icons."
+msgstr ""
+
+#: options-config.php:4264
+msgid "Social media icon (email)"
+msgstr ""
+
+#: options-config.php:4265
+msgid "Select a color (hover) for the email icon."
+msgstr ""
+
+#: options-config.php:4276
+msgid "Logo"
+msgstr ""
+
+#: options-config.php:4277
+msgid ""
+"<p class=\"description\">Use the settings below to customize the website "
+"logo. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://"
+"themestation.co/documentation/podcaster/#to-logo\"><span class=\"fas fa-"
+"question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:4282
+msgid "Your Logo"
+msgstr ""
+
+#: options-config.php:4283
+msgid "Upload an image which will be displayed as a logo in your header."
+msgstr ""
+
+#: options-config.php:4290
+msgid "Max height"
+msgstr ""
+
+#: options-config.php:4301
+msgid "Max width"
+msgstr ""
+
+#: options-config.php:4312
+msgid "Your Logo (Sticky)"
+msgstr ""
+
+#: options-config.php:4313
+msgid ""
+"Upload an image which will be displayed as a logo in your header when it is "
+"in sticky mode."
+msgstr ""
+
+#: options-config.php:4320
+msgid "Max height (sticky menu)"
+msgstr ""
+
+#: options-config.php:4330
+msgid "Max width (sticky menu)"
+msgstr ""
+
+#: options-config.php:4340
+msgid "Your Logo (Retina Size)"
+msgstr ""
+
+#: options-config.php:4341
+msgid ""
+"Upload an image which will be displayed as a logo in your header. Make sure "
+"it's exactly double the size of the original."
+msgstr ""
+
+#: options-config.php:4355
+msgid "Max height (responsive menu)"
+msgstr ""
+
+#: options-config.php:4365
+msgid "Max width (responsive menu)"
+msgstr ""
+
+#: options-config.php:4376
+msgid "Type &amp; Direction"
+msgstr ""
+
+#: options-config.php:4377
+msgid ""
+"<p class=\"description\">Use the settings below to customize the website "
+"typography. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://"
+"themestation.co/documentation/podcaster/#to-type\"><span class=\"fas fa-"
+"question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:4381 options-config.php:4850
+msgid ""
+"<p class=\"description\">Use the settings below to customize general font "
+"settings.</p>"
+msgstr ""
+
+#: options-config.php:4387
+msgid "Typography"
+msgstr ""
+
+#: options-config.php:4388
+msgid "Select the type of fonts you would like to use."
+msgstr ""
+
+#: options-config.php:4401
+msgid "Right to left"
+msgstr ""
+
+#: options-config.php:4402
+msgid "Activate right to left reading?"
+msgstr ""
+
+#: options-config.php:4410
+msgid "Adobe Fonts/Typekit"
+msgstr ""
+
+#: options-config.php:4411
+msgid "Paste the code you received from Adobe Fonts/Typekit in the text box."
+msgstr ""
+
+#: options-config.php:4418
+msgid "Adobe Fonts/Typekit CSS Code"
+msgstr ""
+
+#: options-config.php:4419
+msgid "Use the text box to insert CSS overrides."
+msgstr ""
+
+#: options-config.php:4427
+msgid "Basics"
+msgstr ""
+
+#: options-config.php:4428
+msgid ""
+"<p class=\"description\">Use the settings below to customize basic font "
+"settings.</p>"
+msgstr ""
+
+#: options-config.php:4436 options-config.php:4525 options-config.php:4621
+#: options-config.php:4858 options-config.php:5017 options-config.php:5104
+#: options-config.php:5194 options-config.php:5282
+msgid ""
+"Please select \"Google Fonts\" or \"Typekit\" to activate these settings."
+msgstr ""
+
+#: options-config.php:4441
+msgid "<h3>General Font Settings</h3>"
+msgstr ""
+
+#: options-config.php:4443
+msgid "The settings below are font settings for the entire website."
+msgstr ""
+
+#: options-config.php:4448 options-config.php:4484
+msgid "Heading Font"
+msgstr ""
+
+#: options-config.php:4455 options-config.php:4490 options-config.php:4870
+#: options-config.php:4943 options-config.php:5029 options-config.php:5066
+#: options-config.php:5117 options-config.php:5156
+msgid "Set the font for your headings."
+msgstr ""
+
+#: options-config.php:4466 options-config.php:4500
+msgid "Text Font"
+msgstr ""
+
+#: options-config.php:4473 options-config.php:4506
+msgid "Set the font for your paragraphs."
+msgstr ""
+
+#: options-config.php:4516
+msgid "Site title & Menu"
+msgstr ""
+
+#: options-config.php:4517
+msgid ""
+"<p class=\"description\">Use the settings below to customize font settings "
+"for the site title & menu.</p>"
+msgstr ""
+
+#: options-config.php:4530
+msgid "<h3>Site title &amp; Menu</h3>"
+msgstr ""
+
+#: options-config.php:4532
+msgid "The settings below are font settings for the title and navigation menu."
+msgstr ""
+
+#: options-config.php:4537 options-config.php:4576
+msgid "Main Heading Font"
+msgstr ""
+
+#: options-config.php:4546 options-config.php:4584
+msgid "Set the font for your site title."
+msgstr ""
+
+#: options-config.php:4556 options-config.php:4593
+msgid "Menu Font"
+msgstr ""
+
+#: options-config.php:4566 options-config.php:4602
+msgid "Set the font for your menu."
+msgstr ""
+
+#: options-config.php:4612
+msgid "Front page header"
+msgstr ""
+
+#: options-config.php:4613
+msgid ""
+"<p class=\"description\">Use the settings below to customize font settings "
+"for the featured header.</p>"
+msgstr ""
+
+#: options-config.php:4626
+msgid "<h3>Front page header</h3>"
+msgstr ""
+
+#: options-config.php:4628
+msgid ""
+"The settings below are for the fonts on your featured header on the front "
+"page."
+msgstr ""
+
+#: options-config.php:4633 options-config.php:4742
+msgid "Featured Header Title"
+msgstr ""
+
+#: options-config.php:4642 options-config.php:4750 options-config.php:5207
+#: options-config.php:5245
+msgid "Set the font for your heading."
+msgstr ""
+
+#: options-config.php:4654 options-config.php:4762
+msgid "Featured Header Text"
+msgstr ""
+
+#: options-config.php:4662 options-config.php:4769 options-config.php:4889
+#: options-config.php:4960 options-config.php:5048 options-config.php:5083
+#: options-config.php:5137 options-config.php:5174 options-config.php:5226
+#: options-config.php:5262
+msgid "Set the font for the rest of the text, including excerpts."
+msgstr ""
+
+#: options-config.php:4673 options-config.php:4779
+msgid "Featured Header Mini Title"
+msgstr ""
+
+#: options-config.php:4682 options-config.php:4788
+msgid "Set the font for the mini title."
+msgstr ""
+
+#: options-config.php:4694 options-config.php:4800
+msgid "Scheduled Mini Title"
+msgstr ""
+
+#: options-config.php:4704 options-config.php:4810
+msgid "Set the font for the scheduled mini title."
+msgstr ""
+
+#: options-config.php:4718 options-config.php:4824
+msgid "Scheduled Heading"
+msgstr ""
+
+#: options-config.php:4728 options-config.php:4834
+msgid "Set the font for the scheduld heading."
+msgstr ""
+
+#: options-config.php:4849
+msgid "Front page episodes"
+msgstr ""
+
+#: options-config.php:4863 options-config.php:4937 options-config.php:5022
+#: options-config.php:5060 options-config.php:5109 options-config.php:5149
+#: options-config.php:5199 options-config.php:5238
+msgid "Headings"
+msgstr ""
+
+#: options-config.php:4901 options-config.php:4971
+msgid "Categories"
+msgstr ""
+
+#: options-config.php:4908 options-config.php:4978
+msgid "Set the font for the categories."
+msgstr ""
+
+#: options-config.php:4920 options-config.php:4990
+msgid "Read more link"
+msgstr ""
+
+#: options-config.php:4926 options-config.php:4996
+msgid "Set the font for the read more link."
+msgstr ""
+
+#: options-config.php:5008
+msgid "Single posts"
+msgstr ""
+
+#: options-config.php:5009
+msgid ""
+"<p class=\"description\">Use the settings below to customize font settings "
+"for single posts.</p>"
+msgstr ""
+
+#: options-config.php:5095
+msgid "Pages"
+msgstr ""
+
+#: options-config.php:5096
+msgid ""
+"<p class=\"description\">Use the settings below to customize font settings "
+"for pages.</p>"
+msgstr ""
+
+#: options-config.php:5185 options-config.php:6349
+msgid "Blog header"
+msgstr ""
+
+#: options-config.php:5186
+msgid ""
+"<p class=\"description\">Use the settings below to customize font settings "
+"for the blog header.</p>"
+msgstr ""
+
+#: options-config.php:5274
+msgid ""
+"<p class=\"description\">Use the settings below to customize font settings "
+"for buttons.</p>"
+msgstr ""
+
+#: options-config.php:5297 options-config.php:5316
+msgid "Set the font for your buttons."
+msgstr ""
+
+#: options-config.php:5328
+msgid "Podcast "
+msgstr ""
+
+#: options-config.php:5332
+msgid ""
+"<p class=\"description\">Use the settings below to customize the podcast. <a "
+"target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://themestation.co/"
+"documentation/podcaster/#to-podcast\"><span class=\"fas fa-question-circle"
+"\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:5339
+msgid "Podcast archive"
+msgstr ""
+
+#: options-config.php:5340
+msgid ""
+"Select the podcast category. This will be used for the episodes on the front "
+"page and podcast (legacy) archive page."
+msgstr ""
+
+#: options-config.php:5349
+msgid "Seriously Simple Podcasting series"
+msgstr ""
+
+#: options-config.php:5350
+msgid ""
+"Select the podcast category. This will be used for the episodes on the front "
+"page and podcast (legacy) archive page ."
+msgstr ""
+
+#: options-config.php:5357
+msgid "Seriously Simple episode meta data"
+msgstr ""
+
+#: options-config.php:5358
+msgid "Activate player links such as downloads and duration information."
+msgstr ""
+
+#: options-config.php:5366
+msgid "Seriously Simple Speakers"
+msgstr ""
+
+#: options-config.php:5367
+msgid "Display speakers and guests."
+msgstr ""
+
+#: options-config.php:5375
+msgid "Podcast display in blog"
+msgstr ""
+
+#: options-config.php:5376
+msgid "Check this box to include your episodes in the blog."
+msgstr ""
+
+#: options-config.php:5383
+msgid "<br /><h3>Podcast archive page</h3>"
+msgstr ""
+
+#: options-config.php:5384
+msgid "The settings below are for the podcast archive page."
+msgstr ""
+
+#: options-config.php:5389
+msgid "Icon type"
+msgstr ""
+
+#: options-config.php:5390
+msgid "Select an icon type."
+msgstr ""
+
+#: options-config.php:5401
+msgid "Set the corners for the thumbnails."
+msgstr ""
+
+#: options-config.php:5403
+msgid "Straight"
+msgstr ""
+
+#: options-config.php:5420
+msgid "Activate to truncate titles."
+msgstr ""
+
+#: options-config.php:5426
+msgid "<br /><h3>Podcast archive page (legacy)</h3>"
+msgstr ""
+
+#: options-config.php:5427
+msgid ""
+"The settings below are for the podcast archive page, if the legacy template "
+"is active."
+msgstr ""
+
+#: options-config.php:5432
+msgid "Display style"
+msgstr ""
+
+#: options-config.php:5433
+msgid "How would you like to display the podcast archive?"
+msgstr ""
+
+#: options-config.php:5444
+msgid ""
+"Enter the amount of posts you would like to display per page within your "
+"archive. \"0\" displays all entries on one page."
+msgstr ""
+
+#: options-config.php:5453
+msgid "<br /><h3>Single Audio & Video Background Settings</h3>"
+msgstr ""
+
+#: options-config.php:5454
+msgid ""
+"The settings below are for the background settings on audio & video posts."
+msgstr ""
+
+#: options-config.php:5460
+msgid "Single header parallax"
+msgstr ""
+
+#: options-config.php:5461
+msgid "Activate parallax scrolling for the header."
+msgstr ""
+
+#: options-config.php:5467
+msgid "Single header background style"
+msgstr ""
+
+#: options-config.php:5478
+msgid "<br /><h3>Hosts</h3>"
+msgstr ""
+
+#: options-config.php:5479
+msgid "The settings below are for the host display."
+msgstr ""
+
+#: options-config.php:5484
+msgid "Host info"
+msgstr ""
+
+#: options-config.php:5485
+msgid "Select where to display the host info box."
+msgstr ""
+
+#: options-config.php:5496
+msgid "Players"
+msgstr ""
+
+#: options-config.php:5497
+msgid ""
+"<p class=\"description\">Use the settings below to customize the media "
+"player. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://"
+"themestation.co/documentation/podcaster/#to-podcast-single-player-colors"
+"\"><span class=\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:5503
+msgid "<h3>Player style</h3>"
+msgstr ""
+
+#: options-config.php:5504
+msgid "The settings below are for media players styles."
+msgstr ""
+
+#: options-config.php:5510
+msgid "Select a style for your players."
+msgstr ""
+
+#: options-config.php:5521
+msgid "Select a corner style for your players."
+msgstr ""
+
+#: options-config.php:5531
+msgid "<h3>Player settings</h3>"
+msgstr ""
+
+#: options-config.php:5532
+msgid "The settings below are for media players."
+msgstr ""
+
+#: options-config.php:5537
+msgid "Preload"
+msgstr ""
+
+#: options-config.php:5538
+msgid ""
+"Setting to preload your audio and video players. Choose between a file & "
+"metadata, metadata or none."
+msgstr ""
+
+#: options-config.php:5550
+msgid "Audio volume"
+msgstr ""
+
+#: options-config.php:5551
+msgid "Set the style of the audio volume bar."
+msgstr ""
+
+#: options-config.php:5573
+msgid "<h3>Player colors</h3>"
+msgstr ""
+
+#: options-config.php:5574
+msgid "The settings below are for media players colors."
+msgstr ""
+
+#: options-config.php:5627
+msgid "Select a hover color for the icons."
+msgstr ""
+
+#: options-config.php:5664
+msgid "Time handle (ball)"
+msgstr ""
+
+#: options-config.php:5665
+msgid "Select a color for the time handle ball."
+msgstr ""
+
+#: options-config.php:5677 options-config.php:5837
+msgid "Time display (background)"
+msgstr ""
+
+#: options-config.php:5678
+msgid "Select a background color for the time display."
+msgstr ""
+
+#: options-config.php:5691 options-config.php:5851
+msgid "Time display (text)"
+msgstr ""
+
+#: options-config.php:5692 options-config.php:5852
+msgid "Select a color for the text of the time display."
+msgstr ""
+
+#: options-config.php:5702
+msgid "Single post players"
+msgstr ""
+
+#: options-config.php:5703
+msgid ""
+"<p class=\"description\">Use the settings below to customize the media "
+"player on single pages. <a target=\"_blank\" rel=\"noopener noreferrer\" "
+"href=\"http://themestation.co/documentation/podcaster/#to-podcast-single-"
+"player-colors\"><span class=\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:5710
+msgid "Activate custom colors for your single page audio and video players."
+msgstr ""
+
+#: options-config.php:5717
+msgid "Transparent audio player"
+msgstr ""
+
+#: options-config.php:5718
+msgid "Activate transparency for your single audio players."
+msgstr ""
+
+#: options-config.php:5826
+msgid "Select a color (played) for the rail."
+msgstr ""
+
+#: options-config.php:5838
+msgid "Select a color for the background of the time display."
+msgstr ""
+
+#: options-config.php:5866
+msgid "Playlist background"
+msgstr ""
+
+#: options-config.php:5867
+msgid "Select a color for the background of the playlists."
+msgstr ""
+
+#: options-config.php:5876
+msgid "Audio header"
+msgstr ""
+
+#: options-config.php:5877
+msgid ""
+"<p class=\"description\">Use the settings below to customize the audio "
+"episodes. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://"
+"themestation.co/documentation/podcaster/#to-podcast-single-player-colors"
+"\"><span class=\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:5883
+msgid "Single header display"
+msgstr ""
+
+#: options-config.php:5884
+msgid "Choose between featured image in background and thumbnail."
+msgstr ""
+
+#: options-config.php:5896
+msgid "Player display"
+msgstr ""
+
+#: options-config.php:5897
+msgid ""
+"Choose between displaying the player in the header or stuck to the bottom."
+msgstr ""
+
+#: options-config.php:5909
+msgid "Thumbnail size"
+msgstr ""
+
+#: options-config.php:5910
+msgid "Select the size for the thumbnail."
+msgstr ""
+
+#: options-config.php:5934
+msgid "Thumbnail on audio embedded player"
+msgstr ""
+
+#: options-config.php:5935
+msgid "Activate featured thumbnail on embedded players."
+msgstr ""
+
+#: options-config.php:5942
+msgid "Thumbnail on audio playlists"
+msgstr ""
+
+#: options-config.php:5943
+msgid "Activate featured thumbnail on playlists posts on or off."
+msgstr ""
+
+#: options-config.php:5949
+msgid "<br /><h3>Colors</h3>"
+msgstr ""
+
+#: options-config.php:5950
+msgid "The settings below for the single audio header."
+msgstr ""
+
+#: options-config.php:5956
+msgid "Activate custom colors for audio single posts."
+msgstr ""
+
+#: options-config.php:5995 options-config.php:6047 options-config.php:6284
+msgid "Captions"
+msgstr ""
+
+#: options-config.php:5996 options-config.php:6048 options-config.php:6285
+msgid "Select a color for captions."
+msgstr ""
+
+#: options-config.php:6004
+msgid "Video header"
+msgstr ""
+
+#: options-config.php:6005
+msgid ""
+"<p class=\"description\">Customie your video episodes. <a target=\"_blank\" "
+"rel=\"noopener noreferrer\" href=\"http://themestation.co/documentation/"
+"podcaster/#to-podcast-video-header\"><span class=\"fas fa-question-circle"
+"\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:6011
+msgid "Video background (image)"
+msgstr ""
+
+#: options-config.php:6012
+msgid "Activate backgrounds in video posts."
+msgstr ""
+
+#: options-config.php:6019
+msgid "Activate custom colors for video single posts."
+msgstr ""
+
+#: options-config.php:6058
+msgid "Single posts & pages"
+msgstr ""
+
+#: options-config.php:6059
+msgid ""
+"<p class=\"description\">Use the settings below to customize single posts "
+"and pages. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://"
+"themestation.co/documentation/podcaster/#to-single-posts-pages\"><span class="
+"\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:6064
+msgid "Alignment (no Sidebar)"
+msgstr ""
+
+#: options-config.php:6065
+msgid "Select an alignment when no sidebar is set for single posts and pages."
+msgstr ""
+
+#: options-config.php:6076
+msgid "<h3>Category & archive pages</h3>"
+msgstr ""
+
+#: options-config.php:6077
+msgid "The settings below are for the category and archive pages."
+msgstr ""
+
+#: options-config.php:6082
+msgid "Category page title"
+msgstr ""
+
+#: options-config.php:6083 options-config.php:6091 options-config.php:6099
+msgid "Enter a title or leave it blank."
+msgstr ""
+
+#: options-config.php:6084
+msgid "Category:"
+msgstr ""
+
+#: options-config.php:6090
+msgid "Tags page title"
+msgstr ""
+
+#: options-config.php:6092
+msgid "Tag:"
+msgstr ""
+
+#: options-config.php:6098
+msgid "Search page title"
+msgstr ""
+
+#: options-config.php:6100
+msgid "Search Results for:"
+msgstr ""
+
+#: options-config.php:6107
+msgid "The settings below are for the colors on your single posts & pages."
+msgstr ""
+
+#: options-config.php:6147 options-config.php:6527
+msgid "Sidebar inputs &fields"
+msgstr ""
+
+#: options-config.php:6199
+msgid "Icons & labels"
+msgstr ""
+
+#: options-config.php:6211
+msgid "<br /><h3>Image & Gallery Posts</h3>"
+msgstr ""
+
+#: options-config.php:6212
+msgid "The settings below for the single image/gallery header."
+msgstr ""
+
+#: options-config.php:6217
+msgid "<h3>Gallery</h3>"
+msgstr ""
+
+#: options-config.php:6218
+msgid "The settings below for gallery post settings."
+msgstr ""
+
+#: options-config.php:6223
+msgid "Gallery format"
+msgstr ""
+
+#: options-config.php:6224
+msgid "Choose between a slideshows or grid."
+msgstr ""
+
+#: options-config.php:6234
+msgid "Gallery accent"
+msgstr ""
+
+#: options-config.php:6235
+msgid "Select an accent color for the gallery."
+msgstr ""
+
+#: options-config.php:6245
+msgid "Select a color for gallery captions."
+msgstr ""
+
+#: options-config.php:6255
+msgid "Activate custom colors for image/gallery single posts."
+msgstr ""
+
+#: options-config.php:6295
+msgid "Blog"
+msgstr ""
+
+#: options-config.php:6296 options-config.php:6301
+msgid ""
+"<p class=\"description\">Use the settings below to customize the blog. <a "
+"target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://themestation.co/"
+"documentation/podcaster/#to-blog\"><span class=\"fas fa-question-circle\"></"
+"span></a></p>"
+msgstr ""
+
+#: options-config.php:6308
+msgid "Main layout"
+msgstr ""
+
+#: options-config.php:6309
+msgid "Select main content and sidebar alignment."
+msgstr ""
+
+#: options-config.php:6329
+msgid "<h3>Header</h3>"
+msgstr ""
+
+#: options-config.php:6330
+msgid "The settings below are for the header on the blog."
+msgstr ""
+
+#: options-config.php:6336
+msgid "Enter a title."
+msgstr ""
+
+#: options-config.php:6343
+msgid "Enter a blurb."
+msgstr ""
+
+#: options-config.php:6350
+msgid "Upload a header for your blog (1920px x 450px)."
+msgstr ""
+
+#: options-config.php:6369
+msgid "Activate parallax scrolling for your blog header."
+msgstr ""
+
+#: options-config.php:6376
+msgid "<h3>Posts</h3>"
+msgstr ""
+
+#: options-config.php:6377
+msgid "The settings below are for the posts on the blog."
+msgstr ""
+
+#: options-config.php:6390
+msgid "Padding (posts)"
+msgstr ""
+
+#: options-config.php:6391
+msgid "Enter padding for the blog posts."
+msgstr ""
+
+#: options-config.php:6410
+msgid "Padding (sidebar widgets)"
+msgstr ""
+
+#: options-config.php:6411
+msgid "Enter padding for the sidebar widgets."
+msgstr ""
+
+#: options-config.php:6422
+msgid "Excerpts"
+msgstr ""
+
+#: options-config.php:6423
+msgid "Choose between forced excerpts or setthing them in post."
+msgstr ""
+
+#: options-config.php:6433
+msgid "Featured image (Standard Format)"
+msgstr ""
+
+#: options-config.php:6434
+msgid "Choose between stretched and auto width."
+msgstr ""
+
+#: options-config.php:6451
+msgid "No comments"
+msgstr ""
+
+#: options-config.php:6452
+msgid "Enter the text that will be displayed when there are no comments."
+msgstr ""
+
+#: options-config.php:6458
+msgid "One comment"
+msgstr ""
+
+#: options-config.php:6459
+msgid "Enter the text that will be displayed when there is one comment."
+msgstr ""
+
+#: options-config.php:6465
+msgid "Multiple comments"
+msgstr ""
+
+#: options-config.php:6466
+msgid "Enter the text that will be displayed when there are more comments."
+msgstr ""
+
+#: options-config.php:6473
+msgid ""
+"<p class=\"description\">Use the settings below to customize the colors of "
+"the blog. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://"
+"themestation.co/documentation/podcaster/#to-blog\"><span class=\"fas fa-"
+"question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:6500
+msgid "Background Color (blog posts & sidebar widgets)"
+msgstr ""
+
+#: options-config.php:6513
+msgid "Select a color for the borders."
+msgstr ""
+
+#: options-config.php:6528
+msgid "Select a color for inputs and fields."
+msgstr ""
+
+#: options-config.php:6542
+msgid "Heading"
+msgstr ""
+
+#: options-config.php:6554
+msgid "Heading (hover)"
+msgstr ""
+
+#: options-config.php:6555
+msgid "Select a color (hover) for the headings."
+msgstr ""
+
+#: options-config.php:6590
+msgid "Link (Hover)"
+msgstr ""
+
+#: options-config.php:6602
+msgid "Pagination background"
+msgstr ""
+
+#: options-config.php:6614
+msgid "Pagination text"
+msgstr ""
+
+#: options-config.php:6626
+msgid "Pagination background (hover)"
+msgstr ""
+
+#: options-config.php:6627
+msgid "Select a color for the background (hover)."
+msgstr ""
+
+#: options-config.php:6638
+msgid "Pagination text (hover)"
+msgstr ""
+
+#: options-config.php:6639
+msgid "Select a color (hover) for the text."
+msgstr ""
+
+#: options-config.php:6650
+msgid "Pagination background (current page)"
+msgstr ""
+
+#: options-config.php:6651
+msgid "Select a color for the backgroound."
+msgstr ""
+
+#: options-config.php:6662
+msgid "Pagination text (current page)"
+msgstr ""
+
+#: options-config.php:6673
+msgid "Avatars & names"
+msgstr ""
+
+#: options-config.php:6674
+msgid ""
+"<p class=\"description\">The settings below are for the avatars. Simply turn "
+"off or on what you would like to show. Make sure <strong>Show Avatars</"
+"strong> (found under Settings > Discussion) is turned on.<a target=\"_blank"
+"\" rel=\"noopener noreferrer\" href=\"http://themestation.co/documentation/"
+"podcaster/#to-blog\"><span class=\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:6681
+msgid "Front Page Avatars"
+msgstr ""
+
+#: options-config.php:6682
+msgid "Display avatars on the \"From the blog\" section on the front page."
+msgstr ""
+
+#: options-config.php:6688
+msgid "Blog Avatars"
+msgstr ""
+
+#: options-config.php:6689
+msgid "Display avatars on the blog page."
+msgstr ""
+
+#: options-config.php:6695
+msgid "Blog Author Name"
+msgstr ""
+
+#: options-config.php:6696
+msgid "Display author name on the blog page."
+msgstr ""
+
+#: options-config.php:6702
+msgid "Single Page Avatars"
+msgstr ""
+
+#: options-config.php:6703
+msgid "Display avatars on single pages."
+msgstr ""
+
+#: options-config.php:6709
+msgid "Single Page Author Name"
+msgstr ""
+
+#: options-config.php:6710
+msgid "Display author name on single pages."
+msgstr ""
+
+#: options-config.php:6716
+msgid "Comment Avatars"
+msgstr ""
+
+#: options-config.php:6717
+msgid "Display avatars in the comment section."
+msgstr ""
+
+#: options-config.php:6723
+msgid "Author Pages Avatars"
+msgstr ""
+
+#: options-config.php:6724
+msgid "Display avatars on author pages."
+msgstr ""
+
+#: options-config.php:6731
+msgid ""
+"<p class=\"description\">Use the settings below to customize the comments "
+"section of the blog. <a target=\"_blank\" rel=\"noopener noreferrer\" href="
+"\"http://themestation.co/documentation/podcaster/#to-blog\"><span class="
+"\"fas fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:6738
+msgid "Comments section"
+msgstr ""
+
+#: options-config.php:6739
+msgid "show or hide comments and trackbacks across the entire website."
+msgstr ""
+
+#: options-config.php:6746
+msgid "Comments format"
+msgstr ""
+
+#: options-config.php:6747
+msgid ""
+"Select whether you would like to display comments and trackbacks or comments "
+"only."
+msgstr ""
+
+#: options-config.php:6757
+msgid "Comments closed text"
+msgstr ""
+
+#: options-config.php:6758
+msgid "Enter text, leave blank to hide."
+msgstr ""
+
+#: options-config.php:6760
+msgid "Comments are closed."
+msgstr ""
+
+#: options-config.php:6767
+msgid "Social media"
+msgstr ""
+
+#: options-config.php:6768
+msgid ""
+"<p class=\"description\">Use the settings below to customize the social "
+"media links. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://"
+"themestation.co/documentation/podcaster/#to-social-media\"><span class=\"fas "
+"fa-question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:6773
+msgid "Social media (Navigation)"
+msgstr ""
+
+#: options-config.php:6774
+msgid "Display social media icons in the navigation bar."
+msgstr ""
+
+#: options-config.php:6780
+msgid "Social media (Footer)"
+msgstr ""
+
+#: options-config.php:6781
+msgid "Display social media icons in the footer."
+msgstr ""
+
+#: options-config.php:6787
+msgid "Color"
+msgstr ""
+
+#: options-config.php:6788
+msgid "Pick a color for your social media icons."
+msgstr ""
+
+#: options-config.php:6798
+msgid "Email Icon"
+msgstr ""
+
+#: options-config.php:6799
+msgid "Paste the email address here."
+msgstr ""
+
+#: options-config.php:6806
+msgid "RSS Icon"
+msgstr ""
+
+#: options-config.php:6807 options-config.php:6815 options-config.php:6823
+#: options-config.php:6831 options-config.php:6839 options-config.php:6847
+#: options-config.php:6855 options-config.php:6863 options-config.php:6870
+#: options-config.php:6878 options-config.php:6886 options-config.php:6895
+#: options-config.php:6903 options-config.php:6911 options-config.php:6919
+#: options-config.php:6926 options-config.php:6934 options-config.php:6942
+#: options-config.php:6950 options-config.php:6958 options-config.php:6966
+#: options-config.php:6974 options-config.php:6982 options-config.php:6990
+#: options-config.php:6998 options-config.php:7006 options-config.php:7014
+#: options-config.php:7022 options-config.php:7030 options-config.php:7039
+#: options-config.php:7047 options-config.php:7056 options-config.php:7064
+#: options-config.php:7072 options-config.php:7080
+msgid "Paste the url of your profile here."
+msgstr ""
+
+#: options-config.php:6814
+msgid "Facebook Icon"
+msgstr ""
+
+#: options-config.php:6822
+msgid "Twitter Icon"
+msgstr ""
+
+#: options-config.php:6830
+msgid "Google Icon"
+msgstr ""
+
+#: options-config.php:6838
+msgid "Instagram Icon"
+msgstr ""
+
+#: options-config.php:6846
+msgid "Snapchat Icon"
+msgstr ""
+
+#: options-config.php:6854
+msgid "TikTok Icon"
+msgstr ""
+
+#: options-config.php:6862
+msgid "Periscope Icon"
+msgstr ""
+
+#: options-config.php:6869
+msgid "Telegram Icon"
+msgstr ""
+
+#: options-config.php:6877
+msgid "iTunes Icon"
+msgstr ""
+
+#: options-config.php:6885
+msgid "Soundcloud Icon"
+msgstr ""
+
+#: options-config.php:6894
+msgid "Spotify Icon"
+msgstr ""
+
+#: options-config.php:6902
+msgid "Apple Podcasts Icon"
+msgstr ""
+
+#: options-config.php:6910
+msgid "Stitcher Icon"
+msgstr ""
+
+#: options-config.php:6918
+msgid "Google Podcasts Icon"
+msgstr ""
+
+#: options-config.php:6925
+msgid "Pocket Casts Icon"
+msgstr ""
+
+#: options-config.php:6933
+msgid "Mixcloud Icon"
+msgstr ""
+
+#: options-config.php:6941
+msgid "Tumblr Icon"
+msgstr ""
+
+#: options-config.php:6949
+msgid "Medium Icon"
+msgstr ""
+
+#: options-config.php:6957
+msgid "Pinterest Icon"
+msgstr ""
+
+#: options-config.php:6965
+msgid "Flickr Icon"
+msgstr ""
+
+#: options-config.php:6973
+msgid "Youtube Icon"
+msgstr ""
+
+#: options-config.php:6981
+msgid "Vimeo Icon"
+msgstr ""
+
+#: options-config.php:6989
+msgid "Twitch Icon"
+msgstr ""
+
+#: options-config.php:6997
+msgid "Android Icon"
+msgstr ""
+
+#: options-config.php:7005
+msgid "Skype Icon"
+msgstr ""
+
+#: options-config.php:7013
+msgid "Whatsapp Icon"
+msgstr ""
+
+#: options-config.php:7021
+msgid "Dribbble Icon"
+msgstr ""
+
+#: options-config.php:7029
+msgid "Weibo Icon"
+msgstr ""
+
+#: options-config.php:7038
+msgid "Patreon Icon"
+msgstr ""
+
+#: options-config.php:7046
+msgid "Paypal Icon"
+msgstr ""
+
+#: options-config.php:7055
+msgid "Foursquare Icon"
+msgstr ""
+
+#: options-config.php:7063
+msgid "Github Icon"
+msgstr ""
+
+#: options-config.php:7071
+msgid "Xing Icon"
+msgstr ""
+
+#: options-config.php:7079
+msgid "Linkedin Icon"
+msgstr ""
+
+#: options-config.php:7089
+msgid "Footer"
+msgstr ""
+
+#: options-config.php:7090
+msgid ""
+"<p class=\"description\">Use the settings below to customize the website "
+"footer. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://"
+"themestation.co/documentation/podcaster/#to-footer\"><span class=\"fas fa-"
+"question-circle\"></span></a></p>"
+msgstr ""
+
+#: options-config.php:7095
+msgid "Footer Text"
+msgstr ""
+
+#: options-config.php:7096
+msgid "Enter text for the footer area."
+msgstr ""
+
+#: options-config.php:7102
+msgid "Copyright Text"
+msgstr ""
+
+#: options-config.php:7103
+msgid "Enter the text for the copyright area."
+msgstr ""
+
+#: options-config.php:7112
+msgid "The settings below are for the footer section of the website."
+msgstr ""
+
+#: options-config.php:7148
+msgid "<h3>Footer Navigation</h3>"
+msgstr ""
+
+#: options-config.php:7149
+msgid "The settings below are fore the footer navigation of the website."
+msgstr ""
+
+#: options-config.php:7155
+msgid "Select a color for the background of the footer navigation."
+msgstr ""
+
+#: options-config.php:7164
+msgid "Select a color for text of the footer navigation."
+msgstr ""
+
+#: options-config.php:7173
+msgid "Select a color for links of the footer navigation."
+msgstr ""
+
+#: options-config.php:7182
+msgid "Select a color (hover) for links of the footer navigation."
+msgstr ""
+
+#: options-config.php:7264
+msgid "Section via hook"
+msgstr ""
+
+#: options-config.php:7265
+msgid ""
+"<p class=\"description\">This is a section created by adding a filter to the "
+"sections array. Can be used by child themes to add/remove sections from the "
+"options.</p>"
+msgstr ""
+
+#: page.php:82 page/page-blank-navigation-footer.php:65 page/page-blank.php:66
+#: page/page-fullwidth.php:78 page/page-gutenberg.php:161
+#: page/page-sidebarleft.php:78 post/postfooter.php:43 postfp/postfooter.php:43
+msgid "Next"
+msgstr ""
+
+#: page.php:83 page/page-blank-navigation-footer.php:66 page/page-blank.php:67
+#: page/page-fullwidth.php:79 page/page-gutenberg.php:162
+#: page/page-sidebarleft.php:79 post/postfooter.php:44 postfp/postfooter.php:44
+msgid "Previous"
+msgstr ""
+
+#: page/page-archive.php:76 searchform.php:12
+msgid "Search for:"
+msgstr ""
+
+#: page/page-archive.php:77
+msgid "Search Archives"
+msgstr ""
+
+#: page/page-archive.php:86
+msgid "By Date"
+msgstr ""
+
+#: page/page-archive.php:93
+msgid "By Topic"
+msgstr ""
+
+#: post/format-aside.php:15 post/format-link.php:13 post/format-quote.php:13
+#: postfp/format-aside.php:15 postfp/format-link.php:13
+#: postfp/format-quote.php:13
+msgid "Featured post"
+msgstr ""
+
+#: post/format-aside.php:25 postfp/format-aside.php:25
+msgid "&#8734;"
+msgstr ""
+
+#: post/format-audio.php:47 post/format-video.php:43 postfp/format-video.php:43
+msgid "Downloads:"
+msgstr ""
+
+#: post/format-audio.php:54 post/format-audio.php:65 post/format-video.php:51
+#: post/format-video.php:63 postfp/format-video.php:51
+#: postfp/format-video.php:63
+msgid "Download"
+msgstr ""
+
+#: post/postfooter.php:71 post/postfooter.php:160 postfp/postfooter.php:71
+#: postfp/postfooter.php:160
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: post/postfooter.php:82 postfp/postfooter.php:82
+msgid "Series: "
+msgstr ""
+
+#: post/postfooter.php:90 postfp/postfooter.php:90
+msgid "Categories: "
+msgstr ""
+
+#: post/postfooter.php:114 postfp/postfooter.php:114
+msgid "Previous Post"
+msgstr ""
+
+#: post/postfooter.php:130 postfp/postfooter.php:130
+msgid "Next Post"
+msgstr ""
+
+#: post/postheader.php:47 postfp/postheader.php:50
+#, php-format
+msgid "Permalink to %s"
+msgstr ""
+
+#: post/postheader.php:59 postfp/postheader.php:63
+msgid "Tagged as:"
+msgstr ""
+
+#: post/postheader.php:63 postfp/postheader.php:67
+msgid "Sticky Post"
+msgstr ""
+
+#: search.php:33
+#, php-format
+msgid "Your search has found %s results."
+msgstr ""
+
+#: thst-listcomments.php:30
+#, php-format
+msgid "<span class=\"fn\">%s</span>"
+msgstr ""
+
+#: thst-listcomments.php:32
+#, php-format
+msgid "%1$s"
+msgstr ""
+
+#: thst-listcomments.php:36
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Podcaster"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "http://themeforest.net/user/themestation/portfolio"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Premium WordPress Theme By Theme Station"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "http://www.themestation.co"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://themeforest.net/user/themestation/"
+msgstr ""

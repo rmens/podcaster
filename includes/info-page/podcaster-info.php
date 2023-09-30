@@ -10,650 +10,676 @@
  * @since 1.5
  */
 
-add_action( 'init', 'pod_info_admin_init' );
-add_action( 'admin_menu', 'pod_info_settings_page_init' );
 
-function pod_info_admin_init() {
-	$settings = get_option( "pod_info_theme_settings" );
-	if ( empty( $settings ) ) {
-		$settings = array(
-			'pod_info_intro' => 'Some intro text for the home page',
-			'pod_info_tag_class' => false,
-			'pod_info_ga' => false,
 
-			'pod_info_docs' => false,
-			'pod_info_support' => false,
-			'pod_info_chlog' => false
+ 
+/**
+ * Initiate and add the page to the Dashboard Menu.
+ */
+if( ! function_exists( 'pod_info_settings_page_init' ) ) {
+	function pod_info_settings_page_init() {
+		$theme_data = wp_get_theme();
 
+		$settings_page = add_menu_page( 
+			'About', 
+			'Podcaster', 
+			'edit_theme_options', 
+			'pod-theme-options',
+			'pod_info_settings_page'
 		);
-		add_option( "pod_info_theme_settings", $settings, '', 'yes' );
-	}	
+	}
 }
+// add_action() $priority set to 9 to make sure demo install link is added before.
+add_action( 'admin_menu', 'pod_info_settings_page_init', 9 );
 
-function pod_info_settings_page_init() {
-	$theme_data = wp_get_theme();
-	$settings_page = add_theme_page( $theme_data->get( 'Name' ). ' Info', $theme_data->get( 'Name' ). ' Info', 'edit_theme_options', 'theme-information', 'pod_info_settings_page' );
-	add_action( "load-{$settings_page}", 'pod_info_load_settings_page' );
-}
 
-function pod_info_load_settings_page() {
-	$_POST["pod-info-settings-submit"] = '';
-	if ( $_POST["pod-info-settings-submit"] == 'Y' ) {
-		check_admin_referer( "pod-info-settings-page" );
-		pod_info_save_theme_settings();
-		$url_parameters = isset($_GET['tab'])? 'updated=true&tab='.$_GET['tab'] : 'updated=true';
-		wp_redirect(admin_url('themes.php?page=theme-information&'.$url_parameters));
-		exit;
+/**
+ * Load the about page.
+ */
+if( ! function_exists( 'pod_info_load_settings_page' ) ){
+	function pod_info_load_settings_page() {
+		$_POST["pod-info-settings-submit"] = '';
+
+		if ( $_POST["pod-info-settings-submit"] == 'Y' ) {
+			check_admin_referer( "pod-info-settings-page" );
+			
+			pod_info_save_theme_settings();
+
+			$url_parameters = isset( $_GET['tab'] ) ? 'updated=true&tab=' . $_GET['tab'] : 'updated=true';
+			wp_redirect( admin_url( 'admin.php?page=pod-theme-options&' . $url_parameters ) );
+			exit;
+		}
 	}
 }
 
-function pod_info_save_theme_settings() {
-	global $pagenow;
-	$settings = get_option( "pod_info_theme_settings" );
-	
-	if ( $pagenow == 'themes.php' && $_GET['page'] == 'theme-information' ){ 
-		if ( isset ( $_GET['tab'] ) )
-	        $tab = $_GET['tab']; 
-	    else
-	        $tab = 'whatsnew'; 
 
-	    switch ( $tab ){ 
-	        case 'documentation' :
-				$settings['pod_info_docs']  = $_POST['pod_info_docs'];
-			break; 
-	        case 'support' : 
-				$settings['pod_info_support']  = $_POST['pod_info_support'];
-			break;
-			case 'changelog' : 
-				$settings['pod_info_chlog']  = $_POST['pod_info_chlog'];
-			break;
-			case 'whatsnew' : 
-				$settings['pod_info_intro']	  = $_POST['pod_info_intro'];
-			break;
+/**
+ * Manage tabs, legacy.
+ */
+if( ! function_exists( 'pod_info_admin_tabs_legacy' ) ){
+	function pod_info_admin_tabs_legacy( $current = 'whatsnew' ) {
+	    $tabs = array(
+	    	'whatsnew' => __('What\'s New', 'podcaster')
+	    );
+	    $links = array();
+	    echo '<div id="icon-themes" class="icon32"><br></div>';
+	    echo '<h2 class="nav-tab-wrapper">';
+	    foreach( $tabs as $tab => $name ){
+	        $class = ( $tab == $current ) ? ' nav-tab-active' : '';
+	        echo "<a class='nav-tab$class' href='?page=pod-theme-options&tab=$tab'>$name</a>";
 	    }
+	    echo '</h2>';
 	}
-	
-	if( !current_user_can( 'unfiltered_html' ) ){
-		if ( $settings['pod_info_ga']  )
-			$settings['pod_info_ga'] = stripslashes( esc_textarea( wp_filter_post_kses( $settings['pod_info_ga'] ) ) );
-		if ( $settings['pod_info_intro'] )
-			$settings['pod_info_intro'] = stripslashes( esc_textarea( wp_filter_post_kses( $settings['pod_info_intro'] ) ) );
-	}
-
-	$updated = update_option( "pod_info_theme_settings", $settings );
 }
 
-function pod_info_admin_tabs( $current = 'whatsnew' ) { 
-    $tabs = array( 'whatsnew' => 'What\'s New', 'documentation' => 'Documentation', 'support' => 'Support', 'changelog' => 'Changelog' ); 
-    $links = array();
-    echo '<div id="icon-themes" class="icon32"><br></div>';
-    echo '<h2 class="nav-tab-wrapper">';
-    foreach( $tabs as $tab => $name ){
-        $class = ( $tab == $current ) ? ' nav-tab-active' : '';
-        echo "<a class='nav-tab$class' href='?page=theme-information&tab=$tab'>$name</a>";
-        
-    }
-    echo '</h2>';
+
+/**
+ * Create navigation menu/tabs and manage them.
+ */
+if( ! function_exists( 'pod_info_admin_tabs' ) ){
+	function pod_info_admin_tabs( $current = 'about' ) {
+	    $tabs = array(
+	    	'about' => __('About', 'podcaster'),
+	    	'getting-started' => __('Getting Started', 'podcaster'),
+	    	'whatsnew' => __('What\'s New', 'podcaster'),
+	    	'help' => __('Help', 'podcaster'),
+	    );
+
+	    $links = array();
+	    echo '<nav class="podcasterabout__header-navigation nav-tab-wrapper wp-clearfix" aria-label="Secondary menu">';
+	    foreach( $tabs as $tab => $name ){
+	        $class = ( $tab == $current ) ? ' nav-tab-active' : '';
+	        echo "<a class='nav-tab$class' href='?page=pod-theme-options&tab=$tab'>$name</a>";
+	    }
+	    echo '</nav>';
+	}
 }
 
-function pod_info_settings_page_css($hook) {
-    if ( 'appearance_page_theme-information' != $hook ) {
-        return;
-    }
-	wp_enqueue_style( 'thst-info-page', get_template_directory_uri() . '/includes/info-page/style.css' );
+
+/**
+ * Load custom stylesheets.
+ */
+if( ! function_exists( 'pod_info_settings_page_css' ) ){
+	function pod_info_settings_page_css($hook) {
+	    if ( 'toplevel_page_pod-theme-options' != $hook ) {
+	        return;
+	    }
+		wp_enqueue_style( 'pod-theme-options', get_template_directory_uri() . '/includes/info-page/style.css' );
+	}
 }
 add_action( 'admin_enqueue_scripts', 'pod_info_settings_page_css' );
 
 
-function pod_info_settings_page() {
-	global $pagenow;
-	$settings = get_option( "pod_info_theme_settings" );
-	$theme_data = wp_get_theme();
-	$custom_page_dir = get_template_directory_uri() . '/includes/info-page/img';
-	?>
-	
-	<div class="wrap">
-		<div id="wpbody" role="main">
-			<div id="wpbody-content" tabindex="0" aria-label="Main content">
-				<div class="wrap about-wrap">
-					<h1>Welcome to <?php echo $theme_data->get( 'Name' ); ?> <?php echo $theme_data->get( 'Version' ); ?></h1>
-					<div class="about-text">Thank you for updating! Take a look at the newest features and updates.</div>
-					<div class="wp-badge">Version <?php echo $theme_data->get( 'Version' ); ?></div>
+/**
+ * Code of the page.
+ */
+if( ! function_exists( 'pod_info_settings_page' ) ){
+	function pod_info_settings_page() {
+		global $pagenow;
+		$settings = get_option( "pod_info_theme_settings" );
+		$theme_data = wp_get_theme();
+		$custom_page_dir = get_template_directory_uri() . '/includes/info-page/img';
+		$theme_version = $theme_data->get( 'Version' );
+		$ocdi_active = pod_is_active_demo_install() ? "plugin-active ocdi-active" : "plugin-inactive ocdi-inactive";
+		$redux_active = pod_is_active_redux() ? "plugin-active redux-active" : "plugin-inactive redux-inactive";
+		$pod_customizer_url = esc_url( admin_url( 'customize.php' ) );
+		?>
+
+		<div class="wrap podcasterabout__container">
+
+			<div class="podcasterabout__header">
+				<div class="podcasterabout__header-title">
+					<p>
+						<?php echo esc_html( $theme_data->get( 'Name' ) ); ?>
+						<span><?php echo esc_html( $theme_version ); ?></span>
+
+					</p>
+				</div>
+
+				<div class="podcasterabout__header-text">
+					<p><?php echo __('Thank you for installing <strong>Podcaster</strong>! Take a look at the newest features and updates.', 'podcaster') ?></p>
+				</div>
+
+				<?php
+					$_GET['updated'] = '';
+					if ( 'true' == esc_attr( $_GET['updated'] ) ) {
+						echo '<div class="updated" ><p>'. __('Theme Settings updated.', 'podcaster') . '</p></div>';
+					}
+
+					// Display nav tab
+					if ( isset ( $_GET['tab'] ) ){
+						pod_info_admin_tabs($_GET['tab']); 
+					} else {
+						pod_info_admin_tabs('about');
+					}
+				?>
+			</div>
+
+
+
+			<?php 
+				if ( isset ( $_GET['tab'] ) ) {
+					$tab = $_GET['tab'];
+				} else {
+					$tab = 'about';
+				}
+
+				/* Switch through the tabs/pages.*/
+				switch ( $tab ){
+
+				/* Page: About */
+				case 'about' :
+					?>
+
+					<div class="podcasterabout__section has-subtle-background-color">
+						<div id="pod-theme-welcome" class="podcaster-theme-welcome">
+				         	<h3><?php echo __("Complete Your Theme Setup", "podcaster"); ?></h3>
+				         	<?php 
+								$pod_plugins_url = admin_url('themes.php?page=tgmpa-install-plugins' );
+								$pod_theme_name = esc_html( $theme_data->get( 'Name' ) );
+								$pod_theme_version = esc_html( $theme_data->get( 'Version' ) );
+
+								 ?>
+								<p><?php printf( esc_html__( 'Congratulations, you have successfully installed %s version %s Make sure to complete setting up the theme by following the steps below.', 'podcaster'), $pod_theme_name, $pod_theme_version ); ?>
+
+				            <div class="podcasterabout__section col-container has-2-columns">
+				            	<div class="column task-list-container">
+									<ul class="tasks">
+
+										<li>
+											<div class="number">
+												<span class="digit">1</span>
+											</div>
+											<div class="text">
+												<span class="title"><strong><?php echo __("Required plugins", "podcaster"); ?></strong></span>
+
+												<?php 
+													$pod_plugins_url = admin_url('themes.php?page=tgmpa-install-plugins' ); ?>
+													<span class="desc"><?php echo sprintf( wp_kses( __( '<a href="%1$s" target="_blank">Install</a> and activate all required plugins.', 'podcaster' ), array( 'a' => array( 'href' => array(), 'target' => array() ) ) ), esc_url( $pod_plugins_url ) ); ?></span>
+
+											</div>
+										</li>
+
+										<li class="<?php echo esc_attr( $ocdi_active ); ?> <?php echo esc_attr( $redux_active ); ?>">
+											<div class="number">
+												<span class="digit">2</span>
+											</div>
+											<div class="text">
+												<span class="title">
+													<strong><?php echo __("Import demo data", "podcaster"); ?></strong>
+													<?php if( ! pod_is_active_demo_install() || ! pod_is_active_redux() ) { ?>
+														<span class="label"><?php echo __("Plugin not active", "podcaster"); ?></span>
+													<?php  } ?>
+												</span>
+
+												<?php 
+													$pod_demo_url = admin_url( 'admin.php?page=pt-one-click-demo-import' );
+												?>
+													<span class="desc">
+
+														<?php 
+														if( pod_is_active_demo_install() && pod_is_active_redux() ) {
+															echo sprintf( wp_kses( __( 'Import demo content via the <a href="%1$s" target="_blank">One-Click Demo</a> installer.', 'podcaster' ), array( 'a' => array( 'href' => array(), 'target' => array() ) ) ), esc_url( $pod_demo_url ) );
+
+														} elseif( ! pod_is_active_redux() && pod_is_active_demo_install() ) {
+															echo sprintf( wp_kses( __( 'Please <a href="%1$s" target="_blank">install</a> and activate the Redux Framework plugin to complete this step.', 'podcaster' ), array( 'a' => array( 'href' => array(), 'target' => array() ) ) ), esc_url( $pod_plugins_url ) );;
+
+														} elseif( ! pod_is_active_demo_install() && pod_is_active_redux() ) {
+															echo sprintf( wp_kses( __( 'Please <a href="%1$s" target="_blank">install</a> and activate the One Click Demo Import plugin to complete this step.', 'podcaster' ), array( 'a' => array( 'href' => array(), 'target' => array() ) ) ), esc_url( $pod_plugins_url ) );;
+														
+														} else { 
+
+															echo sprintf( wp_kses( __( 'Please <a href="%1$s" target="_blank">install</a> and activate the One Click Demo Import and the Redux Framework plugin to complete this step.', 'podcaster' ), array( 'a' => array( 'href' => array(), 'target' => array() ) ) ), esc_url( $pod_plugins_url ) );;
+														} ?>
+															
+													</span>
+
+											</div>
+										</li>
+
+										<li class="<?php echo esc_attr( $redux_active ); ?>">
+											<div class="number">
+												<span class="digit">3</span>
+											</div>
+											<div class="text">
+												<span class="title">
+													<strong>Configure theme options</strong>
+													<?php 
+														if( ! pod_is_active_redux() ) { ?>
+															<span class="label"><?php echo __("Plugin not active", "podcaster"); ?></span>
+													<?php  } ?>
+												</span>
+
+												<?php 
+													$pod_themeo_url = admin_url( 'admin.php?page=_options' ); ?>
+													<span class="desc">
+														<?php if( pod_is_active_redux() ) {
+															echo sprintf( wp_kses( __( 'Customize your website by using the <a href="%1$s" target="_blank">theme options</a>.', 'podcaster' ), array( 'a' => array( 'href' => array(), 'target' => array() ) ) ), esc_url( $pod_themeo_url ) );
+														} else {
+															echo sprintf( wp_kses( __( 'Please <a href="%1$s" target="_blank">install</a> and activate the Redux Framework plugin to complete this step.', 'podcaster' ), array( 'a' => array( 'href' => array(), 'target' => array() ), 'target' => array() ) ), esc_url( $pod_plugins_url ) );;
+														} ?>
+															</span>
+
+											</div>
+										</li>
+
+										<li>
+											<div class="number">
+												<span class="digit">4</span>
+											</div>
+											<div class="text">
+												<span class="title"><strong>Optional:</strong></span>
+
+												<?php 
+													$pod_optional_url = "http://themestation.co/documentation/podcaster/" ?>
+													<span class="desc"><?php echo sprintf( wp_kses( __( 'Take a look at the <a href="%1$s" target="_blank">documentation</a> for Podcaster, if questions arise.', 'podcaster' ), array( 'a' => array( 'href' => array(), 'target' => array() ) ) ), esc_url( $pod_optional_url ) ); ?></span>
+
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div class="column col-image">
+									<div class="podcasterabout__image">
+										<img src="<?php echo get_template_directory_uri(); ?>/includes/info-page/svg/illustration.png">										
+									</div>
+								</div>
+							 </div>
+
+
+				         </div>
+					</div>
+
+					<hr>
+
+					<div class="podcasterabout__section has-features has-3-columns with-gap has-no-background-color">
+
+						<div class="column">
+							<div class="icon">
+
+								<svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							    <g id="Stockholm-icons-/-Weather-/-Sun" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							        <rect id="bound" x="0" y="0" width="24" height="24"></rect>
+							        <path d="M12,15 C10.3431458,15 9,13.6568542 9,12 C9,10.3431458 10.3431458,9 12,9 C13.6568542,9 15,10.3431458 15,12 C15,13.6568542 13.6568542,15 12,15 Z" id="Oval-8" fill="#000000" fill-rule="nonzero"></path>
+							        <path d="M19.5,10.5 L21,10.5 C21.8284271,10.5 22.5,11.1715729 22.5,12 C22.5,12.8284271 21.8284271,13.5 21,13.5 L19.5,13.5 C18.6715729,13.5 18,12.8284271 18,12 C18,11.1715729 18.6715729,10.5 19.5,10.5 Z M16.0606602,5.87132034 L17.1213203,4.81066017 C17.7071068,4.22487373 18.6568542,4.22487373 19.2426407,4.81066017 C19.8284271,5.39644661 19.8284271,6.34619408 19.2426407,6.93198052 L18.1819805,7.99264069 C17.5961941,8.57842712 16.6464466,8.57842712 16.0606602,7.99264069 C15.4748737,7.40685425 15.4748737,6.45710678 16.0606602,5.87132034 Z M16.0606602,18.1819805 C15.4748737,17.5961941 15.4748737,16.6464466 16.0606602,16.0606602 C16.6464466,15.4748737 17.5961941,15.4748737 18.1819805,16.0606602 L19.2426407,17.1213203 C19.8284271,17.7071068 19.8284271,18.6568542 19.2426407,19.2426407 C18.6568542,19.8284271 17.7071068,19.8284271 17.1213203,19.2426407 L16.0606602,18.1819805 Z M3,10.5 L4.5,10.5 C5.32842712,10.5 6,11.1715729 6,12 C6,12.8284271 5.32842712,13.5 4.5,13.5 L3,13.5 C2.17157288,13.5 1.5,12.8284271 1.5,12 C1.5,11.1715729 2.17157288,10.5 3,10.5 Z M12,1.5 C12.8284271,1.5 13.5,2.17157288 13.5,3 L13.5,4.5 C13.5,5.32842712 12.8284271,6 12,6 C11.1715729,6 10.5,5.32842712 10.5,4.5 L10.5,3 C10.5,2.17157288 11.1715729,1.5 12,1.5 Z M12,18 C12.8284271,18 13.5,18.6715729 13.5,19.5 L13.5,21 C13.5,21.8284271 12.8284271,22.5 12,22.5 C11.1715729,22.5 10.5,21.8284271 10.5,21 L10.5,19.5 C10.5,18.6715729 11.1715729,18 12,18 Z M4.81066017,4.81066017 C5.39644661,4.22487373 6.34619408,4.22487373 6.93198052,4.81066017 L7.99264069,5.87132034 C8.57842712,6.45710678 8.57842712,7.40685425 7.99264069,7.99264069 C7.40685425,8.57842712 6.45710678,8.57842712 5.87132034,7.99264069 L4.81066017,6.93198052 C4.22487373,6.34619408 4.22487373,5.39644661 4.81066017,4.81066017 Z M4.81066017,19.2426407 C4.22487373,18.6568542 4.22487373,17.7071068 4.81066017,17.1213203 L5.87132034,16.0606602 C6.45710678,15.4748737 7.40685425,15.4748737 7.99264069,16.0606602 C8.57842712,16.6464466 8.57842712,17.5961941 7.99264069,18.1819805 L6.93198052,19.2426407 C6.34619408,19.8284271 5.39644661,19.8284271 4.81066017,19.2426407 Z" id="Oval" fill="#000000" fill-rule="nonzero" opacity="0.3"></path>
+							    </g>
+							</svg>
+								
+							</div>
+
+							<h4><?php echo __("Welcome", "podcaster"); ?></h4>
+							<p><?php echo __("Thank you for installing Podcaster. This theme comes ready to be used for your podcasting project, ready with demos and many theme options.", "podcaster"); ?></p>						
+						</div>
+
+						<div class="column">
+							<div class="icon">
+
+								<svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							    <g id="Stockholm-icons-/-Shopping-/-Box#2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							        <rect id="bound" x="0" y="0" width="24" height="24"></rect>
+							        <path d="M4,9.67471899 L10.880262,13.6470401 C10.9543486,13.689814 11.0320333,13.7207107 11.1111111,13.740321 L11.1111111,21.4444444 L4.49070127,17.526473 C4.18655139,17.3464765 4,17.0193034 4,16.6658832 L4,9.67471899 Z M20,9.56911707 L20,16.6658832 C20,17.0193034 19.8134486,17.3464765 19.5092987,17.526473 L12.8888889,21.4444444 L12.8888889,13.6728275 C12.9050191,13.6647696 12.9210067,13.6561758 12.9368301,13.6470401 L20,9.56911707 Z" id="Combined-Shape" fill="#000000"></path>
+							        <path d="M4.21611835,7.74669402 C4.30015839,7.64056877 4.40623188,7.55087574 4.5299008,7.48500698 L11.5299008,3.75665466 C11.8237589,3.60013944 12.1762411,3.60013944 12.4700992,3.75665466 L19.4700992,7.48500698 C19.5654307,7.53578262 19.6503066,7.60071528 19.7226939,7.67641889 L12.0479413,12.1074394 C11.9974761,12.1365754 11.9509488,12.1699127 11.9085461,12.2067543 C11.8661433,12.1699127 11.819616,12.1365754 11.7691509,12.1074394 L4.21611835,7.74669402 Z" id="Path" fill="#000000" opacity="0.3"></path>
+							    </g>
+							</svg>
+
+							</div>
+
+							<h4><?php echo __("Getting Started", "podcaster"); ?></h4>
+							<p><?php echo __("If this is your first time using Podcaster, it's recommended you follow the steps mentioned above or check the documentation for more information.", "podcaster"); ?></p>
+							<a href="<?php echo admin_url( 'admin.php?page=pod-theme-options&tab=getting-started' ); ?>" class="button button-primary"><?php echo __("View checklist", "podcaster"); ?></a>
+						</div>
+
+						<div class="column">
+							<div class="icon">
+
+								<svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+								    <g id="Stockholm-icons-/-Navigation-/-Double-check" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								        <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
+								        <path d="M9.26193932,16.6476484 C8.90425297,17.0684559 8.27315905,17.1196257 7.85235158,16.7619393 C7.43154411,16.404253 7.38037434,15.773159 7.73806068,15.3523516 L16.2380607,5.35235158 C16.6013618,4.92493855 17.2451015,4.87991302 17.6643638,5.25259068 L22.1643638,9.25259068 C22.5771466,9.6195087 22.6143273,10.2515811 22.2474093,10.6643638 C21.8804913,11.0771466 21.2484189,11.1143273 20.8356362,10.7474093 L17.0997854,7.42665306 L9.26193932,16.6476484 Z" id="Path-94-Copy" fill="#000000" fill-rule="nonzero" opacity="0.3" transform="translate(14.999995, 11.000002) rotate(-180.000000) translate(-14.999995, -11.000002) "></path>
+								        <path d="M4.26193932,17.6476484 C3.90425297,18.0684559 3.27315905,18.1196257 2.85235158,17.7619393 C2.43154411,17.404253 2.38037434,16.773159 2.73806068,16.3523516 L11.2380607,6.35235158 C11.6013618,5.92493855 12.2451015,5.87991302 12.6643638,6.25259068 L17.1643638,10.2525907 C17.5771466,10.6195087 17.6143273,11.2515811 17.2474093,11.6643638 C16.8804913,12.0771466 16.2484189,12.1143273 15.8356362,11.7474093 L12.0997854,8.42665306 L4.26193932,17.6476484 Z" id="Path-94" fill="#000000" fill-rule="nonzero" transform="translate(9.999995, 12.000002) rotate(-180.000000) translate(-9.999995, -12.000002) "></path>
+								    </g>
+								</svg>
+
+							</div>
+
+							<h4><?php echo __("What's new", "podcaster"); ?></h4>
+							<p><?php echo __("New features and adjustments are constantly being added to Podcaster. Check out the changelog for more information.", "podcaster"); ?></p>
+							<a href="http://themestation.co/documentation/podcaster/#changelog" class="button button-primary" target="_blank"><?php echo __("View changelog", "podcaster"); ?></a>			
+						</div>
+						
+						<div class="column">
+							<div class="icon">
+
+								<svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+								    <g id="Stockholm-icons-/-Home-/-Book-open" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								        <rect id="bound" x="0" y="0" width="24" height="24"></rect>
+								        <path d="M13.6855025,18.7082217 C15.9113859,17.8189707 18.682885,17.2495635 22,17 C22,16.9325178 22,13.1012863 22,5.50630526 L21.9999762,5.50630526 C21.9999762,5.23017604 21.7761292,5.00632908 21.5,5.00632908 C21.4957817,5.00632908 21.4915635,5.00638247 21.4873465,5.00648922 C18.658231,5.07811173 15.8291155,5.74261533 13,7 C13,7.04449645 13,10.79246 13,18.2438906 L12.9999854,18.2438906 C12.9999854,18.520041 13.2238496,18.7439052 13.5,18.7439052 C13.5635398,18.7439052 13.6264972,18.7317946 13.6855025,18.7082217 Z" id="Combined-Shape" fill="#000000"></path>
+								        <path d="M10.3144829,18.7082217 C8.08859955,17.8189707 5.31710038,17.2495635 1.99998542,17 C1.99998542,16.9325178 1.99998542,13.1012863 1.99998542,5.50630526 L2.00000925,5.50630526 C2.00000925,5.23017604 2.22385621,5.00632908 2.49998542,5.00632908 C2.50420375,5.00632908 2.5084219,5.00638247 2.51263888,5.00648922 C5.34175439,5.07811173 8.17086991,5.74261533 10.9999854,7 C10.9999854,7.04449645 10.9999854,10.79246 10.9999854,18.2438906 L11,18.2438906 C11,18.520041 10.7761358,18.7439052 10.4999854,18.7439052 C10.4364457,18.7439052 10.3734882,18.7317946 10.3144829,18.7082217 Z" id="Path-41-Copy" fill="#000000" opacity="0.3"></path>
+								    </g>
+								</svg>
+							</div>
+
+							<h4><?php echo __("Documentation", "podcaster"); ?></h4>
+							<p><?php echo __("Need more information on how to use Podcaster? Take a look at the documentation, which offers a more in depth look at the themes features.", "podcaster"); ?></p>
+							<a href="http://themestation.co/documentation/podcaster/" class="button button-primary" target="_blank"><?php echo __("See documentation", "podcaster"); ?></a>
+						</div>
+
+						<div class="column">
+							<div class="icon">
+
+								<svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+								    <g id="Stockholm-icons-/-Communication-/-Group-chat" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								        <rect id="bound" x="0" y="0" width="24" height="24"></rect>
+								        <path d="M16,15.6315789 L16,12 C16,10.3431458 14.6568542,9 13,9 L6.16183229,9 L6.16183229,5.52631579 C6.16183229,4.13107011 7.29290239,3 8.68814808,3 L20.4776218,3 C21.8728674,3 23.0039375,4.13107011 23.0039375,5.52631579 L23.0039375,13.1052632 L23.0206157,17.786793 C23.0215995,18.0629336 22.7985408,18.2875874 22.5224001,18.2885711 C22.3891754,18.2890457 22.2612702,18.2363324 22.1670655,18.1421277 L19.6565168,15.6315789 L16,15.6315789 Z" id="Combined-Shape" fill="#000000"></path>
+								        <path d="M1.98505595,18 L1.98505595,13 C1.98505595,11.8954305 2.88048645,11 3.98505595,11 L11.9850559,11 C13.0896254,11 13.9850559,11.8954305 13.9850559,13 L13.9850559,18 C13.9850559,19.1045695 13.0896254,20 11.9850559,20 L4.10078614,20 L2.85693427,21.1905292 C2.65744295,21.3814685 2.34093638,21.3745358 2.14999706,21.1750444 C2.06092565,21.0819836 2.01120804,20.958136 2.01120804,20.8293182 L2.01120804,18.32426 C1.99400175,18.2187196 1.98505595,18.1104045 1.98505595,18 Z M6.5,14 C6.22385763,14 6,14.2238576 6,14.5 C6,14.7761424 6.22385763,15 6.5,15 L11.5,15 C11.7761424,15 12,14.7761424 12,14.5 C12,14.2238576 11.7761424,14 11.5,14 L6.5,14 Z M9.5,16 C9.22385763,16 9,16.2238576 9,16.5 C9,16.7761424 9.22385763,17 9.5,17 L11.5,17 C11.7761424,17 12,16.7761424 12,16.5 C12,16.2238576 11.7761424,16 11.5,16 L9.5,16 Z" id="Combined-Shape" fill="#000000" opacity="0.3"></path>
+								    </g>
+								</svg>
+
+							</div>
+
+							<h4><?php echo __("Support", "podcaster"); ?></h4>
+							<p><?php echo __("You can always get in touch, if you need more help with setting up the theme. Simply send in a request via the Podcaster support page.", "podcaster"); ?></p>
+							<a href="https://themeforest.net/item/podcaster-multimedia-wordpress-theme/6804946/support" class="button button-primary" target="_blank"><?php echo __("Go to support", "podcaster"); ?></a>
+						</div>
+
+						<div class="column"></div>
+
+
+					</div>
+
+					<hr>
+
+					<div class="podcasterabout__section is-footer has-no-background-color">
+						<div class="column">
+							<p>&copy; <?php echo date('Y'); ?> &middot; <?php echo esc_html( $theme_data['Name'] ); ?> <?php echo __(' by', 'podcaster'); ?> <a href="https://themeforest.net/user/themestation" target="_blank">Themestation</a></p>
+						</div>
+					</div>
+
+					
 
 					<?php
-						$_GET['updated'] = '';
-						if ( 'true' == esc_attr( $_GET['updated'] ) ) echo '<div class="updated" ><p>Theme Settings updated.</p></div>';
-						
-						if ( isset ( $_GET['tab'] ) ) pod_info_admin_tabs($_GET['tab']); else pod_info_admin_tabs('whatsnew');
+				break;
+
+				/* 
+				 *
+				 * Page: Getting Started
+				 * 
+				 * --------------------------------------- */
+				case 'getting-started' :
 					?>
-					<div class="sub-tabs">
-						<?php
-						wp_nonce_field( "pod-info-settings-page" ); 
-							
-						if ( $pagenow == 'themes.php' && $_GET['page'] == 'theme-information' ){ 
-							
-							if ( isset ( $_GET['tab'] ) ) $tab = $_GET['tab']; 
-							else $tab = 'whatsnew'; 
-								
-							echo '<table class="form-table">';
-							switch ( $tab ){
-								case 'documentation' :
-									?>
-									<div class="feature-section one-col">
-										<div class="col">
-											<div class="media-container">
-												<img src="<?php echo $custom_page_dir;?>/docs.png" />
-											</div>
-											<h3>Documentation</h3>
-											<p>A documentation folder is included in your theme files from Themeforest. Simply look for the folder called <code>/documentation</code>. You can also view the online documneation here: <a href="http://themestation.co/documentation/podcaster/">themestation.co/documentation/podcaster/</a></p>
-										</div>
-									</div>
-									<?php
-								break; 
-								case 'support' : 
-									?>
-									<div class="feature-section one-col">
-										<div class="col">
-											<div class="media-container">
-												<img src="<?php echo $custom_page_dir;?>/support-banner.jpg" />
-											</div>
-											<h3>New Support System</h3>
-											<p>Sign-up for the new ticket stytem and get tailor-made support. We have also adjusted our support terms to fit the new terms by Envato. <a href="http://themestation.co/support">Click here</a> to find out more.  </p>
-										</div>
-									</div>
-									<?php
-								break;
-								case 'whatsnew' : 
-									?>
-									<div class="feature-section one-col no-top-margin">
-										<div class="col">
-											<h3>Maintenance Update</h3>
-											<p>Version 1.5.5 inculdes a number of updates. Please <a href="?page=theme-information&tab=changelog">click here</a> to see the changelog.</p>
-										</div>
-									</div>
-									<div class="feature-section two-col">
-										<div class="col" style="margin-top:0">
-											<h3>Rate</h3>
-											<p>Support Podcaster and give a five star rating! Click <a href="http://themeforest.net/item/podcaster-multimedia-wordpress-theme/6804946?ref=Themestation">here</a> to rate.</p>
-										</div>
-										<div class="col" style="margin-top:0">
-											<h3>Showcase</h3>
-											<p>Allow us to feature your website created with Podcaster. Submit your site <a href="http://www.themestation.co/showcase">here</a>.</p>
-										</div>
-									</div>
 
-									<div class="feature-section two-col">
-										<h2>New Features in Version 1.5</h2>
-										<div class="col">
-											<div class="media-container">
-												<img src="<?php echo $custom_page_dir;?>/new-features-header.png" />
-											</div>
-											<h3>Improved Header</h3>
-											<p>Podcaster's featured header as been updated to include other settings including an image only header and or a slideshow.</p>
-										</div>
-										<div class="col">
-											<div class="media-container">
-												<img src="<?php echo $custom_page_dir;?>/new-features-presets.png" />
-											</div>
-											<h3>Preset Templates</h3>
-											<p>Set up your website with just a few clicks. Preset templates have been added to make sure you are just a click a way from an entirely different style.</p>
-										</div>
-										<div class="col">
-											<div class="media-container">
-												<img src="<?php echo $custom_page_dir;?>/new-features-colors.png" />
-											</div>
-											<h3>More Color Settings</h3>
-											<p>More color settings have been added to make customization easier and code-less. Customize menus, links, accent colors and more!</p>
-										</div>
-										<div class="col">
-											<div class="media-container">
-												<img src="<?php echo $custom_page_dir;?>/featured-posts.png" />
-											</div>
-											<h3>Featured Posts</h3>
-											<p>Mark your post as featured, so choose which posts will be displayed on the front page. Upload header images, set excerpts and more!</p>
-										</div>
-									</div><!-- .feature-section -->
+					<div class="podcasterabout__section has-subtle-background-color">
+						<div id="pod-theme-welcome" class="podcaster-theme-welcome">
+				         	<h3><?php echo __("Complete Your Theme Setup", "podcaster"); ?></h3>
+				         	<?php 
+								$pod_plugins_url = admin_url('themes.php?page=tgmpa-install-plugins' );
+								$pod_theme_name = esc_html( $theme_data->get( 'Name' ) );
+								$pod_theme_version = esc_html( $theme_data->get( 'Version' ) );
 
-									<div class="feature-section three-col">
-										<div class="col">
-											<div class="media-container">
-												<img src="<?php echo $custom_page_dir;?>/demo-data.png" />
+								 ?>
+								<p><?php printf( esc_html__( 'Congratulations, you have successfully installed %s version %s Make sure to complete setting up the theme by following the steps below.', 'podcaster'), $pod_theme_name, $pod_theme_version ); ?>
+
+				            <div class="podcasterabout__section col-container has-2-columns">
+				            	<div class="column task-list-container">
+									<ul class="tasks">
+
+										<li>
+											<div class="number">
+												<span class="digit">1</span>
 											</div>
-											<h3>Demo Data</h3>
-											<p>Demo data is now provided with your theme. Import posts, pages and images with a few clicks and set up your site in no time.</p>
-										</div>
-										<div class="col">
-											<div class="media-container">
-												<img src="<?php echo $custom_page_dir;?>/translation-ready.png" />
+											<div class="text">
+												<span class="title"><strong><?php echo __("Required plugins", "podcaster"); ?></strong></span>
+
+												<?php 
+													$pod_plugins_url = admin_url('themes.php?page=tgmpa-install-plugins' ); ?>
+													<span class="desc"><?php echo sprintf( wp_kses( __( '<a href="%1$s" target="_blank">Install</a> and activate all required plugins.', 'podcaster' ), array( 'a' => array( 'href' => array(), 'target' => array() ) ) ), esc_url( $pod_plugins_url ) ); ?></span>
+
 											</div>
-											<h3>Translation-Ready</h3>
-											<p>Updated translation files have been included in Podcaster 1.5. Translate your theme to your language in no time.</p>
-										</div>
-										<div class="col">
-											<div class="media-container">
-												<img src="<?php echo $custom_page_dir;?>/rtl-support.png" />
+										</li>
+
+										<li class="<?php echo esc_attr( $ocdi_active ); ?> <?php echo esc_attr( $redux_active ); ?>">
+											<div class="number">
+												<span class="digit">2</span>
 											</div>
-											<h3>Right-to-Left reading</h3>
-											<p>Right to left reading can now be activated in the theme options. One click and your website with re-align to support rtl.</p>
-										</div>
-									</div><!-- .feature-section -->
-									<?php
-								break;
-								case 'changelog' : 
-									?>
-									<div class="feature-section">
-										<ul id="changelog">
-											<li class="first"><h2>1.5.5</h2> <span class="date">(25th January 2016)</span>
-												<ul>
-													<li>
-														<span class="label new">New</span>Typekit Support added
-														<div class="file"><ul>
-															<li><span class="root">functions/</span>featured-header.php</li>
-														</ul></div>
-													</li>
-													<li>
-														<span class="label new">New</span>Soundcloud icon added
-														<div class="file"><ul>
-															<li>navigation.php</li>
-															<li>author.php</li>
-															<li>footer.php</li>
-															<li>functions.php</li>
-														</ul></div>
-													</li>
-													<li>
-														<span class="label new">New</span>Search feature in navigation bar
-														<div class="file"><ul>
-															<li>navigation.php</li>
-														</ul></div>
-													</li>
-													<li>
-														<span class="label improved">Improved</span> Footer color settings added
-														<div class="file"><ul>
-															<li>options-config.php</li>
-														</ul></div>
-													</li>
-													<li>
-														<span class="label improved">Improved</span> "Next week" and subscribe buttons can be activated and deactivated seperately
-														<div class="file"><ul>
-															<li>options-config.php</li>
-														</ul></div>
-													</li>
-													<li>
-														<span class="label improved">Improved</span> Tags on single post pages
-														<div class="file"><ul>
-															<li><span class="root">post/</span>postfooter.php</li>
-														</ul></div>
-													</li>
-													<li>
-														<span class="label improved">Improved</span> Truncate titles on main page and podcast archive
-														<div class="file"><ul>
-															<li><span class="root">page/</span>page-frontpage.php</li>
-															<li><span class="root">page/</span>page-podcastarchive.php</li>
-														</ul></div>
-													</li>
-													<li>
-														<span class="label improved">Improved</span> New "From Blog" layout added
-														<div class="file"><ul><li><span class="root">page/</span>page-frontpage.php</li></ul></div>
-													</li>
-													<li>
-														<span class="label minor fix">Minor Fix</span>Responsive video in "From blog section"
-														<div class="file"><ul><li><span class="root">js/</span>call_fitvid.js</li></ul></div>
-													</li>
-													<li>
-														<span class="label minor fix">Minor Fix</span>Undefined variable error
-														<div class="file"><ul><li>featured-header.php</li></ul></div>
-													</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.5.4</h2> <span class="date">(16th November 2015)</span>
-												<ul>
-													<li>
-														<span class="label fix">Fix</span> Excerpt output
-														<div class="file"><ul>
-															<li>featued-header.php</li>
-															<li><span class="root">post/</span>format-link.php</li>
-															<li><span class="root">post/</span>format-image.php</li>
-														</ul></div>
-													</li>
-													<li><span class="label fix">Fix</span> Theme Option Config File (500 Internal Server Error)
-														<div class="file"><ul>
-															<li>options-config.php</li>
-														</ul></div>
-													</li>
-													<li>
-														<span class="label minor fix">Minor Fix</span>Overlapping download link
-														<div class="file"><ul><li>single.php</li></ul></div>
-													</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.5.3</h2> <span class="date">(27th Octorber 2015)</span>
-												<ul>
-													<li>
-														<span class="label minor fix">Minor Fix</span> Force Excerpts in blog displaying in single view
-														<div class="file"><ul>
-															<li><span class="root">post/</span>format.php</li>
-															<li><span class="root">post/</span>format-audio.php</li>
-															<li><span class="root">post/</span>format-video.php</li>
-															<li><span class="root">post/</span>format-status.php</li>
-															<li><span class="root">post/</span>format-quote.php</li>
-															<li><span class="root">post/</span>format-link.php</li>
-															<li><span class="root">post/</span>format-image.php</li>
-															<li><span class="root">post/</span>format-gallery.php</li>
-															<li><span class="root">post/</span>format-chat.php</li>
-														</ul></div>
-													</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.5.2</h2> <span class="date">(25th Octorber 2015)</span>
-												<ul>
-													<li>
-														<span class="label new">New</span> Force Excerpts in blog
-														<div class="file"><ul><li><span class="root">post/</span>postfooter.php</li></ul></div>
-													</li>
-													<li>
-														<span class="label improved">Improved</span> Demo Content improved
-														<div class="file"><ul><li>podcaster-wordpress.xml</li></ul></div>
-													</li>
-													<li>
-														<span class="label improved">Improved</span> Default template preset added
-														<div class="file"><ul><li>options-config.php</li></ul></div>
-													</li>
-													<li>
-														<span class="label minor fix">Minor Fix</span>Irregular scrolling on mobile fixed
-														<div class="file"><ul><li>style.css</li></ul></div>
-													</li>
-													<li>
-														<span class="label minor fix">Minor Fix</span>Hover effects on front page for mobile made clickable
-														<div class="file"><ul><li>style.css</li></ul></div>
-													</li>
-													<li>
-														<span class="label minor fix">Minor Fix</span>Archive button on front page fixed
-														<div class="file"><ul><li>page-frontpage.php</li></ul></div>
-													</li>
-													<li>
-														<span class="label minor fix">Minor Fix</span>Contact 7 form on mobile fixed
-														<div class="file"><ul><li>style.css</li></ul></div>
-													</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.5.1</h2> <span class="date">(23rd September 2015)</span>
-												<ul>
-													<li>
-														<span class="label minor fix">Minor Fix</span> Background for audio players on single post pages fixed
-														<div class="file">
-															<ul>
-																<li>style.css</li>
-															</ul>
-														</div>
-													</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.5</h2> <span class="date">(22nd September 2015)</span>
-												<ul>
-													<li>
-														<span class="label new">New</span> Four presets added to the theme options for faster and easier setup.
-														<div class="file">
-															<ul>
-																<li>options-config.php</li>
-															</ul>
-														</div>
-													</li>
-													<li>
-														<span class="label new">New</span> Social media button now supported in header.
-														<div class="file">
-															<ul>
-																<li>navigation.php</li>
-															</ul>
-														</div>
-													</li>
-													<li>
-														<span class="label new">New</span> Right to left reading now supported.
-														<div class="file">
-															<ul>
-																<li><span class="root">css/</span>rtl.css</li>
-															</ul>
-														</div>
-													</li>
-													<li>
-														<span class="label improved">Improved</span> Front page header now supports featured posts in static and slideshow mode. Feature posts to diplay them on the front page.
-														<div class="file">
-															<ul>
-																<li><span class="root">page/</span>page-frontpage.php</li>
-																<li><span class="root">functions/</span>featured-header.php</li>
-															</ul>
-														</div>
-													</li>
-													<li>
-														<span class="label improved">Improved</span> More color options.
-														<div class="file">
-															<ul>
-																<li><span class="root">css/</span>style.php</li>
-															</ul>
-														</div>
-													</li>
-													<li>
-														<span class="label improved">Improved</span> Style for featured gallery in gallery post format now can be set individually.
-														<div class="file">
-															<ul>
-																<li><span class="root">post/</span>format-gallery.php</li>
-															</ul>
-														</div>
-													</li>
-													<li>
-														<span class="label improved">Improved</span> More font options added.
-														<div class="file">
-															<ul>
-																<li><span class="root">css/</span>options-config.php</li>
-															</ul>
-														</div>
-													</li>
-													<li>
-														<span class="label fix minor">Minor Fix</span> Access to all media files if download is activated on playlist.
-														<div class="file">
-															<ul>
-																<li><span class="root">post/</span>format-audio.php</li>
-																<li><span class="root">post/</span>format-video.php</li>
-															</ul>
-														</div>
-													</li>
-													<li>
-														<span class="label fix minor">Minor Fix</span> Widget class bug fixed.
-														<div class="file">
-															<ul>
-																<li><span class="root">widgets/</span>widget-highlightcategory.php</li>
-																<li><span class="root">widgets/</span>widget-recentcomments.php</li>
-																<li><span class="root">widgets/</span>widget-recentposts.php</li>
-															</ul>
-														</div>
-													</li>
-												</ul>						
-											</li>
-											<li class="first"><h2>1.4.9</h2><span class="date">(12th May 2015)</span>
-												<ul>
-													<li><span class="label update">Update</span> New Version of Theme Station Feed Plugin included</li>
-													<li><span class="label update">Update</span> TGM Plugin Activator</li>
-													<li><span class="label fix">Fix</span> TGM Plugin Activator 'No valid header'</li>
-												</ul>						
-											</li>
-											<li class="first"><h2>1.4.8</h2><span class="date">(24th April 2015)</span>
-												<ul>
-													<li><span class="label fix minor">Minor Fix</span> <code>get_avatar_url()</code> fix</li>
-													<li><span class="label fix">Fix</span> TGM-Plugin-Activation security update</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.4.7</h2><span class="date">(15th April 2015)</span>
-												<ul>
-													<li><span class="label fix minor">Minor Fix</span> Custom Metaboxes update</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.4.6</h2><span class="date">(9th April 2015)</span>
-												<ul>
-													<li><span class="label new">New</span> Video post backgrounds on single page views</li>
-													<li><span class="label fix minor">Minor Fix</span> Footer background color</li>
-													<li><span class="label fix minor">Minor Fix</span> Video post excerpts on front pages</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.4.5</h2><span class="date">(15th March 2015)</span>
-												<ul>
-													<li><span class="label new">New</span> Responsive Menu options (drop-down or toggle)</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.4.4</h2><span class="date">(12th March 2015)</span>
-												<ul>
-													<li><span class="label new">New</span> Schedule Posts to appear in the "Next time" area</li>
-													<li><span class="label new">New</span> Editible copyright text in the footer</li>
-													<li><span class="label fix">Fix</span> Drop-down menu (3rd level, 4th level ...)</li>
-													<li><span class="label fix">Fix</span> Footer menu color</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.4.3</h2><span class="date">(1st March 2015)</span>
-												<ul>
-													<li><span class="label fix">Fix</span> Size of logo in responsive settings</li>
-													<li><span class="label fix">Fix</span> Blog page header when set to transparent navigation</li>
-													<li><span class="label fix">Fix</span> Seach page bug</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.4.2</h2><span class="date">(18th February 2015)</span>
-												<ul>
-													<li><span class="label new">New</span> Customizable text for archive button on the front page</li>
-													<li><span class="label fix">Fix</span> Social Media email</li>
-													<li><span class="label fix">Fix</span> <code>the_permalink()</code> on front page </li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.4.1</h2><span class="date">(9th February 2015)</span>
-												<ul>
-													<li><span class="label fix">Fix</span> in_array() error</li>
-													<li><span class="label fix">Fix</span> the_powerpress_content() error</li>
-													<li><span class="label fix">Fix</span> black screen on front page</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.4.0</h2><span class="date">(6th February 2015)</span>
-												<ul>
-													<li><span class="label fix minor">Minor Fix</span> PowerPress single audio player error</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.3.9</h2><span class="date">(5th February 2015)</span>
-												<ul>
-													<li><span class="label fix minor">Fix</span> Modify header information bug</li>
-													<li><span class="label fix minor">Fix</span> Color options &amp; dynamic stylesheet</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.3.8</h2><span class="date">(4th February 2015)</span>
-												<ul>
-													<li><span class="label new">New</span> More color settings, including transparent headers</li>
-													<li><span class="label new">New</span> Display all your podcast posts on one archive page</li>
-													<li><span class="label improved">Improved</span> Theme options simplified and streamlined</li>
-													<li><span class="label improved">Improved</span> Now compatible with Seriously Simple Podcasting 1.8+</li>
-													<li><span class="label improved">Improved</span> Now supports Blubrry Power Press</li>
-													<li><span class="label fix">Fix</span> iPhone loading screen bug</li>
-													<li><span class="label fix">Fix</span> Front page image error</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.3.7</h2><span class="date">(6th January 2015)</span>
-												<ul>
-													<li><span class="label new">New</span> Manage your avatars in the theme options</li>
-													<li><span class="label new">New</span> Single pages now also change to display sidebars left or right along with the blog</li>
-													<li><span class="label new">New</span> Switch to Envato Toolkit for theme updates</li>
-													<li><span class="label fix minor">Minor fix</span> Titles in single view</li>
-													<li><span class="label fix minor">Minor fix</span> Source in audio player fix</li>
-													<li><span class="label fix minor">Minor fix</span> avatars</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.3.6</h2><span class="date">(21st December 2014)</span>
-												<ul>
-													<li><span class="label new">New</span> Explicit Posts now marked</li>
-													<li><span class="label fix">Fix</span> WP 4.1 Player Fix</li>
-													<li><span class="label fix minor">Minor fix</span> avatars</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.3.5</h2><span class="date">(25th September 2014)</span>
-												<ul>
-												    <li><span class="label new">New</span> Retina logos now supported</li>
-												    <li><span class="label new">New</span> Podcast archive can be displayed as list</li>
-												    <li><span class="label new">New</span> Layout options for blog page: sidebar left, sidebar right, full width</li>
-												    <li><span class="label new">New</span> Subscribe buttons have been added to the single post pages</li>
-												    <li><span class="label new">New</span> Image header on front page can be set by featured image on page</li>
-												    <li><span class="label new">New</span> Embed code can now be used in audio and video posts (inculding old SoundCloud player)</li>
-												    <li><span class="label new">New</span> Excerpts can now be activated to appear below audio player on the front page</li>
-												    <li><span class="label new">New</span> Embed code can now be used in audio and video posts (inculding old SoundCloud player)</li>
-												    <li><span class="label fix">Fix</span> controls.svg deactivated</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.3.4</h2><span class="date">(29th August 2014)</span>
-												<ul>
-													<li><span class="label fix">Fix</span> Auto-update bug fixed</li>
-													<li><span class="label fix minor">Minor fix</span> Main page gap on player fixed</li>
-													<li><span class="label fix minor">Minor fix</span> Buttons on main page aligned properly</li>
-													<li><span class="label fix minor">Minor fix</span> Turned off comments on pages do not display message anymore.</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.3.3</h2><span class="date">(27th June 2014)</span>
-												<ul>
-													<li><span class="label update">Update</span>Podcasting feed has now been moved into seperate plugin. Please read documentation for more information</li>
-													<li><span class="label new">New</span> Automatic Theme Updates</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.3.2</h2><span class="date">(18th June 2014)</span>
-												<ul>
-													<li><span class="label fix minor">Minor fix</span> Image post format</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.3.1</h2><span class="date">(16th June 2014)</span>
-												<ul>
-													<li><span class="label fix minor">Minor Fix</span> Buttons in breakpoints</li>
-													<li><span class="label update">Update</span> Podcasting RSS Feed function can now be found in the Theme Station Podcasting Feed Plugin. Download at http://www.themestation.co</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.3</h2><span class="date">(30th April 2014)</span>
-												<ul>
-													<li><span class="label new">New</span> Audio Playlist Support</li>
-													<li><span class="label new">New</span> Video Playlist Support</li>
-													<li><span class="label new">New</span> Switch between static excerpts and post excerpts</li>
-													<li><span class="label new">New</span> Switch off/on podcast RSS feed</li>
-													<li><span class="label fix">Fix</span> Seriously Simple Podcasting front page support</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.2</h2><span class="date">(9th April 2014)</span>
-												<ul>
-													<li><span class="label new">New</span> iTunes compatible feed added!</li>
-													<li><span class="label new">New</span> New loading graphics</li>
-													<li><span class="label new">New</span> Language files added</li>
-													<li><span class="label fix">Fix</span> download button for videos</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.1</h2><span class="date">(21st March 2014)</span>
-												<ul>
-													<li><span class="label new">New</span> Seriously Simple Podcasting Plugin Support added!</li>
-													<li><span class="label new">New</span> Social Icons</li>
-													<li><span class="label fix">Fix</span> oEmbed is now working</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.01</h2><span class="date">(21st February 2014)</span>
-												<ul>
-													<li><span class="label fix minor">Minor Fix</span> Minor fix to the front page header image</li>
-												</ul>
-											</li>
-											<li class="first"><h2>1.0</h2><span class="date">(7th february 2014)</span>
-												<ul>
-													<li><span class="label release">Release</span> Initial Release!</li>
-												</ul>
-											</li>
-										</ul>
+											<div class="text">
+												<span class="title">
+													<strong><?php echo __("Import demo data", "podcaster"); ?></strong>
+													<?php if( ! pod_is_active_demo_install() || ! pod_is_active_redux() ) { ?>
+														<span class="label"><?php echo __("Plugin not active", "podcaster"); ?></span>
+													<?php  } ?>
+												</span>
+
+												<?php 
+													$pod_demo_url = admin_url( 'admin.php?page=pt-one-click-demo-import' );
+												?>
+													<span class="desc">
+
+														<?php 
+														if( pod_is_active_demo_install() && pod_is_active_redux() ) {
+															echo sprintf( wp_kses( __( 'Import demo content via the <a href="%1$s" target="_blank">One-Click Demo</a> installer.', 'podcaster' ), array( 'a' => array( 'href' => array(), 'target' => array() ) ) ), esc_url( $pod_demo_url ) );
+
+														} elseif( ! pod_is_active_redux() && pod_is_active_demo_install() ) {
+															echo sprintf( wp_kses( __( 'Please <a href="%1$s" target="_blank">install</a> and activate the Redux Framework plugin to complete this step.', 'podcaster' ), array( 'a' => array( 'href' => array(), 'target' => array() ) ) ), esc_url( $pod_plugins_url ) );;
+
+														} elseif( ! pod_is_active_demo_install() && pod_is_active_redux() ) {
+															echo sprintf( wp_kses( __( 'Please <a href="%1$s" target="_blank">install</a> and activate the One Click Demo Import plugin to complete this step.', 'podcaster' ), array( 'a' => array( 'href' => array(), 'target' => array() ) ) ), esc_url( $pod_plugins_url ) );;
+														
+														} else { 
+
+															echo sprintf( wp_kses( __( 'Please <a href="%1$s" target="_blank">install</a> and activate the One Click Demo Import and the Redux Framework plugin to complete this step.', 'podcaster' ), array( 'a' => array( 'href' => array(), 'target' => array() ) ) ), esc_url( $pod_plugins_url ) );;
+														} ?>
+															
+													</span>
+
+											</div>
+										</li>
+
+										<li class="<?php echo esc_attr( $redux_active ); ?>">
+											<div class="number">
+												<span class="digit">3</span>
+											</div>
+											<div class="text">
+												<span class="title">
+													<strong>Configure theme options</strong>
+													<?php 
+														if( ! pod_is_active_redux() ) { ?>
+															<span class="label"><?php echo __("Plugin not active", "podcaster"); ?></span>
+													<?php  } ?>
+												</span>
+
+												<?php 
+													$pod_themeo_url = admin_url( 'admin.php?page=_options' ); ?>
+													<span class="desc">
+														<?php if( pod_is_active_redux() ) {
+															echo sprintf( wp_kses( __( 'Customize your website by using the <a href="%1$s" target="_blank">theme options</a>.', 'podcaster' ), array( 'a' => array( 'href' => array(), 'target' => array() ) ) ), esc_url( $pod_themeo_url ) );
+														} else {
+															echo sprintf( wp_kses( __( 'Please <a href="%1$s" target="_blank">install</a> and activate the Redux Framework plugin to complete this step.', 'podcaster' ), array( 'a' => array( 'href' => array(), 'target' => array() ), 'target' => array() ) ), esc_url( $pod_plugins_url ) );;
+														} ?>
+															</span>
+
+											</div>
+										</li>
+
+										<li>
+											<div class="number">
+												<span class="digit">4</span>
+											</div>
+											<div class="text">
+												<span class="title"><strong>Optional:</strong></span>
+
+												<?php 
+													$pod_optional_url = "http://themestation.co/documentation/podcaster/" ?>
+													<span class="desc"><?php echo sprintf( wp_kses( __( 'Take a look at the <a href="%1$s" target="_blank">documentation</a> for Podcaster, if questions arise.', 'podcaster' ), array( 'a' => array( 'href' => array(), 'target' => array() ) ) ), esc_url( $pod_optional_url ) ); ?></span>
+
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div class="column col-image">
+									<div class="podcasterabout__image">
+										<img src="<?php echo get_template_directory_uri(); ?>/includes/info-page/svg/illustration.png">										
 									</div>
-									<?php
-								break;
-							}
-							echo '</table>';
-						}
-						?>
-					</div><!-- .sub-tabs -->
-					<p><?php echo $theme_data['Name'] ?> theme by <a href="http://themestation.co/">themestation.co</a></p>
+								</div>
+							</div>
+
+
+				         </div>
+					</div>
+
+					<hr>
+
+					<div class="podcasterabout__section is-footer has-no-background-color">
+						<div class="column">
+							<p>&copy; <?php echo date('Y'); ?> &middot; <?php echo esc_html( $theme_data['Name'] ); ?> <?php echo __(' by', 'podcaster'); ?> <a href="https://themeforest.net/user/themestation" target="_blank">Themestation</a></p>
+						</div>
+					</div>
+
+					<?php
+				break;
+
+
+				/* 
+				 *
+				 * Page: What's New 
+				 * 
+				 * --------------------------------------- */
+				case 'whatsnew' :
+					?>
+
+					<div class="podcasterabout__section changelog">
+						<div class="column">
+							<h2><?php echo __('Changelog', 'podcaster'); ?></h2>
+								<?php
+								$pod_clog_ver = $theme_data->get( 'Version' );
+								$pod_clog_url = 'http://themestation.co/documentation/podcaster/#changelog'; ?>
+
+								<p><?php $pod_clog_link_1 = printf( esc_html__( 'Version %s inculdes a number of updates.', 'podcaster'), $pod_clog_ver); ?>
+								<?php echo sprintf( wp_kses( __('Please <a href="%1$s" target="_blank">click here</a> to see the changelog.', 'podcaster' ), array(  'a' => array( 'href' => array() ) ) ), esc_url( $pod_clog_url ) ); ?></p>
+						</div>
+					</div>
+
 					
-				</div>
-			</div>
-		</div>
-	</div>
-<?php
+
+					<div class="podcasterabout__section podcasterwhatsnew__section has-features has-3-columns with-gap has-no-background-color">
+
+
+						<div class="column">
+
+							<div class="icon-container">
+								<svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+								    <g id="Stockholm-icons-/-General-/-Thunder-move" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								        <rect id="Rectangle-10" x="0" y="0" width="24" height="24"></rect>
+								        <path d="M16.3740377,19.9389434 L22.2226499,11.1660251 C22.4524142,10.8213786 22.3592838,10.3557266 22.0146373,10.1259623 C21.8914367,10.0438285 21.7466809,10 21.5986122,10 L17,10 L17,4.47708173 C17,4.06286817 16.6642136,3.72708173 16.25,3.72708173 C15.9992351,3.72708173 15.7650616,3.85240758 15.6259623,4.06105658 L9.7773501,12.8339749 C9.54758575,13.1786214 9.64071616,13.6442734 9.98536267,13.8740377 C10.1085633,13.9561715 10.2533191,14 10.4013878,14 L15,14 L15,19.5229183 C15,19.9371318 15.3357864,20.2729183 15.75,20.2729183 C16.0007649,20.2729183 16.2349384,20.1475924 16.3740377,19.9389434 Z" id="Path-3" fill="#000000"></path>
+								        <path d="M4.5,5 L9.5,5 C10.3284271,5 11,5.67157288 11,6.5 C11,7.32842712 10.3284271,8 9.5,8 L4.5,8 C3.67157288,8 3,7.32842712 3,6.5 C3,5.67157288 3.67157288,5 4.5,5 Z M4.5,17 L9.5,17 C10.3284271,17 11,17.6715729 11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L4.5,20 C3.67157288,20 3,19.3284271 3,18.5 C3,17.6715729 3.67157288,17 4.5,17 Z M2.5,11 L6.5,11 C7.32842712,11 8,11.6715729 8,12.5 C8,13.3284271 7.32842712,14 6.5,14 L2.5,14 C1.67157288,14 1,13.3284271 1,12.5 C1,11.6715729 1.67157288,11 2.5,11 Z" id="Combined-Shape" fill="#000000" opacity="0.3"></path>
+								    </g>
+								</svg>
+							</div>
+
+							<h4><?php echo __('WordPress 5.9 ready', 'podcaster'); ?></h4>
+							<p><?php echo __('Podcaster has been tested and is ready to be used with WordPress 5.9.', 'podcaster'); ?></p>
+						</div>
+
+						<div class="column">
+
+							<div class="icon-container">
+								<svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+								    <defs></defs>
+								    <g id="Stockholm-icons-/-Code-/-Code" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								        <rect id="bound" x="0" y="0" width="24" height="24"></rect>
+								        <path d="M17.2718029,8.68536757 C16.8932864,8.28319382 16.9124644,7.65031935 17.3146382,7.27180288 C17.7168119,6.89328641 18.3496864,6.91246442 18.7282029,7.31463817 L22.7282029,11.5646382 C23.0906029,11.9496882 23.0906029,12.5503176 22.7282029,12.9353676 L18.7282029,17.1853676 C18.3496864,17.5875413 17.7168119,17.6067193 17.3146382,17.2282029 C16.9124644,16.8496864 16.8932864,16.2168119 17.2718029,15.8146382 L20.6267538,12.2500029 L17.2718029,8.68536757 Z M6.72819712,8.6853647 L3.37324625,12.25 L6.72819712,15.8146353 C7.10671359,16.2168091 7.08753558,16.8496835 6.68536183,17.2282 C6.28318808,17.6067165 5.65031361,17.5875384 5.27179713,17.1853647 L1.27179713,12.9353647 C0.909397125,12.5503147 0.909397125,11.9496853 1.27179713,11.5646353 L5.27179713,7.3146353 C5.65031361,6.91246155 6.28318808,6.89328354 6.68536183,7.27180001 C7.08753558,7.65031648 7.10671359,8.28319095 6.72819712,8.6853647 Z" id="Combined-Shape" fill="#000000" fill-rule="nonzero"></path>
+								        <rect id="Rectangle-28" fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-345.000000) translate(-12.000000, -12.000000) " x="11" y="4" width="2" height="16" rx="1"></rect>
+								    </g>
+								</svg>
+							</div>
+
+							<h4><?php echo __('PHP 7.1 - PHP 7.3', 'podcaster'); ?></h4>
+							<p><?php echo __('Podcaster is fully compatible and has been tested for use with PHP 7.0 - 7.3.', 'podcaster'); ?></p>				
+						</div>					
+
+						<div class="column">
+
+							<div class="icon-container">
+								<svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+								    <g id="Stockholm-icons-/-Tools-/-Tools" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								        <rect id="bound" x="0" y="0" width="24" height="24"></rect>
+								        <path d="M15.9497475,3.80761184 L13.0246125,6.73274681 C12.2435639,7.51379539 12.2435639,8.78012535 13.0246125,9.56117394 L14.4388261,10.9753875 C15.2198746,11.7564361 16.4862046,11.7564361 17.2672532,10.9753875 L20.1923882,8.05025253 C20.7341101,10.0447871 20.2295941,12.2556873 18.674559,13.8107223 C16.8453326,15.6399488 14.1085592,16.0155296 11.8839934,14.9444337 L6.75735931,20.0710678 C5.97631073,20.8521164 4.70998077,20.8521164 3.92893219,20.0710678 C3.1478836,19.2900192 3.1478836,18.0236893 3.92893219,17.2426407 L9.05556629,12.1160066 C7.98447038,9.89144078 8.36005124,7.15466739 10.1892777,5.32544095 C11.7443127,3.77040588 13.9552129,3.26588995 15.9497475,3.80761184 Z" id="Combined-Shape" fill="#000000"></path>
+								        <path d="M16.6568542,5.92893219 L18.0710678,7.34314575 C18.4615921,7.73367004 18.4615921,8.36683502 18.0710678,8.75735931 L16.6913928,10.1370344 C16.3008685,10.5275587 15.6677035,10.5275587 15.2771792,10.1370344 L13.8629656,8.7228208 C13.4724413,8.33229651 13.4724413,7.69913153 13.8629656,7.30860724 L15.2426407,5.92893219 C15.633165,5.5384079 16.26633,5.5384079 16.6568542,5.92893219 Z" id="Rectangle-2" fill="#000000" opacity="0.3"></path>
+								    </g>
+								</svg>
+							</div>
+
+							<h4><?php echo __('Bugfixes & Improvements', 'podcaster'); ?></h4>
+							<p><?php echo __('Several bugs and improvements have been added to this version of Podcaster. You can check the documentation for the complete changelog.', 'podcaster'); ?></p>
+						</div>
+
+					</div>
+
+					<hr>
+
+					<div class="podcasterabout__section is-footer has-no-background-color">
+						<div class="column">
+							<p>&copy; <?php echo date('Y'); ?>  &middot; <?php echo esc_html( $theme_data['Name'] ); ?> <?php echo __(' by', 'podcaster'); ?> <a href="https://themeforest.net/user/themestation" target="_blank">Themestation</a></p>
+						</div>
+					</div>
+
+
+					<?php
+				break;
+
+				case 'help' :
+					?>
+
+					<div class="podcasterabout__section podcasterhelp__section has-features has-2-columns with-gap has-no-background-color">
+
+						<div class="column">
+							<div class="icon-container">
+								<svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+								    <g id="Stockholm-icons-/-Home-/-Book-open" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								        <rect id="bound" x="0" y="0" width="24" height="24"></rect>
+								        <path d="M13.6855025,18.7082217 C15.9113859,17.8189707 18.682885,17.2495635 22,17 C22,16.9325178 22,13.1012863 22,5.50630526 L21.9999762,5.50630526 C21.9999762,5.23017604 21.7761292,5.00632908 21.5,5.00632908 C21.4957817,5.00632908 21.4915635,5.00638247 21.4873465,5.00648922 C18.658231,5.07811173 15.8291155,5.74261533 13,7 C13,7.04449645 13,10.79246 13,18.2438906 L12.9999854,18.2438906 C12.9999854,18.520041 13.2238496,18.7439052 13.5,18.7439052 C13.5635398,18.7439052 13.6264972,18.7317946 13.6855025,18.7082217 Z" id="Combined-Shape" fill="#000000"></path>
+								        <path d="M10.3144829,18.7082217 C8.08859955,17.8189707 5.31710038,17.2495635 1.99998542,17 C1.99998542,16.9325178 1.99998542,13.1012863 1.99998542,5.50630526 L2.00000925,5.50630526 C2.00000925,5.23017604 2.22385621,5.00632908 2.49998542,5.00632908 C2.50420375,5.00632908 2.5084219,5.00638247 2.51263888,5.00648922 C5.34175439,5.07811173 8.17086991,5.74261533 10.9999854,7 C10.9999854,7.04449645 10.9999854,10.79246 10.9999854,18.2438906 L11,18.2438906 C11,18.520041 10.7761358,18.7439052 10.4999854,18.7439052 C10.4364457,18.7439052 10.3734882,18.7317946 10.3144829,18.7082217 Z" id="Path-41-Copy" fill="#000000" opacity="0.3"></path>
+								    </g>
+								</svg>
+							</div>
+
+							<h4><?php echo __('Documentation', 'podcaster'); ?></h4>
+							<p><?php echo __('Need more information on how to use Podcaster? Take a look at the documentation, which offers a more in depth look at the themes features.', 'podcaster'); ?></p>						
+							<a href="http://themestation.co/documentation/podcaster/" class="button button-primary" target="_blank"><?php echo __('See Documentation', 'podcaster'); ?></a>
+						</div>
+
+						<div class="column">
+							<div class="icon-container">
+								<svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+								    <g id="Stockholm-icons-/-Communication-/-Group-chat" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								        <rect id="bound" x="0" y="0" width="24" height="24"></rect>
+								        <path d="M16,15.6315789 L16,12 C16,10.3431458 14.6568542,9 13,9 L6.16183229,9 L6.16183229,5.52631579 C6.16183229,4.13107011 7.29290239,3 8.68814808,3 L20.4776218,3 C21.8728674,3 23.0039375,4.13107011 23.0039375,5.52631579 L23.0039375,13.1052632 L23.0206157,17.786793 C23.0215995,18.0629336 22.7985408,18.2875874 22.5224001,18.2885711 C22.3891754,18.2890457 22.2612702,18.2363324 22.1670655,18.1421277 L19.6565168,15.6315789 L16,15.6315789 Z" id="Combined-Shape" fill="#000000"></path>
+								        <path d="M1.98505595,18 L1.98505595,13 C1.98505595,11.8954305 2.88048645,11 3.98505595,11 L11.9850559,11 C13.0896254,11 13.9850559,11.8954305 13.9850559,13 L13.9850559,18 C13.9850559,19.1045695 13.0896254,20 11.9850559,20 L4.10078614,20 L2.85693427,21.1905292 C2.65744295,21.3814685 2.34093638,21.3745358 2.14999706,21.1750444 C2.06092565,21.0819836 2.01120804,20.958136 2.01120804,20.8293182 L2.01120804,18.32426 C1.99400175,18.2187196 1.98505595,18.1104045 1.98505595,18 Z M6.5,14 C6.22385763,14 6,14.2238576 6,14.5 C6,14.7761424 6.22385763,15 6.5,15 L11.5,15 C11.7761424,15 12,14.7761424 12,14.5 C12,14.2238576 11.7761424,14 11.5,14 L6.5,14 Z M9.5,16 C9.22385763,16 9,16.2238576 9,16.5 C9,16.7761424 9.22385763,17 9.5,17 L11.5,17 C11.7761424,17 12,16.7761424 12,16.5 C12,16.2238576 11.7761424,16 11.5,16 L9.5,16 Z" id="Combined-Shape" fill="#000000" opacity="0.3"></path>
+								    </g>
+								</svg>
+							</div>
+
+							<h4><?php echo __('Support', 'podcaster'); ?></h4>
+							<p><?php echo __('You can always get in touch, if you need more help with setting up the theme. Simply send in a request via the Podcaster support page.', 'podcaster'); ?></p>
+							<a href="https://themeforest.net/item/podcaster-multimedia-wordpress-theme/6804946/support" class="button button-primary" target="_blank"><?php echo __('Go to Support', 'podcaster'); ?></a>
+						</div>
+
+					</div>
+
+					<hr>
+
+					<div class="podcasterabout__section is-footer has-no-background-color">
+						<div class="column">
+							<p>&copy; <?php echo date('Y'); ?> &middot; <?php echo esc_html( $theme_data['Name'] ); ?> <?php echo __(' by', 'podcaster'); ?> <a href="https://themeforest.net/user/themestation" target="_blank">Themestation</a></p>
+						</div>
+					</div>
+
+					<?php
+				break;
+			} ?>
+		</div><!-- .wrap -->
+
+
+	<?php
+	}
 }
 
 

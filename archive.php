@@ -1,20 +1,32 @@
 <?php
 
 /**
- * This file is used to display your archive type pages.
+ * This file is used to display your archive, category, tag & author pages.
  *
  * @package Podcaster
  * @since 1.0
- * @author Theme Station
- * @copyright Copyright (c) 2013, Theme Station
- * @link http://www.themestation.co
- * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
-$options = get_option('podcaster-theme');  
-$pod_sticky_header = isset( $options['pod-sticky-header'] ) ? isset( $options['pod-sticky-header'] ) : '';
+$pod_sticky_header = pod_theme_option('pod-sticky-header', false);
 
- get_header(); ?>
+/* Check for archive type */
+$archive_type;
+if( is_category() ) {
+	$archive_type = "archive-page-categories";
+} elseif( is_tag() ) {
+	$archive_type = "archive-page-tags";
+} elseif( is_author() ) {
+	$archive_type = "archive-page-author";
+}
+
+/* Check for sidebars */
+$pod_is_sidebar_active = is_active_sidebar( 'sidebar_blog' ) ? "pod-is-sidebar-active" : "pod-is-sidebar-inactive";
+
+/* Titles */
+$pod_cat_heading = pod_theme_option( "pod-category-heading", "Category:");
+$pod_tag_heading = pod_theme_option( "pod-tag-heading", "Tag:" );
+
+get_header(); ?>
 	<?php if ( isset( $pod_sticky_header ) && $pod_sticky_header == TRUE ) : ?>
 	<div class="reg sticky">
 	<?php else : ?>
@@ -27,34 +39,42 @@ $pod_sticky_header = isset( $options['pod-sticky-header'] ) ? isset( $options['p
 							<div class="heading">
 								<div class="title">
 								<?php if( is_category() ) { ?>
-									<h1>Category: <?php single_cat_title(); ?></h1>
+									<h1><?php echo esc_html( $pod_cat_heading ); ?> <?php single_cat_title(); ?></h1>
 									<?php echo category_description(); ?>
+
 								<?php } elseif( is_tag() ) { ?>
-									<h1>Tag: <?php single_tag_title(); ?></h1>
-									<?php if(tag_description() != '') echo '</p>' .tag_description(). '</p>'; ?>
+									<h1><?php echo esc_html( $pod_tag_heading ); ?> <?php single_tag_title(); ?></h1>
+									<?php if( tag_description() != '' ) echo '</p>' . tag_description() . '</p>'; ?>
+
 								<?php } elseif( is_author() ) { ?>
 									<?php
 										global $post;
-										$author_id=$post->post_author; 
-										$field='description'; 
-										$field2='display_name'; 
+										$author_id = $post->post_author; 
+										$field = 'description'; 
+										$field2 = 'display_name'; 
 										$ava_email = get_the_author_meta('user_email', $author_id);
 									?>
 									<?php echo get_avatar( $ava_email, 100 ); ?>
-									<h1>Post Archive of <?php the_author_meta( $field2, $author_id ); ?></h1>
+									<h1><?php echo __('Post Archive of', 'podcaster'); ?> <?php the_author_meta( $field2, $author_id ); ?></h1>
 									<p>
 									<?php
 										the_author_meta( $field, $author_id );
 									?>
 									</p>
+								<?php } elseif( is_tax() ) { ?>
+
+									<?php the_archive_title( '<h1>', '</h1>' ); ?>
+									<?php the_archive_description( '<p>', '</p>' ); ?>
+
 								<?php } else { ?>
 									<?php 
 										the_archive_title( '<h1>', '</h1>' );
 										if ( the_archive_description() != '' ) {
 											the_archive_description( '<p>', '</p>' );
 										} else {
-											echo '<p>You are viewing all posts published for the month of ' . get_the_date('F, Y. ') . 'If you still can\'t find what you are looking for, try searching using the form at the right upper corner of the page.</p>';
-										}
+											$pod_arch_date = get_the_date('F, Y. '); ?>
+											<p><?php printf( esc_html__( "You are viewing all posts published for the month of %s If you still can't find what you are looking for, try searching using the form at the right upper corner of the page.", 'podcaster' ), $pod_arch_date ); ?></p>
+										<?php }
 									?>
 								<?php } ?>
 								</div>
@@ -66,13 +86,14 @@ $pod_sticky_header = isset( $options['pod-sticky-header'] ) ? isset( $options['p
 	</div>
 	
 
-	<div class="main-content page">
+	<div class="main-content archive-page <?php echo esc_attr( $archive_type ); ?> <?php echo esc_attr( $pod_is_sidebar_active ); ?>">
         <div class="container">
 	        <div class="row">
 				<div class="col-lg-8 col-md-8">						
-					<div class="arch_posts entries">
-						<!-- Start the Loop. -->
-						<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+					<div class="entries-container arch_posts entries <?php echo pod_has_pagination( $wp_query->max_num_pages ); ?>">
+						<?php 
+						// Start the Loop.
+						if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 							
 						<?php
 							/*This gets the template to display the posts.*/
@@ -82,7 +103,7 @@ $pod_sticky_header = isset( $options['pod-sticky-header'] ) ? isset( $options['p
 
 						<?php endwhile; else: ?>
 							<div class="post">
-								<p>Sorry, no posts matched your criteria.</p>
+								<p><?php echo __('Sorry, no posts matched your criteria.', 'podcaster'); ?></p>
 							</div><!--post-->
 						<?php endif; wp_reset_query(); ?>
 						<?php 
@@ -100,19 +121,26 @@ $pod_sticky_header = isset( $options['pod-sticky-header'] ) ? isset( $options['p
 								'format' => '?paged=%#%',
 								'current' => max( 1, get_query_var('paged') ),
 								'total' => $wp_query->max_num_pages,
-								'prev_text'    => __('&laquo;','thstlang'),
-								'next_text'    => __('&raquo;','thstlang')
+								'prev_text'    => __('&laquo;','podcaster'),
+								'next_text'    => __('&raquo;','podcaster')
 								)); 			
 							?>
-						</div><!-- .pagination -->
+						</div><!-- pagination -->
 						<?php endif ; ?>
-					</div><!-- .arch_posts -->
-				</div><!-- .col -->
-					
-				<div class="col-lg-4 col-md-4">
-					<?php get_template_part( 'sidebar' ); ?> 
-				</div><!-- .col4 -->
-	        </div><!-- .row -->
-        </div><!-- .container -->
-    </div><!-- .main-content-->	
-<?php get_footer(); ?>
+
+					</div><!-- entries-container -->
+				</div><!-- col-8 -->
+				
+				<?php if ( is_active_sidebar( 'sidebar_blog' ) ) {  ?>
+					<div class="col-lg-4 col-md-4">
+						<?php get_template_part( 'sidebar' ); ?> 
+					</div><!-- col-4 -->
+				<?php } ?>
+
+	        </div><!-- row -->
+        </div><!-- container -->
+    </div><!-- main-content-->	
+    
+<?php
+/* This displays the footer with help of footer.php */
+get_footer(); ?>

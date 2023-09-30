@@ -1,3 +1,5 @@
+"use strict";
+
 jQuery(document).ready(function(){
 	jQuery('.post .entry-header').fitVids();
 	jQuery('.post .entry-content').fitVids();

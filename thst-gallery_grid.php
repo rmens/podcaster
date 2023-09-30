@@ -4,33 +4,18 @@
  *
  * @package Podcaster
  * @since 1.0
- * @author Theme Station
- * @copyright Copyright (c) 2014, Theme Station
- * @link http://www.themestation.co
- * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
-
-/*
-Gallery Styling*/
-
-add_filter('gallery_style',    create_function(
-        '$css',
-        'return preg_replace("#<style type=\'text/css\'>(.*?)</style>#s", "", $css);'
-		)
-    );
 
 
 /*
 Remove default gallery styling*/
-
 add_filter( 'use_default_gallery_style', '__return_false' );
 
 
 /*
 Gallery Styling*/
-
-add_filter( 'post_gallery', 'my_post_gallery', 10, 2 );
-function my_post_gallery( $output, $attr) {
+add_filter( 'post_gallery', 'pod_post_gallery', 10, 2 );
+function pod_post_gallery( $output, $attr) {
     global $post, $wp_locale;
     static $instance = 0;
     $instance++;
@@ -38,8 +23,6 @@ function my_post_gallery( $output, $attr) {
 
 	/*
 	We're trusting author input, so let's at least make sure it looks like a valid orderby statement*/
-
-
     if ( isset( $attr['orderby'] ) ) {
         $attr['orderby'] = sanitize_sql_orderby( $attr['orderby'] );
         if ( !$attr['orderby'] )
@@ -130,8 +113,6 @@ function my_post_gallery( $output, $attr) {
     $i = 0;
 
     foreach ( $attachments as $id => $attachment ) {
-        //$link = isset($attr['link']) && 'file' == $attr['link'] ? wp_get_attachment_link($id, $size, false, false) : wp_get_attachment_link($id, $size, true, false);
-        //$link = wp_get_attachment_image($id, $size);
         $link = wp_get_attachment_link($id, $size, false, false, false);
 		$image_attributes = wp_get_attachment_image_src( $id );
         $output .= "<{$itemtag} class='gallery-item' data-lightbox='{$image_attributes[0]}' data-thumb='{$image_attributes[0]}'>";
@@ -142,7 +123,7 @@ function my_post_gallery( $output, $attr) {
             $output .= "
                 <div class='flex-caption'><{$captiontag} >
 
-                " . wptexturize($attachment->post_excerpt) . "
+                " . $attachment->post_excerpt . "
                 </{$captiontag}></div>";
         }
         $output .= "</{$itemtag}>";

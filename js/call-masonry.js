@@ -1,20 +1,18 @@
+"use strict";
+
 jQuery(document).ready(function($){
-	
-	//Infinite Scroll
-	var $container = $('.list-of-episodes .row.masonry-container, .fromtheblog .row .row');
-	var $container_pod_library = $('.page-template-page-podcastarchive .entries.grid .row');
 
-	$container.imagesLoaded(function () {
-		$container.masonry({
-			itemSelector: '.inside-container, .fromtheblog .post',
+	/* Legacy Episode Archive (Grid) */
+	var $legacy_container_pod_library = $('.page-template-page-podcastarchive .entries.grid .row, .page-template-page-podcastarchive-grid-classic .entries.grid .row');
+	$legacy_container_pod_library.imagesLoaded(function () {
+		$legacy_container_pod_library.masonry({
+			itemSelector: '.page-template-page-podcastarchive .entries.grid .row .podpost, .page-template-page-podcastarchive-grid-classic .entries.grid .row .podpost',
 			percentPosition: true,
-			gutter: 0,
-		});
-
-		$container_pod_library.masonry({
-			itemSelector: '.page-template-page-podcastarchive .entries.grid .row .podpost',
-			percentPosition: true,
-			gutter: 0,
+			columnWidth: '.grid-sizer',
+			gutter: '.gutter-sizer',
+			horizontalOrder: true,
+			originLeft: true
 		});
 	});
+
 });
